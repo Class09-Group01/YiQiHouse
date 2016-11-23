@@ -6,6 +6,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="HomeActityBottom">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:textColor">@color/main_bottom_text_color</item>
     </style>
 
 </resources>

@@ -2,6 +2,8 @@ package com.bwf.aiyiqi.mvp.model.Impl;
 
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
+import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.framwork.tool.APIs;
 import com.bwf.aiyiqi.mvp.model.MainFragmentImageModel;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -15,19 +17,24 @@ import okhttp3.Call;
 
 public class MainFragmentImageModelImpl implements MainFragmentImageModel {
     @Override
-    public void loadDatas(Callback callback) {
+    public void loadDatas(final Callback callback) {
         OkHttpUtils.get()
                 .url(APIs.API_MAIN_FRAGMENT_VIEWPAGER)
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-
+                        callback.loadDataFailed();
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
-//                        Log.e("MainFragmentImageModelImpl","response"+response);
+                        Log.d("MainFragmentModelImpl","response"+response);
+                        ResponseMainFragmentViewPagerDatas datas = JSON.parseObject(response, ResponseMainFragmentViewPagerDatas.class);
+                        if(datas.getError() == 0){
+                            //请求成功
+                            callback.loadDataSuccess(datas);
+                        }
                     }
                 });
     }

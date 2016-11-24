@@ -11,8 +11,8 @@
         android:gravity="center_vertical"
         >
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
             android:src="@drawable/ic_home_school"
             android:layout_marginLeft="10dp"
             />
@@ -67,11 +67,11 @@
             android:layout_alignParentRight="true"
             android:gravity="center_vertical">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="20dp"
                 android:src="@drawable/looked_hui"
                 android:layout_toLeftOf="@+id/mf_recycleview_article_concern"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="5dp"/>
             <TextView
                 android:id="@+id/mf_recycleview_article_concern"
                 android:layout_width="wrap_content"
@@ -79,12 +79,12 @@
                 android:layout_toLeftOf="@+id/mf_recycleview_article_comments_image"
                 android:text="@string/article_textview_concerns"
                 android:textColor="@color/ColorGray"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 android:layout_marginRight="10dp"/>
             <ImageView
                 android:id="@+id/mf_recycleview_article_comments_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:src="@drawable/comment_normal"
                 android:layout_toLeftOf="@+id/mf_recycleview_article_comments"
                 android:layout_marginRight="10dp"/>
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/article_textview_comments"
                 android:textColor="@color/ColorGray"
-                android:textSize="12sp"
+                android:textSize="15sp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="10dp"/>
 

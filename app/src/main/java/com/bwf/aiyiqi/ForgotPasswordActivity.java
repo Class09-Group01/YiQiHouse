@@ -1,21 +1,23 @@
 package com.bwf.aiyiqi;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 
-public class MainActivity extends ActivityBase {
+/**
+ * Created by Administrator on 2016/11/24.
+ */
 
+public class ForgotPasswordActivity extends ActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getContentViewResId();
     }
 
     @Override
     protected int getContentViewResId() {
-        return 0;
+        return R.layout.activity_forgotpassword;
     }
-
 
     @Override
     protected void initViews() {

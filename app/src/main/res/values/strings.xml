@@ -1,9 +1,6 @@
 <resources>
     <string name="app_name">YiQiHouse</string>
-<<<<<<< HEAD
 
-=======
->>>>>>> 469a266a1803fa481167725bd15fa0646bbcb08e
     <string name="activity_home_bottom_home">首页</string>
     <string name="activity_home_bottom_say">业主说</string>
     <string name="activity_home_bottom_msg">消息</string>

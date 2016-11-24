@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">YiQiHouse</string>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 469a266a1803fa481167725bd15fa0646bbcb08e
     <string name="activity_home_bottom_home">首页</string>
     <string name="activity_home_bottom_say">业主说</string>
     <string name="activity_home_bottom_msg">消息</string>
     <string name="activity_home_bottom_mine">我的</string>
-=======
     <string name="article_textview_text">装修学堂</string>
     <string name="article_textview_content">内容</string>
     <string name="article_textview_time">6小时前</string>
@@ -23,5 +25,7 @@
     <string name="recycle_renderings_new">效果图</string>
     <string name="recycle_self_order">自助下单</string>
     <string name="recycle_design_measure">设计/量房</string>
->>>>>>> c1850123247ba3fd38274081b2463124df5c8d4b
+    <string name="fragment_home_title_bar_search">搜索用户/帖子</string>
+    <string name="fragment_home_title_bar_city">成都</string>
+    <string name="activity_search_cancle">取消</string>
 </resources>

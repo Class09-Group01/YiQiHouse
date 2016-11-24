@@ -90,9 +90,11 @@ public class MainActivity extends BaseActivity {
      * 切换fragment的方法
      * @param index
      */
+    private int currentIndex = -1;
     private void switchFragment(int index){
-        FragmentTransaction mTransaction = mManager.beginTransaction();
+        if(currentIndex == index)return;
 
+        FragmentTransaction mTransaction = mManager.beginTransaction();
         for (int i = 0; i < mFragments.size(); i++) {
             if(index == i){
                 Fragment fragment = mFragments.get(i);
@@ -102,6 +104,7 @@ public class MainActivity extends BaseActivity {
                     mTransaction.add(R.id.activity_home_frame,fragment);
                     mTransaction.show(fragment);
                 }
+                currentIndex = i;
                 mTabs[i].setChecked(true);
             }else{
                 mTransaction.hide(mFragments.get(i));

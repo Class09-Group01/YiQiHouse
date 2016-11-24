@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".gui.activity.ScanActivity"/>
+        <activity android:name=".gui.activity.SearchActivity"/>
     </application>
 
 </manifest>

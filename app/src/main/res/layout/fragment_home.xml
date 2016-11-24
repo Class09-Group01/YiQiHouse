@@ -2,33 +2,34 @@
 <com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ScrollView
+    <com.bwf.aiyiqi.gui.view.ScrollViewCustom
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <!--activity_home_title-->
-            <LinearLayout
-                android:id="@+id/activity_home_title"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/activity_home_title_hight"
-                android:orientation="horizontal">
-            </LinearLayout>
+                android:layout_height="wrap_content">
+                <!--activity_home_title-->
+                <include
+                    layout="@layout/fragment_home_title_bar"/>
 
 
-            <!--滚动栏viewpager-->
-            <LinearLayout
-                android:id="@+id/activity_home_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"></LinearLayout>
+                <!--滚动栏viewpager-->
+                <LinearLayout
+                    android:id="@+id/activity_home_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                </LinearLayout>
+            </RelativeLayout>
 
             <!--8个导航按钮-->
-
+            <include
+                layout="@layout/mainfragment_recycleview_selectionkey"/>
 
             <!--内容显示Recycleview-->
             <LinearLayout
@@ -39,10 +40,9 @@
                 <android.support.v7.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+    </com.bwf.aiyiqi.gui.view.ScrollViewCustom>
 </com.cjj.MaterialRefreshLayout>

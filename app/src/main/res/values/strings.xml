@@ -21,4 +21,7 @@
     <string name="recycle_renderings_new">效果图</string>
     <string name="recycle_self_order">自助下单</string>
     <string name="recycle_design_measure">设计/量房</string>
+    <string name="fragment_home_title_bar_search">搜索用户/帖子</string>
+    <string name="fragment_home_title_bar_city">成都</string>
+    <string name="activity_search_cancle">取消</string>
 </resources>

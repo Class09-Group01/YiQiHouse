@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,13 +29,17 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/11/23.
  */
 
-public class HomeFragment extends BaseFragment implements MainFragmentImage{
+public class HomeFragment extends BaseFragment implements MainFragmentImage {
     @BindView(R.id.fragment_home_title_bar_scan)
     ImageView fragmentHomeTitleBarScan;
     @BindView(R.id.fragment_home_title_bar_search)
     RelativeLayout fragmentHomeTitleBarSearch;
     @BindView(R.id.fragment_home_title_bar_city)
     LinearLayout fragmentHomeTitleBarCity;
+    @BindView(R.id.viewpager_fragment_main)
+    ViewPager mViewpagerFragmentMain;
+    @BindView(R.id.ll_indicator_fragment_main)
+    LinearLayout mLlIndicatorFragmentMain;
 
     private MainFragmentImagePresenter mFragmentImagePresenter;
     private BasePagerAdapter mPagerAdapter;
@@ -64,19 +69,34 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
-                startActivity(new Intent(getActivity(),ScanActivity.class));
+                startActivity(new Intent(getActivity(), ScanActivity.class));
                 break;
             case R.id.fragment_home_title_bar_search:
-                startActivity(new Intent(getActivity(),SearchActivity.class));
+                startActivity(new Intent(getActivity(), SearchActivity.class));
                 break;
             case R.id.fragment_home_title_bar_city:
                 break;
         }
     }
-
+    private ImageView[] mButtonImages;
     @Override
     public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
-        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(),datas.getData());
+        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(), datas.getData());
+        mViewpagerFragmentMain.setAdapter(mPagerAdapter);
+        mButtonImages = new ImageView[datas.getData().size()];
+        for (int i = 0; i < mButtonImages.length; i++) {
+            ImageView imageView = new ImageView(getContext());
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(10,10);
+            params.setMargins(5,0,5,0);
+            imageView.setLayoutParams(params);
+            if(i == 0){
+                imageView.setBackgroundResource(R.mipmap.jshop_banner_point_active);
+            }else{
+                imageView.setBackgroundResource(R.mipmap.jshop_banner_point_inactive);
+            }
+            mButtonImages[i] = imageView;
+            mLlIndicatorFragmentMain.addView(mButtonImages[i]);
+        }
 
     }
 

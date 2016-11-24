@@ -12,6 +12,7 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import okhttp3.Call;
 
 /**
+ * 首页viewpager数据
  * Created by lingchen52 on 2016/11/24.
  */
 

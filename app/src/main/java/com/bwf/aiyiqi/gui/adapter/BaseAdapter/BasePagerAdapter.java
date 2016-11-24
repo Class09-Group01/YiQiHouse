@@ -2,6 +2,7 @@ package com.bwf.aiyiqi.gui.adapter.BaseAdapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -18,9 +19,11 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
     private Context mContext;
     private List<T> datas;
     private List<SimpleDraweeView> images ;
+    private LayoutInflater mLayoutInflater;
 
     public BasePagerAdapter(Context context, List<T> datas) {
         this.mContext = context;
+        this.mLayoutInflater = LayoutInflater.from(context);
         if(datas == null || datas.size() == 0){
             this.datas = new ArrayList<>();
         }else{

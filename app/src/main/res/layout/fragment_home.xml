@@ -29,8 +29,13 @@
             </RelativeLayout>
 
             <!--8个导航按钮-->
+<<<<<<< HEAD
+            <include layout="@layout/mainfragment_recycleview_selectionkey"/>
+
+=======
             <include
                 layout="@layout/mainfragment_recycleview_selectionkey"/>
+>>>>>>> 469a266a1803fa481167725bd15fa0646bbcb08e
 
             <!--内容显示Recycleview-->
             <LinearLayout

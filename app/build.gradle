@@ -36,4 +36,5 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.18'
     compile project(':lib-zxing')
 
+    compile 'com.alibaba:fastjson:1.2.21'
 }

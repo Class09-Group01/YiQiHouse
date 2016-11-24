@@ -59,10 +59,13 @@ public class DecorationCompanyActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back_activity_decoration_company:
+
                 break;
             case R.id.viewpager_fragment_main:
+
                 break;
             case R.id.newhouse_decoration_activity_decoration:
+
                 break;
             case R.id.oldhouse_decoration_activity_decoration:
                 break;

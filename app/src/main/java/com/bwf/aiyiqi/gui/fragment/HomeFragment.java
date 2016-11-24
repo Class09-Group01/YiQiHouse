@@ -15,7 +15,6 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.ScanActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
-import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.MainFragmentImagePresenter;
@@ -42,7 +41,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage {
     LinearLayout mLlIndicatorFragmentMain;
 
     private MainFragmentImagePresenter mFragmentImagePresenter;
-    private BasePagerAdapter mPagerAdapter;
+    private MainFragmentPagerAdapter mPagerAdapter;
 
     @Override
     protected int getContentViewResId() {
@@ -81,7 +80,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage {
     private ImageView[] mButtonImages;
     @Override
     public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
-        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(), datas.getData());
+        mPagerAdapter = new MainFragmentPagerAdapter(getContext(), datas.getData());
         mViewpagerFragmentMain.setAdapter(mPagerAdapter);
         mButtonImages = new ImageView[datas.getData().size()];
         for (int i = 0; i < mButtonImages.length; i++) {

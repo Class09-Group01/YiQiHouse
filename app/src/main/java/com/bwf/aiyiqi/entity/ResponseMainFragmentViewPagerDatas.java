@@ -8,10 +8,11 @@ import java.util.List;
 
 public class ResponseMainFragmentViewPagerDatas {
 
+
     /**
      * error : 0
      * message : ok
-     * data : [{"title":"中国互联网家装金钻工程首发，全国49城联动","imagesrc":"http://appmanager.17house.com/upload/20161031/58172fa38505f_t.jpg","imagesrc2":"http://appmanager.17house.com/upload/20161031/58172fa3ae658_t.jpg","tid":"","type":4,"banner_url":"http://tuan.17house.com/bj/2673.html"}]
+     * data : [{"title":"来自一起装修APP的分享","imagesrc":"http://appmanager.17house.com/upload/20161123/58356f0278d6d_t.jpg","imagesrc2":"http://appmanager.17house.com/upload/20161123/58356f02842e6_t.jpg","tid":"","type":4,"banner_url":"http://tuan.17house.com/bj/2680.html"},{"title":"来自一起装修APP的分享","imagesrc":"http://appmanager.17house.com/upload/20161123/58356eabc82f4_t.jpg","imagesrc2":"http://appmanager.17house.com/upload/20161123/58356eabe31e7_t.jpg","tid":"","type":4,"banner_url":"http://m.lianjia.com/subject/13622.html"},{"title":"装修省40%的秘笈，看这里！","imagesrc":"http://appmanager.17house.com/upload/20161105/581d862ee5809_t.jpg","imagesrc2":"http://appmanager.17house.com/upload/20161105/581d862f1812b_t.jpg","tid":"","type":4,"banner_url":"http://m.17house.com/2662k0s1e2008.html"},{"title":"0元装修","imagesrc":"http://appmanager.17house.com/upload/20161109/5822e89f15dc6_t.jpg","imagesrc2":"http://appmanager.17house.com/upload/20161109/5822e89f371ab_t.jpg","tid":"","type":4,"banner_url":"http://wap.17house.com/daikuan/"},{"title":"全包装修80平米仅需5.4万","imagesrc":"http://appmanager.17house.com/upload/20160712/5784c5d8ec177_t.png","imagesrc2":"http://appmanager.17house.com/upload/20160712/5784c5d91e7a3_t.png","tid":"","type":4,"banner_url":"http://beijing.17zhuangxiu.com/zhengzhuang/"},{"title":"7年服务700万业主，口碑太好了！","imagesrc":"http://appmanager.17house.com/upload/20160709/57810cf956f1d_t.png","imagesrc2":"http://appmanager.17house.com/upload/20160709/57810cf9811e5_t.png","tid":"","type":4,"banner_url":"http://m.17house.com/banner/index.html"}]
      */
 
     private int error;
@@ -44,12 +45,12 @@ public class ResponseMainFragmentViewPagerDatas {
 
     public static class DataBean {
         /**
-         * title : 中国互联网家装金钻工程首发，全国49城联动
-         * imagesrc : http://appmanager.17house.com/upload/20161031/58172fa38505f_t.jpg
-         * imagesrc2 : http://appmanager.17house.com/upload/20161031/58172fa3ae658_t.jpg
+         * title : 来自一起装修APP的分享
+         * imagesrc : http://appmanager.17house.com/upload/20161123/58356f0278d6d_t.jpg
+         * imagesrc2 : http://appmanager.17house.com/upload/20161123/58356f02842e6_t.jpg
          * tid :
          * type : 4
-         * banner_url : http://tuan.17house.com/bj/2673.html
+         * banner_url : http://tuan.17house.com/bj/2680.html
          */
 
         private String title;

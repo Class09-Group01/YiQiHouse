@@ -34,4 +34,7 @@
     <string name="site_playing">工地直播</string>
     <string name="yiqi_group">一起团队</string>
     <string name="decorate_playing">装修直播</string>
+    <string name="decoration_precess">装修进度</string>
+    <string name="order">我要预约</string>
+    <string name="answer">在线答疑</string>
 </resources>

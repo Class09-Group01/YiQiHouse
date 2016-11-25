@@ -23,6 +23,10 @@ public interface APIs {
 
     //老房整装 (h5网页)
      String  API_OLD_HOUSE_DECORATION  =  "http://hui.17house.com/svc/payment-facade/h5/activity177/index.html?model=android";
+
+    //同城活动
+
+    String API_CITY_ACTIVE = "http://118.178.142.34/YiQiHouse/CityActive";
     //
     String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
 }

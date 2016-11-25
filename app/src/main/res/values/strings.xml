@@ -38,4 +38,5 @@
     <string name="decoration_precess">装修进度</string>
     <string name="order">我要预约</string>
     <string name="answer">在线答疑</string>
+    <string name="end_date">报名截止日期:</string>
 </resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:padding="8dp">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/image_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fresco:roundAsCircle="true"/>
+    <TextView
+        android:id="@+id/name_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_item_listview_site_playing"/>
+    <TextView
+        android:id="@+id/describe_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_item_listview_site_playing"
+        android:layout_below="@+id/name_item_listview_site_playing"/>
+    <com.bwf.aiyiqi.gui.view.MyGridView
+        android:id="@+id/grideview_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/image_item_listview_site_playing"
+        android:layout_below="@+id/describe_item_listview_site_playing"/>
+
+    <TextView
+        android:id="@+id/time_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_item_listview_site_playing"
+        android:layout_below="@+id/grideview_item_listview_site_playing"/>
+    <ImageView
+        android:id="@+id/share_item_listview_site_playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>

@@ -2,7 +2,6 @@ package com.bwf.aiyiqi.gui.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +10,16 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
+<<<<<<< HEAD
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
+=======
+import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
+>>>>>>> 4d46b1093d88c90a3fd2742ac469f5f48dd68dcd
 import com.bwf.aiyiqi.gui.activity.ScanActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
+import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.MainFragmentImagePresenter;
+import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,7 +32,11 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/11/23.
  */
 
+<<<<<<< HEAD
 public class HomeFragment extends BaseFragment {
+=======
+public class HomeFragment extends BaseFragment implements MainFragmentImage {
+>>>>>>> 4d46b1093d88c90a3fd2742ac469f5f48dd68dcd
     @BindView(R.id.fragment_home_title_bar_scan)
     ImageView fragmentHomeTitleBarScan;
     @BindView(R.id.fragment_home_title_bar_search)
@@ -46,9 +55,14 @@ public class HomeFragment extends BaseFragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+<<<<<<< HEAD
 //        mFragmentImagePresenter.load();
+=======
+        mFragmentImagePresenter = new MainFragmentImagePresenterImpl(this);
+        mFragmentImagePresenter.load();
+>>>>>>> 4d46b1093d88c90a3fd2742ac469f5f48dd68dcd
 
     }
 
@@ -77,4 +91,16 @@ public class HomeFragment extends BaseFragment {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
+
+    }
+
+    @Override
+    public void showLoadFailed() {
+
+    }
+>>>>>>> 4d46b1093d88c90a3fd2742ac469f5f48dd68dcd
 }

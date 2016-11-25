@@ -5,11 +5,11 @@
               android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="120dp">
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/image_listview_activity_decoration_company"
             android:layout_width="match_parent"
-            android:layout_height="60dp"/>
+            android:layout_height="120dp"/>
         <TextView
             android:id="@+id/site_item_listview_decoration"
             android:layout_width="wrap_content"

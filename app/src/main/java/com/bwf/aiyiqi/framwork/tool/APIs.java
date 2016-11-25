@@ -20,4 +20,7 @@ public interface APIs {
 
     //
     String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
+   //建材家具
+    String API_BUILDING_FURNITURE = "http://bbs.17house.com/motnt/index.php?" +
+            "a=product&m=misc&model=android&uuid=a444d1b2af4f&app_version=android_com.aiyiqi.galaxy_1.1";
 }

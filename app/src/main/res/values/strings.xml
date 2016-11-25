@@ -38,4 +38,8 @@
     <string name="decoration_precess">装修进度</string>
     <string name="order">我要预约</string>
     <string name="answer">在线答疑</string>
+    <string name="fepb_space">空间</string>
+    <string name="fepb_style">风格</string>
+    <string name="fepb_color">颜色</string>
+    <string name="fepb_local">局部</string>
 </resources>

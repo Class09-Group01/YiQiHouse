@@ -40,6 +40,7 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             ></activity>
+        <activity android:name=".gui.activity.DecorateSchoolActivity"/>
     </application>
 
 </manifest>

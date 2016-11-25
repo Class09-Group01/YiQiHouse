@@ -38,5 +38,9 @@
     <string name="decoration_precess">装修进度</string>
     <string name="order">我要预约</string>
     <string name="answer">在线答疑</string>
+<<<<<<< HEAD
     <string name="end_date">报名截止日期:</string>
+=======
+    <string name="school_recycleview_fooder_text_nomoredata">没有更多数据了</string>
+>>>>>>> fb0e4a804674bf3c487e48001a12aed5c96ab5c4
 </resources>

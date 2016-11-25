@@ -1,7 +1,6 @@
 <resources>
 
     <color name="cc">#59a9ff</color>
-
     <color name="bg_color">#EDEDED</color>
     <color name="contents_text">#ff000000</color>
     <color name="encode_view">#ffffffff</color>

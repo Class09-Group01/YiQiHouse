@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.fragment.HomeFragment;
 import com.bwf.aiyiqi.gui.fragment.MessageFragment;
 import com.bwf.aiyiqi.gui.fragment.MyFragment;
 import com.bwf.aiyiqi.gui.fragment.SayFragment;

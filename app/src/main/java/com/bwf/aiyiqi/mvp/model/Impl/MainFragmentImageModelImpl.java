@@ -1,12 +1,9 @@
 package com.bwf.aiyiqi.mvp.model.Impl;
 
-<<<<<<< HEAD
-=======
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
->>>>>>> 5bb382542208c8440309983cf76d3869d35e0a11
 import com.bwf.aiyiqi.framwork.tool.APIs;
 import com.bwf.aiyiqi.mvp.model.MainFragmentImageModel;
 import com.zhy.http.okhttp.OkHttpUtils;

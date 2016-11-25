@@ -1,9 +1,9 @@
 package com.bwf.aiyiqi.gui.activity;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RelativeLayout;
+
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.view.MyListView;
 
@@ -18,8 +18,6 @@ import butterknife.OnClick;
 public class DecorationCompanyActivity extends BaseActivity {
     @BindView(R.id.back_activity_decoration_company)
     View mBackActivityDecorationCompany;
-    @BindView(R.id.viewpager_fragment_main)
-    ViewPager mViewpagerFragmentMain;
     @BindView(R.id.newhouse_decoration_activity_decoration)
     RelativeLayout mNewhouseDecorationActivityDecoration;
     @BindView(R.id.oldhouse_decoration_activity_decoration)

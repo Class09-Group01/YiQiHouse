@@ -9,10 +9,6 @@ public interface APIs {
     //##########################首页模块接口##########################
 
     //        1.1  首页轮播接口地址：
-<<<<<<< HEAD
-    String API_MAIN_FRAGMENT_VIEWPAGER = "http://118.178.142.34/YiQiHouse/HomeAD";
-    String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
-=======
     public static final String API_MAIN_FRAGMENT_VIEWPAGER = "http://118.178.142.34/YiQiHouse/HomeAD";
 
     //1.3.1 装修公司界面接口
@@ -21,5 +17,7 @@ public interface APIs {
 
     //   装修直播
     public  static final  String  API_DECORATION_COMPANY_ACTIVITY_LISTVIEW = "http://118.178.142.34/YiQiHouse/DecorateLive";
->>>>>>> 5bb382542208c8440309983cf76d3869d35e0a11
+
+    //
+    String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
 }

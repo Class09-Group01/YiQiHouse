@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.ScanActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.mvp.presenter.MainFragmentImagePresenter;
@@ -26,13 +27,15 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/11/23.
  */
 
-public class HomeFragment extends BaseFragment{
+public class HomeFragment extends BaseFragment {
     @BindView(R.id.fragment_home_title_bar_scan)
     ImageView fragmentHomeTitleBarScan;
     @BindView(R.id.fragment_home_title_bar_search)
     RelativeLayout fragmentHomeTitleBarSearch;
     @BindView(R.id.fragment_home_title_bar_city)
     LinearLayout fragmentHomeTitleBarCity;
+    @BindView(R.id.recycle_linearlayout_school)
+    LinearLayout mRecycleLinearlayoutSchool;
 
     private MainFragmentImagePresenter mFragmentImagePresenter;
 //    private MainFragmentPagerAdapter mPagerAdapter;
@@ -45,7 +48,7 @@ public class HomeFragment extends BaseFragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFragmentImagePresenter.load();
+//        mFragmentImagePresenter.load();
 
     }
 
@@ -57,7 +60,7 @@ public class HomeFragment extends BaseFragment{
         return rootView;
     }
 
-    @OnClick({R.id.fragment_home_title_bar_scan, R.id.fragment_home_title_bar_search, R.id.fragment_home_title_bar_city})
+    @OnClick({R.id.fragment_home_title_bar_scan, R.id.fragment_home_title_bar_search, R.id.fragment_home_title_bar_city,R.id.recycle_linearlayout_school})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
@@ -68,6 +71,10 @@ public class HomeFragment extends BaseFragment{
                 break;
             case R.id.fragment_home_title_bar_city:
                 break;
+            case R.id.recycle_linearlayout_school:
+                startActivity(new Intent(getActivity(), DecorateSchoolActivity.class));
+                break;
         }
     }
+
 }

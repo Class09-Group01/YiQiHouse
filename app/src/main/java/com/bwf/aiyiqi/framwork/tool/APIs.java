@@ -18,6 +18,11 @@ public interface APIs {
     //   装修直播
     public  static final  String  API_DECORATION_COMPANY_ACTIVITY_LISTVIEW = "http://118.178.142.34/YiQiHouse/DecorateLive";
 
+    //新房整装(h5网页)
+    String API_NEW_HOUSE_DECORATION = "http://hui.17house.com/svc/payment-facade/h5/activity677/index.html?model=android";
+
+    //老房整装 (h5网页)
+     String  API_OLD_HOUSE_DECORATION  =  "http://hui.17house.com/svc/payment-facade/h5/activity177/index.html?model=android";
     //
     String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
 }

@@ -1,5 +1,6 @@
 package com.bwf.aiyiqi.gui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -7,6 +8,7 @@ import android.widget.RelativeLayout;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityListView;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityViewPager;
+import com.bwf.aiyiqi.framwork.tool.APIs;
 import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.DecorationCompanyActivityPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorationCompanyActivityPresenterImpl;
@@ -71,9 +73,14 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
                 break;
             case R.id.newhouse_decoration_activity_decoration:
-
+                Intent intentnew = new Intent(this,HouseDecorationActivity.class);
+                intentnew.putExtra("url", APIs.API_NEW_HOUSE_DECORATION);
+                startActivity(intentnew);
                 break;
             case R.id.oldhouse_decoration_activity_decoration:
+                Intent intentold = new Intent(this,HouseDecorationActivity.class);
+                intentold.putExtra("url", APIs.API_OLD_HOUSE_DECORATION);
+                startActivity(intentold);
                 break;
             case R.id.look_site_playing_decoration_activity_decoration:
                 break;

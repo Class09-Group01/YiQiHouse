@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".gui.activity.ScanActivity"/>
         <activity android:name=".gui.activity.SearchActivity"/>
+        <activity android:name=".gui.activity.DecorationCompanyActivity"/>
+        <activity android:name=".gui.activity.HouseDecorationActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"

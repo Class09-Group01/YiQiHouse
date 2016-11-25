@@ -3,16 +3,20 @@ package com.bwf.aiyiqi.gui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityListView;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityViewPager;
 import com.bwf.aiyiqi.framwork.tool.APIs;
+import com.bwf.aiyiqi.gui.adapter.DecorationCompanyListViewAdapter;
 import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.DecorationCompanyActivityPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorationCompanyActivityPresenterImpl;
 import com.bwf.aiyiqi.mvp.view.DecorationCompanyView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,7 +43,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     MyListView mListViewActivityDecorationCompany;
 
     private DecorationCompanyActivityPresenter mPresenter;
-
+    private DecorationCompanyListViewAdapter mCompanyListViewAdapter;
     @Override
     protected void initDatas() {
         mPresenter = new DecorationCompanyActivityPresenterImpl(this);
@@ -83,10 +87,13 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
                 startActivity(intentold);
                 break;
             case R.id.look_site_playing_decoration_activity_decoration:
+
                 break;
             case R.id.site_playing_decoration_activity_decoration:
+
                 break;
             case R.id.yiqi_group_decoration_activity_decoration:
+
                 break;
         }
     }
@@ -98,7 +105,15 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
     @Override
     public void showListView(ResponseDecorationCompanyActivityListView datas) {
+        List<ResponseDecorationCompanyActivityListView.DataBean> siteBeanList = datas.getData();
+        mCompanyListViewAdapter = new DecorationCompanyListViewAdapter(this,siteBeanList);
+        mListViewActivityDecorationCompany.setAdapter(mCompanyListViewAdapter);
+        mListViewActivityDecorationCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            }
+        });
     }
 
     @Override

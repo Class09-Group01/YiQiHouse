@@ -139,18 +139,21 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_height="match_parent">
-                    <ImageView
-                        android:id="@+id/image_site_playing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:background="@mipmap/site_playing_icon"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/image_site_playing"
                         android:text="@string/site_playing"/>
+
+                    <ImageView
+                        android:id="@+id/image_site_playing"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/site_playing_icon"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"/>
                 </RelativeLayout>
 
                 <View
@@ -166,18 +169,21 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_height="match_parent">
-                    <ImageView
-                        android:id="@+id/image_yiqi_group"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:background="@mipmap/yiqi_group_icon"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_below="@+id/image_yiqi_group"
                         android:text="@string/yiqi_group"/>
+
+                    <ImageView
+                        android:id="@+id/image_yiqi_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/yiqi_group_icon"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"/>
                 </RelativeLayout>
 
             </LinearLayout>

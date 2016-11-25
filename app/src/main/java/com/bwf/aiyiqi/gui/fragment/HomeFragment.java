@@ -10,9 +10,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.ScanActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
+import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.MainFragmentImagePresenter;
+import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,7 +28,7 @@ import butterknife.OnClick;
  * Created by Administrator on 2016/11/23.
  */
 
-public class HomeFragment extends BaseFragment{
+public class HomeFragment extends BaseFragment implements MainFragmentImage {
     @BindView(R.id.fragment_home_title_bar_scan)
     ImageView fragmentHomeTitleBarScan;
     @BindView(R.id.fragment_home_title_bar_search)
@@ -44,6 +47,7 @@ public class HomeFragment extends BaseFragment{
     @Override
     public void onActivityCreated( Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mFragmentImagePresenter = new MainFragmentImagePresenterImpl(this);
         mFragmentImagePresenter.load();
 
     }
@@ -68,5 +72,15 @@ public class HomeFragment extends BaseFragment{
             case R.id.fragment_home_title_bar_city:
                 break;
         }
+    }
+
+    @Override
+    public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
+
+    }
+
+    @Override
+    public void showLoadFailed() {
+
     }
 }

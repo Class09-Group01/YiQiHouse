@@ -5,7 +5,12 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityListView;
+import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityViewPager;
 import com.bwf.aiyiqi.gui.view.MyListView;
+import com.bwf.aiyiqi.mvp.presenter.DecorationCompanyActivityPresenter;
+import com.bwf.aiyiqi.mvp.presenter.Impl.DecorationCompanyActivityPresenterImpl;
+import com.bwf.aiyiqi.mvp.view.DecorationCompanyView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -15,7 +20,7 @@ import butterknife.OnClick;
  * Created by lingchen52 on 2016/11/24.
  */
 
-public class DecorationCompanyActivity extends BaseActivity {
+public class DecorationCompanyActivity extends BaseActivity implements DecorationCompanyView{
     @BindView(R.id.back_activity_decoration_company)
     View mBackActivityDecorationCompany;
     @BindView(R.id.newhouse_decoration_activity_decoration)
@@ -31,9 +36,12 @@ public class DecorationCompanyActivity extends BaseActivity {
     @BindView(R.id.listView_activity_decoration_company)
     MyListView mListViewActivityDecorationCompany;
 
+    private DecorationCompanyActivityPresenter mPresenter;
+
     @Override
     protected void initDatas() {
-
+        mPresenter = new DecorationCompanyActivityPresenterImpl(this);
+        mPresenter.load();
     }
 
     @Override
@@ -74,5 +82,25 @@ public class DecorationCompanyActivity extends BaseActivity {
             case R.id.yiqi_group_decoration_activity_decoration:
                 break;
         }
+    }
+
+    @Override
+    public void showViewPager(ResponseDecorationCompanyActivityViewPager datas) {
+
+    }
+
+    @Override
+    public void showListView(ResponseDecorationCompanyActivityListView datas) {
+
+    }
+
+    @Override
+    public void showViewPagerFailed() {
+
+    }
+
+    @Override
+    public void showListViewFailed() {
+
     }
 }

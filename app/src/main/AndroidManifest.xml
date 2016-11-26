@@ -39,11 +39,9 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             ></activity>
-<<<<<<< HEAD
         <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
-=======
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
->>>>>>> 24b9dcc80f790ad256f0e5c9ee557f05a2497e96
+        <activity android:name=".gui.activity.EffectPictureActivity"/>
     </application>
 
 </manifest>

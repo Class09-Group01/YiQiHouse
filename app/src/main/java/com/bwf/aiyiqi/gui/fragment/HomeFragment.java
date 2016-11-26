@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
+import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentRecyclePresenterImpl;
@@ -65,6 +66,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
         //设置Recycleview的布局管理，以及adapter 必须设置，否则空白
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
+
         mRecycleAdapter = new MainFragmentRecycleAdapter(getActivity());
         activityHomeRecycleview.setAdapter(mRecycleAdapter);
         activityHomeRecycleview.setLayoutManager(manager);
@@ -74,6 +76,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
                 //每次只加载第一页
+                mRecycleAdapter.clearData();
                 mRecyclePresenter.loadReflresh();
             }
         });
@@ -134,6 +137,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
                 startActivity(new Intent(getActivity(), BuildingFurnitureActivity.class));
                 break;
             case R.id.recycle_linearlayout_rending_new:
+                startActivity(new Intent(getActivity(), EffectPictureActivity.class));
                 break;
             case R.id.recycle_linearlayout_self_order:
                 break;

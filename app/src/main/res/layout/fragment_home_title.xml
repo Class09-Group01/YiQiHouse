@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="45dp"
     android:background="@android:color/white"
     >
-=======
-                android:orientation="vertical" android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@android:color/white"
-    >
 
->>>>>>> 24b9dcc80f790ad256f0e5c9ee557f05a2497e96
         <ImageView
             android:id="@+id/back_activity_decoration_company"
             android:layout_width="20dp"

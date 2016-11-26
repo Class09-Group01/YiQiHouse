@@ -124,7 +124,6 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
 
     @Override
     public int getItemCount() {
-        Log.d("msg", "getItemCount:" + data.size() + getHeaderCount() + getFooterCount());
         return data.size() + getHeaderCount() + getFooterCount();
     }
 

@@ -1,66 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/reflush"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/fragment_effect_picture_beauty_grid"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-            <CheckedTextView
-                android:id="@+id/fepb_space"
-                style="@style/fepb"
-                android:text="@string/fepb_space"
-                />
-            <ImageView
-                android:id="@+id/fepb_img_space"
-                android:src="@mipmap/arrow_pic_tab_down"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="25dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
-
-
-        <CheckedTextView
-            android:id="@+id/fepb_style"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="@string/fepb_style"
-            />
-        <CheckedTextView
-            android:id="@+id/fepb_local"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="@string/fepb_local"
-            />
-        <CheckedTextView
-            android:id="@+id/fepb_color"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:text="@string/fepb_color"
-            />
-
-    </LinearLayout>
-
-
-</com.cjj.MaterialRefreshLayout>
+</LinearLayout>
 

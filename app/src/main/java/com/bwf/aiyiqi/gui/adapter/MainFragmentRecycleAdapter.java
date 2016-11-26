@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -43,7 +44,6 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
 
     /**
      * 设置两种不同的显示内容
-     *
      * @param positon
      * @return
      */
@@ -73,9 +73,11 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int type = getItemViewType(position);
+
         if (type == TYPE_COTENT_NEWS) {
-            NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
             ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
+            Log.d("MainFragmentRecycleAdap", "dataBean.getType():" + dataBean.getType()+"  "+type);
+            NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
             newsViewHolder.mfRecycleviewArticleTextviewTitile.setText(dataBean.getTitle());
             newsViewHolder.mfRecycleviewArticleImage.setImageURI(Uri.parse(dataBean.getPath()));
             newsViewHolder.mfRecycleviewArticleComments.setText(dataBean.getViews()+"");
@@ -85,6 +87,7 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         } else if (type == TYPE_COTENT_CARD) {
             CardViewHolder cardViewHolder = (CardViewHolder) holder;
             //TODO
+
         }
         super.onBindViewHolder(holder, position);
     }

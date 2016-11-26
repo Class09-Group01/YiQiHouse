@@ -24,7 +24,6 @@
         <activity android:name=".gui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,7 +39,11 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             ></activity>
+
+        <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
+
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
+
     </application>
 
 </manifest>

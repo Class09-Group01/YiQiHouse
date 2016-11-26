@@ -68,14 +68,14 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     public void setDatas(List<String> list) {
         this.list.clear();
-        this.list = list;
+        this.list .addAll(list);
         Log.d("DecorateSchoolAdapter", "list:" + list);
         Log.d("DecorateSchoolAdapter", list.get(0));
         notifyItemChanged(0);
     }
 
     public void addData(List<ResponseDecorateSchoolNews.DataBean.ListBean> listBeen) {
-        this.listBeen = listBeen;
+        this.listBeen.addAll(listBeen);
         notifyDataSetChanged();
         Toast.makeText(mContext, listBeen.get(0).getTitle(), Toast.LENGTH_SHORT).show();
 //        Toast.makeText(mContext, "listBeen.size():" + listBeen.size(), Toast.LENGTH_SHORT).show();

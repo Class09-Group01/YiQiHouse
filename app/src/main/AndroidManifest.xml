@@ -29,6 +29,9 @@
         </activity>
         <activity android:name=".gui.activity.ScanActivity"/>
         <activity android:name=".gui.activity.SearchActivity"/>
+        <activity android:name=".gui.activity.DecorationCompanyActivity"/>
+        <activity android:name=".gui.activity.HouseDecorationActivity"/>
+        <activity android:name=".gui.activity.CityActiveActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
@@ -36,7 +39,11 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             ></activity>
+<<<<<<< HEAD
         <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
+=======
+        <activity android:name=".gui.activity.DecorateSchoolActivity"/>
+>>>>>>> 24b9dcc80f790ad256f0e5c9ee557f05a2497e96
     </application>
 
 </manifest>

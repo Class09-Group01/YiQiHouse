@@ -10,4 +10,5 @@
     <color name="colorGray">#C1C1C1</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGreen">#32CD32</color>
+    <color name="tabSelectedTextColor">#698B22</color>
 </resources>

@@ -3,13 +3,11 @@ package com.bwf.aiyiqi.gui.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorateSchoolNews;
@@ -68,34 +66,29 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     public void setDatas(List<String> list) {
         this.list.clear();
-        this.list = list;
-        Log.d("DecorateSchoolAdapter", "list:" + list);
-        Log.d("DecorateSchoolAdapter", list.get(0));
+        this.list .addAll(list);
         notifyItemChanged(0);
     }
 
     public void addData(List<ResponseDecorateSchoolNews.DataBean.ListBean> listBeen) {
-        this.listBeen = listBeen;
+        this.listBeen.addAll(listBeen);
         notifyDataSetChanged();
-        Toast.makeText(mContext, listBeen.get(0).getTitle(), Toast.LENGTH_SHORT).show();
-//        Toast.makeText(mContext, "listBeen.size():" + listBeen.size(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Toast.makeText(mContext, "songping", Toast.LENGTH_SHORT).show();
         if (position == 0) {
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
             if (headerViewHolder.mLlItemSchoolEnter.getChildCount() == 0) {
                 for (int i = 0; i < list.size() + 1; i++) {
-                    final int x = i;
+//                    final int x = i;
                     View view = mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
-                    view.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            getIdex(x + 1);
-                        }
-                    });
+//                    view.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            getIdex(x + 1);
+//                        }
+//                    });
                     headerViewHolder.mLlItemSchoolEnter.addView(view);
                 }
             }
@@ -109,18 +102,18 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             }
             return;
         }
-        if (position >= getItemCount() - 1) {
+        if (position == getItemCount() - 1) {
             //TODO
             return;
+        }else{
+            ContextViewHolder mContextViewHolder = (ContextViewHolder) holder;
+            ResponseDecorateSchoolNews.DataBean.ListBean bean = listBeen.get(position - 1);
+            mContextViewHolder.mDecorateschoolRecycleviewContextImage.setImageURI(Uri.parse(bean.getImage()));
+            mContextViewHolder.mDecorateschoolRecycleviewContextTextview.setText(bean.getTitle());
+            mContextViewHolder.mMfRecycleviewSchoolConcern.setText(bean.getViewCount()+"");
+            mContextViewHolder.mSchoolRecycleContextItemCollection.setText(bean.getIsJump()+"");
+            mContextViewHolder.mMfRecycleviewArticleComments.setText(bean.getReplies());
         }
-        ContextViewHolder mContextViewHolder = (ContextViewHolder) holder;
-        ResponseDecorateSchoolNews.DataBean.ListBean bean = listBeen.get(position - 1);
-        mContextViewHolder.mDecorateschoolRecycleviewContextImage.setImageURI(Uri.parse(bean.getImage()));
-        mContextViewHolder.mDecorateschoolRecycleviewContextTextview.setText(bean.getTitle());
-        mContextViewHolder.mMfRecycleviewSchoolConcern.setText(bean.getViewCount()+"");
-        mContextViewHolder.mSchoolRecycleContextItemCollection.setText(bean.getIsJump()+"");
-        mContextViewHolder.mMfRecycleviewArticleComments.setText(bean.getReplies());
-
     }
 
     @Override

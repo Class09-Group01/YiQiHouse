@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -35,6 +36,7 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
     private DecorateSchoolAdapter mAdapter;
     private int tagStage;
     private int newsStage=1;
+    private LinearLayoutManager mLinearLayoutManager;
 
     @Override
     protected int getContentViewResId() {
@@ -59,6 +61,9 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
     public void init() {
         mPresenter = new DecorateSchoolPresenterImplr(this);
         mAdapter=new DecorateSchoolAdapter(getActivity());
+        mLinearLayoutManager=new LinearLayoutManager(getActivity());
+        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mDecorateschoolRecycleview.setLayoutManager(mLinearLayoutManager);
         mDecorateschoolRecycleview.setAdapter(mAdapter);
         newsStage=mAdapter.toFragment();
         if(mAdapter.toFragment()==1){

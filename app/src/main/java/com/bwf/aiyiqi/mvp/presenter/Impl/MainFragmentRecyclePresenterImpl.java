@@ -1,5 +1,7 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
+import android.util.Log;
+
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.mvp.model.Impl.MainFragmentRecycleModel;
 import com.bwf.aiyiqi.mvp.model.MainFragmentRecycleModelImpl;
@@ -17,6 +19,7 @@ public class MainFragmentRecyclePresenterImpl implements MainFragmentRecyclePres
     private MainFragmentRecycleModel model;
     private MainFragmentRecycleView view;
     private Map<String,String> map;
+
     private int page = 1;
     private int lastType;
     private String lastId;
@@ -34,9 +37,14 @@ public class MainFragmentRecyclePresenterImpl implements MainFragmentRecyclePres
         if(page > 1){
             map.put("type",lastType+"");
             map.put("id",lastId);
+            Log.d("MainFragmentRecyclePres", "lastId:"+lastId+"  lastType:"+lastType +"page:"+page);
         }
     }
 
+    public void loadReflresh(){
+        page = 1;
+        loadRecycleData();
+    }
 
 
     @Override

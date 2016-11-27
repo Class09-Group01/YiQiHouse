@@ -4,6 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!--<uses-permission android:name="android.permission.WRITE_APN_SETTINGS"/>-->
     <!-- Zxing二维码的权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
@@ -24,7 +25,6 @@
         <activity android:name=".gui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -32,6 +32,7 @@
         <activity android:name=".gui.activity.SearchActivity"/>
         <activity android:name=".gui.activity.DecorationCompanyActivity"/>
         <activity android:name=".gui.activity.HouseDecorationActivity"/>
+        <activity android:name=".gui.activity.CityActiveActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
@@ -39,7 +40,11 @@
             android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             ></activity>
+
+        <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
+
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
+
     </application>
 
 </manifest>

@@ -2,12 +2,15 @@ package com.bwf.aiyiqi.gui.adapter.BaseAdapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * Created by Administrator on 2016/11/21.
@@ -102,6 +105,20 @@ public class CommonViewHolder {
     {
         ImageView view=getView(viewId);
         view.setImageResource(resId);
+        return this;
+    }
+
+    /**
+     * 设置image的图片，
+     * @param viewId SimpleDraweeView的控件的id
+     * @param url 图片资源文件url
+     * @return 当前的holder
+     */
+
+    public CommonViewHolder setSimpleDraweeView(int viewId, String url)
+    {
+        SimpleDraweeView view=getView(viewId);
+        view.setImageURI(Uri.parse(url));
         return this;
     }
 

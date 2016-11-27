@@ -127,6 +127,16 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
         return data.size() + getHeaderCount() + getFooterCount();
     }
 
+    public int getContentItemCount(int position){
+        if(position >= data.size()){
+            return -1;
+        }else{
+            return position;
+        }
+
+    }
+
+
     public class FootViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.recycle_foot_nomoredata)
         TextView recycleFooNoMoreData;

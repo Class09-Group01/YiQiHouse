@@ -39,7 +39,8 @@
             <com.bwf.aiyiqi.gui.view.RecycleViewCustom
                 android:id="@+id/activity_home_recycleview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@color/ColorGray">
             </com.bwf.aiyiqi.gui.view.RecycleViewCustom>
 
         </LinearLayout>

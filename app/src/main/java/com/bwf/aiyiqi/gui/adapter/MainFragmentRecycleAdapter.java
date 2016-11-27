@@ -89,7 +89,7 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
             CardViewHolder cardViewHolder = (CardViewHolder) holder;
             //TODO
-            cardViewHolder.mfRecycleviewPostImageContent.setImageURI(Uri.parse(dataBean.getPath()));
+//            cardViewHolder.mfRecycleviewPostImageContent.setImageURI(Uri.parse(dataBean.getPath()));
             cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getTitle());
             cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAuthor()));
             cardViewHolder.mfRecycleviewPostTextviewTime.setText(dataBean.getDateline());

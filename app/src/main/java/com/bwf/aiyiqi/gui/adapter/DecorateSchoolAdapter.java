@@ -83,7 +83,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        Toast.makeText(mContext, "getItemCount():" + getItemCount(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, "songping", Toast.LENGTH_SHORT).show();
         if (position == 0) {
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
             if (headerViewHolder.mLlItemSchoolEnter.getChildCount() == 0) {

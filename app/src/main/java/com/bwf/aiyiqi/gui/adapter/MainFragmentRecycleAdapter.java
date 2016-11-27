@@ -60,6 +60,7 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.d("MainFragmentRecycleAdap", "viewType:" + viewType);
         if (viewType == TYPE_COTENT_NEWS) {
             View view = inflater.inflate(R.layout.mainfragment_recycleview_article_item, parent, false);
             return new NewsViewHolder(view);
@@ -73,11 +74,11 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         int type = getItemViewType(position);
-
+//        Log.d("MainFragmentRecycleAdap", "type:" + type);
         if (type == TYPE_COTENT_NEWS) {
             ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
-            Log.d("MainFragmentRecycleAdap", "dataBean.getType():" + dataBean.getType()+"  "+type);
             NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
+//            Log.d("MainFragmentRecycleAdap", "dataBean.getType():" + dataBean.getTitle()+"  type"+type);
             newsViewHolder.mfRecycleviewArticleTextviewTitile.setText(dataBean.getTitle());
             newsViewHolder.mfRecycleviewArticleImage.setImageURI(Uri.parse(dataBean.getPath()));
             newsViewHolder.mfRecycleviewArticleComments.setText(dataBean.getViews()+"");
@@ -85,8 +86,15 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             newsViewHolder.mfRecycleviewArticleConcern.setText(dataBean.getFollowed()+"");
 
         } else if (type == TYPE_COTENT_CARD) {
+            ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
             CardViewHolder cardViewHolder = (CardViewHolder) holder;
             //TODO
+            cardViewHolder.mfRecycleviewPostImageContent.setImageURI(Uri.parse(dataBean.getPath()));
+            cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getTitle());
+            cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAuthor()));
+            cardViewHolder.mfRecycleviewPostTextviewTime.setText(dataBean.getDateline());
+            cardViewHolder.mfRecycleviewPostComments.setText(dataBean.getReplies()+"");
+            cardViewHolder.mfRecycleviewArticleConcern.setText(dataBean.getLike_num()+"");
 
         }
         super.onBindViewHolder(holder, position);
@@ -123,7 +131,7 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         @BindView(R.id.mf_recycleview_post_textview_time)
         TextView mfRecycleviewPostTextviewTime;
         @BindView(R.id.mf_recycleview_post_image_add_attention)
-        SimpleDraweeView mfRecycleviewPostImageAddAttention;
+        ImageView mfRecycleviewPostImageAddAttention;
         @BindView(R.id.mf_recycleview_post_layout)
         LinearLayout mfRecycleviewPostLayout;
         @BindView(R.id.mf_recycleview_post_image_content)

@@ -1,35 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:frsco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
+    android:background="@android:color/white"
     android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:weightSum="1">
+
+    >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
-        >
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="25dp"
-            android:src="@drawable/ic_home_school"
             android:layout_marginLeft="10dp"
-            />
+            android:src="@drawable/ic_home_school" />
+
         <TextView
             android:id="@+id/mf_recycleview_article_textview_titile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/article_textview_text"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:text="@string/article_textview_text"
             android:textColor="@color/ColorGray"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
+
         <View
             android:layout_width="1dp"
             android:layout_height="20dp"
-            android:background="@color/ColorGray"/>
+            android:background="@color/ColorGray" />
+
         <TextView
             android:id="@+id/mf_recycleview_article_textview_content"
             android:layout_width="wrap_content"
@@ -37,68 +43,71 @@
             android:layout_marginLeft="10dp"
             android:text="@string/article_textview_content"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
     </LinearLayout>
+
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/mf_recycleview_article_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/ColorGray"
-        frsco:fadeDuration="1000"
         frsco:actualImageScaleType="centerCrop"
-        />
+        frsco:fadeDuration="1000" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-      >
+        android:layout_marginTop="10dp">
+
         <TextView
             android:id="@+id/mf_recycleview_article_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
             android:text="@string/article_textview_time"
             android:textColor="@color/ColorGray"
-            android:textSize="15sp"
-            android:layout_marginTop="3dp"
-           />
+            android:textSize="15sp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:gravity="center_vertical">
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="20dp"
-                android:src="@drawable/looked_hui"
+                android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@+id/mf_recycleview_article_concern"
-                android:layout_marginRight="5dp"/>
+                android:src="@drawable/looked_hui" />
+
             <TextView
                 android:id="@+id/mf_recycleview_article_concern"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/mf_recycleview_article_comments_image"
                 android:text="@string/article_textview_concerns"
                 android:textColor="@color/ColorGray"
-                android:textSize="15sp"
-                android:layout_marginRight="10dp"/>
+                android:textSize="15sp" />
+
             <ImageView
                 android:id="@+id/mf_recycleview_article_comments_image"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:src="@drawable/comment_normal"
+                android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/mf_recycleview_article_comments"
-                android:layout_marginRight="10dp"/>
+                android:src="@drawable/comment_normal" />
+
             <TextView
                 android:id="@+id/mf_recycleview_article_comments"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
                 android:text="@string/article_textview_comments"
                 android:textColor="@color/ColorGray"
-                android:textSize="15sp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"/>
+                android:textSize="15sp" />
 
         </LinearLayout>
 

@@ -21,12 +21,16 @@
     </style>
 
     <style name="fepb">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:gravity">center</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/fepb_text</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+        <item name="android:drawableRight">@drawable/arrow_pic_tab</item>
     </style>
 
 </resources>

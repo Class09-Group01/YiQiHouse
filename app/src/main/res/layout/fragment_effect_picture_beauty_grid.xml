@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+        <CheckedTextView
+            android:id="@+id/fepb_space"
+            style="@style/fepb"
+            android:text="@string/fepb_space"
+            />
+        <View
+            android:layout_width="1px"
+            android:layout_height="25dp"
+            android:background="@color/ColorGray"
+            />
+        <CheckedTextView
+            android:id="@+id/fepb_style"
+            style="@style/fepb"
+            android:text="@string/fepb_style" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="25dp"
+            android:background="@color/ColorGray"
+            />
+        <CheckedTextView
+            android:id="@+id/fepb_local"
+            style="@style/fepb"
+            android:text="@string/fepb_local" />
+        <View
+            android:layout_width="1px"
+            android:layout_height="25dp"
+            android:background="@color/ColorGray"
+            />
+        <CheckedTextView
+            android:id="@+id/fepb_color"
+            style="@style/fepb"
+            android:text="@string/fepb_color"
+            />
+    </LinearLayout>
+
+    <com.cjj.MaterialRefreshLayout
+        android:id="@id/reflush"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:id="@+id/fepb_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </GridView>
+
+    </com.cjj.MaterialRefreshLayout>
+
+</LinearLayout>

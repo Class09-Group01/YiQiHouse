@@ -92,7 +92,7 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
 
     @Override
     public void showResposeSuccess(ResposneBuildingFurnitureData data) {
-        Toast.makeText(this, "data:" + data.getData().size(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "data:" + data.getData().size(), Toast.LENGTH_SHORT).show();
         addContentView(data);
     }
 

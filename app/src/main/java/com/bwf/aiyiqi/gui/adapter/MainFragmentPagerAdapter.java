@@ -29,9 +29,8 @@ public class MainFragmentPagerAdapter<T> extends BasePagerAdapter {
         images = new ArrayList<SimpleDraweeView>();
         for (int i = 0; i < datas.size(); i++) {
             SimpleDraweeView image = new SimpleDraweeView(context);
-
+            images.add(image);
         }
-
     }
 
 

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     >
-
 
     <FrameLayout
         android:id="@+id/activity_home_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        >
     </FrameLayout>
 
 
@@ -18,16 +20,13 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#e1e1e1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/activity_home_bottom_height"
+        android:background="@color/ColorGray"
         />
 
     <!--底部功能栏-->
     <LinearLayout
         android:id="@+id/activity_home_bottom"
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_height="@dimen/activity_home_bottom_height"
         android:background="@android:color/white"
         android:paddingTop="10dp"
@@ -61,4 +60,4 @@
             />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

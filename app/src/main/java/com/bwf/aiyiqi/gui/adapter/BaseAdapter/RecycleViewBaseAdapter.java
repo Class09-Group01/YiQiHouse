@@ -27,9 +27,9 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
     private final int TYPE_FOOTER = 20;
 
 
-    private final int FOOTER_FAIL = -1;
-    private final int FOORET_LOADING = 0;
-    private final int FOORET_NOMOREDATA = 1;
+    public final int FOOTER_FAIL = -1;
+    public final int FOORET_LOADING = 0;
+    public final int FOORET_NOMOREDATA = 1;
 
 
     public List<T> data;
@@ -124,7 +124,6 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
 
     @Override
     public int getItemCount() {
-        Log.d("msg", "getItemCount:" + data.size() + getHeaderCount() + getFooterCount());
         return data.size() + getHeaderCount() + getFooterCount();
     }
 

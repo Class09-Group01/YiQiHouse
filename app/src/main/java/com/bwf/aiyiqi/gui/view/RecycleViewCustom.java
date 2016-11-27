@@ -1,24 +1,25 @@
 package com.bwf.aiyiqi.gui.view;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.widget.GridView;
 
 /**
- * Created by Administrator on 2016/11/25.
+ * Created by Administrator on 2016/11/26.
  */
 
-public class GridViewCustom extends GridView{
-    public GridViewCustom(Context context) {
+public class RecycleViewCustom extends RecyclerView {
+    public RecycleViewCustom(Context context) {
         super(context);
     }
 
-    public GridViewCustom(Context context, AttributeSet attrs) {
+    public RecycleViewCustom(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public GridViewCustom(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    public RecycleViewCustom(Context context, @Nullable AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
     }
 
     @Override
@@ -26,8 +27,5 @@ public class GridViewCustom extends GridView{
         heightMeasureSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,
                 MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
     }
-
-
 }

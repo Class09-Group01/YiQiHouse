@@ -19,7 +19,7 @@ public class EffectPictureFragmentPagerAdapter extends FragmentPagerAdapter {
     public EffectPictureFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
         data = new ArrayList<>();
-        titles = new String[]{"最新","美图"};
+        titles = new String[]{"专题","美图"};
     }
 
     public void addData(List<Fragment> data){

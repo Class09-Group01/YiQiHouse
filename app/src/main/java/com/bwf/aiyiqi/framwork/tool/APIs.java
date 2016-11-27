@@ -29,7 +29,6 @@ public interface APIs {
     String API_CITY_ACTIVE = "http://118.178.142.34/YiQiHouse/CityActive";
     //
     String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
-
    //建材家具
     String API_BUILDING_FURNITURE = "http://bbs.17house.com/motnt/index.php?" +
             "a=product&m=misc&model=android&uuid=a444d1b2af4f&app_version=android_com.aiyiqi.galaxy_1.1";
@@ -38,5 +37,4 @@ public interface APIs {
     public static final String DEOORATESCHOOL_TAGE_URL= " http://appapi.17house.com/StageApi.php?version=1&action=getTagsByStage&stage={0}&model=android";
     //装修学堂。获取news的地址
     final String DECORATESCHOOL_NEWS_URL="http://appapi.17house.com/NewsApi.php?";
-
 }

@@ -17,8 +17,9 @@ public class DecorateSchoolPresenterImplr implements DecorateSchoolPresenter {
     private DecorateSchoolView mView;
     private int stageTag;
     private int stageNews;
-    private int page=1;
+    private int page=0;
     private int pageSize=10;
+
 
     public DecorateSchoolPresenterImplr(DecorateSchoolView view) {
         mModel=new DecorateSchoolModelImple();
@@ -44,13 +45,19 @@ public class DecorateSchoolPresenterImplr implements DecorateSchoolPresenter {
     }
 
     @Override
-    public void loadDecorateSchoolNewsPresenter(int stage) {
+    public void loadDecorateSchoolNewsPresenter(int stage, final int lastAtage) {
         this.stageNews=stage;
+        if(stageNews==lastAtage){
+            page++;
+        }
+        else{
+            page=1;
+        }
         mModel.loadNewsDatas(stageNews, page, pageSize, new DecorateSchoolModel.NewsCallBack() {
             @Override
             public void loadNewsDatasSuccess(ResponseDecorateSchoolNews decorateSchoolNews) {
                 mView.showDecorateSchoolNewsView(decorateSchoolNews);
-                page++;
+
             }
 
             @Override

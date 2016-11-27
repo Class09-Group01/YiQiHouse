@@ -8,5 +8,5 @@ package com.bwf.aiyiqi.mvp.presenter;
 
 public interface DecorateSchoolPresenter {
     void loadDecorateSchoolTagPresenter(int stage);
-    void loadDecorateSchoolNewsPresenter(int stage);
+    void loadDecorateSchoolNewsPresenter(int stage,int lastStage);
 }

@@ -32,6 +32,11 @@ public interface APIs {
    //建材家具
     String API_BUILDING_FURNITURE = "http://bbs.17house.com/motnt/index.php?" +
             "a=product&m=misc&model=android&uuid=a444d1b2af4f&app_version=android_com.aiyiqi.galaxy_1.1";
+
+//   //建材家具
+//    String API_BUILDING_FURNITURE = "http://bbs.17house.com/motnt/index.php?" +
+//            "a=product&m=misc&model=android&uuid=a444d1b2af4f&app_version=android_com.aiyiqi.galaxy_1.1";
+
     //装修学堂 获取tag列表的地址：
     public static final String DEOORATESCHOOL_TAGE_URL= " http://appapi.17house.com/StageApi.php?version=1&action=getTagsByStage&stage={0}&model=android";
     //装修学堂。获取news的地址

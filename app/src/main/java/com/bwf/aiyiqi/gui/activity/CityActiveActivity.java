@@ -1,9 +1,12 @@
 package com.bwf.aiyiqi.gui.activity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseCityActiveDatas;
+import com.bwf.aiyiqi.gui.adapter.BaseAdapter.CityActiveListViewAdapter;
 import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.CityActivePresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.CityActivePresenterImpl;
@@ -21,10 +24,11 @@ public class CityActiveActivity extends BaseActivity implements CityActiveView{
     MyListView mListviewCityActive;
 
     private CityActivePresenter mPresenter;
-
+    private CityActiveListViewAdapter mViewAdapter;
     @Override
     protected void initDatas() {
         mPresenter = new CityActivePresenterImpl(this);
+        mPresenter.load();
     }
 
     @Override
@@ -46,9 +50,22 @@ public class CityActiveActivity extends BaseActivity implements CityActiveView{
     }
 
     @Override
-    public void showListView(ResponseCityActiveDatas datas) {
+    public void showListView(final ResponseCityActiveDatas datas) {
+        mViewAdapter = new CityActiveListViewAdapter(this,datas);
+        mListviewCityActive.setAdapter(mViewAdapter);
+        mListviewCityActive.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String url = datas.getData().getForumlist().get(position).getUrls();
+                if (url.equals("")){
+                    //跳转到团购会Activity
 
+                }else{
+                    //跳转到H5页面，并传入url
 
+                }
+            }
+        });
     }
 
     @Override

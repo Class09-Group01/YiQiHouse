@@ -42,6 +42,11 @@
         <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
         <activity android:name=".gui.activity.EffectPictureActivity"/>
+
+        <!--<activity android:name=".gui.activity.BuildingFurnitureActivity"/>-->
+
+        <!--<activity android:name=".gui.activity.DecorateSchoolActivity"/>-->
+
     </application>
 
 </manifest>

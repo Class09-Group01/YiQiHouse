@@ -17,6 +17,7 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
+import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
@@ -186,6 +187,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
                 startActivity(new Intent(getActivity(), DecorateSchoolActivity.class));
                 break;
             case R.id.recycle_linearlayout_my_budget:
+                startActivity(new Intent(getActivity(), DecorateBudgetActivity.class));
                 break;
             case R.id.recycle_linearlayout_category:
                 startActivity(new Intent(getActivity(), BuildingFurnitureActivity.class));

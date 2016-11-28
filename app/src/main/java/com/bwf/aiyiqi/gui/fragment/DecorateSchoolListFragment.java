@@ -16,6 +16,8 @@ import com.bwf.aiyiqi.gui.adapter.DecorateSchoolAdapter;
 import com.bwf.aiyiqi.mvp.presenter.DecorateSchoolPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorateSchoolPresenterImplr;
 import com.bwf.aiyiqi.mvp.view.DecorateSchoolView;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,13 +32,15 @@ import butterknife.ButterKnife;
  * 作者：
  */
 
-public class DecorateSchoolListFragment extends BaseFragment implements DecorateSchoolView,DecorateSchoolAdapter.GetNewsStage{
+public class DecorateSchoolListFragment extends BaseFragment implements DecorateSchoolView, DecorateSchoolAdapter.GetNewsStage {
     @BindView(R.id.decorateschool_recycleview)
     RecyclerView mDecorateschoolRecycleview;
+    @BindView(R.id.decorateschool_refresh)
+    MaterialRefreshLayout mDecorateschoolRefresh;
     private DecorateSchoolPresenter mPresenter;
     private DecorateSchoolAdapter mAdapter;
     private int tagStage;
-    private int newsStage=1;
+    private int newsStage = 1;
     private int lastNewsStage;
     private LinearLayoutManager mLinearLayoutManager;
 
@@ -55,55 +59,66 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
     }
 
     @Override
-    public void onActivityCreated( Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         init();
         loadData();
     }
+
     public void init() {
         mPresenter = new DecorateSchoolPresenterImplr(this);
-        mAdapter=new DecorateSchoolAdapter(getActivity());
-        mLinearLayoutManager=new LinearLayoutManager(getActivity());
+        mAdapter = new DecorateSchoolAdapter(getActivity());
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mDecorateschoolRecycleview.setLayoutManager(mLinearLayoutManager);
         mDecorateschoolRecycleview.setAdapter(mAdapter);
         mAdapter.getGetNewsStage(this);
+        mDecorateschoolRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                mPresenter.loadDecorateSchoolTagPresenter(tagStage);
+                mPresenter.loadDecorateSchoolNewsPresenter(newsStage, lastNewsStage);
+            }
+        });
     }
 
     public void loadData() {
         Bundle bundle = getArguments();
         tagStage = bundle.getInt("tagStage");
         mPresenter.loadDecorateSchoolTagPresenter(tagStage);
-        mPresenter.loadDecorateSchoolNewsPresenter(newsStage,lastNewsStage);
+        mPresenter.loadDecorateSchoolNewsPresenter(newsStage, lastNewsStage);
     }
 
     @Override
     public void showDecorateSchoolTagView(String str) {
-
-        String decodeString =UnicodeParser.decodeUnicode(str);
-        String data=decodeString.substring(33);
-        String datas=data.replace("{","");
-        String lastDatas=datas.replace("}","");
-        List<String> list=stringToList(lastDatas);
-        Log.d("DecorateSchoolListFragm", "list:" + list);
-        mAdapter.setDatas(list);
+        mDecorateschoolRefresh.finishRefresh();
+        String decodeString = UnicodeParser.decodeUnicode(str);
+        String data = decodeString.substring(33);
+        String datas = data.replace("{", "");
+        String lastDatas = datas.replace("}", "");
+        Log.d("DecorateSchoolListFragm", lastDatas);
+        List<String> listValue = stringToList(lastDatas);
+        Log.d("DecorateSchoolListFragm", "list:" + listValue);
+        mAdapter.setDatas(listValue);
 
 
     }
 
     @Override
     public void showDecorateSchoolNewsView(ResponseDecorateSchoolNews decorateSchoolNews) {
+        mDecorateschoolRefresh.finishRefresh();
         List<ResponseDecorateSchoolNews.DataBean.ListBean> listBeen = decorateSchoolNews.getData().getList();
-        if(lastNewsStage==newsStage){
-            mAdapter.addData(listBeen);
-        }else{
-            mAdapter.addNewData(listBeen);
-            lastNewsStage=newsStage;
-        }
         Log.d("DecorateSchoolListFragm", "newsStage:" + newsStage);
         Log.d("DecorateSchoolListFragm", "lastNewsStage:" + lastNewsStage);
+        if (newsStage == lastNewsStage) {
+            mAdapter.addData(listBeen);
+        } else {
+            mAdapter.addNewData(listBeen);
+            lastNewsStage = newsStage;
+        }
         Toast.makeText(getActivity(), "listBeen:" + listBeen, Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public void showDataFailed() {
 
@@ -117,27 +132,25 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
         return rootView;
     }
 
-    public List<String> stringToList(String str){
+    public List<String> stringToList(String str) {
         List<String> listValue = new ArrayList<>();
         String[] datas = str.split(",");
         for (int i = 0; i < datas.length; i++) {
-            listValue.add(datas[i].split(":")[1]);
+            listValue.add(datas[i].split(":")[1].replace("\"", ""));
         }
         return listValue;
-    }
-    public List<String> stringToKeyList(String str){
-        List<String> listKey = new ArrayList<>();
-        String[] datas = str.split(",");
-        for (int i = 0; i < datas.length; i++) {
-            listKey.add(datas[i].split(":")[0]);
-        }
-        return listKey;
     }
 
 
     @Override
     public void getNewsStage(View v) {
-        newsStage= (int) v.getTag();
-        mPresenter.loadDecorateSchoolNewsPresenter(newsStage,lastNewsStage);
+        newsStage = (int) v.getTag();
+        if (newsStage == lastNewsStage) {
+            return;
+        } else {
+            lastNewsStage = 0;
+            mPresenter.loadDecorateSchoolNewsPresenter(newsStage, lastNewsStage);
+        }
+
     }
 }

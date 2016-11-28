@@ -3,7 +3,6 @@ package com.bwf.aiyiqi.gui.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +35,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     List<String> list;
     private LayoutInflater mInflater;
     private Context mContext;
+    private int lastIndex;
 
     public DecorateSchoolAdapter(Context context) {
         mContext = context;
@@ -90,24 +90,33 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
             if (headerViewHolder.mLlItemSchoolEnter.getChildCount() == 0) {
                 for (int i = 0; i < list.size() + 1; i++) {
-                    final View view = mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
-                    view.setTag(i+1);
+                    final RadioButton radioButton = (RadioButton) mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
+                    radioButton.setTag(i+1);
                     RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
                     lp.setMargins(15,0,0,0);//设置边距
-                    view.setOnClickListener(new View.OnClickListener() {
+                    radioButton.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             mGetNewsStage.getNewsStage(v);
+                            radioButton.setChecked(true);
+                            lastIndex= (int) radioButton.getTag();
                         }
                     });
-                    headerViewHolder.mLlItemSchoolEnter.addView(view,lp);
+                    headerViewHolder.mLlItemSchoolEnter.addView(radioButton,lp);
+//                    headerViewHolder.mLlItemSchoolEnter.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//                        @Override
+//                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+//
+//                        }
+//                    });
                 }
             }
             for (int i = 0; i < headerViewHolder.mLlItemSchoolEnter.getChildCount(); i++) {
                 RadioButton radioButton = (RadioButton) headerViewHolder.mLlItemSchoolEnter.getChildAt(i).findViewById(R.id.school_recycle_header_textview);
                 if (i == 0) {
                     radioButton.setText("全部");
+                    radioButton.setChecked(true);
                 } else {
                     radioButton.setText(list.get(i - 1));
                 }
@@ -120,7 +129,6 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         } else {
             ContextViewHolder mContextViewHolder = (ContextViewHolder) holder;
             ResponseDecorateSchoolNews.DataBean.ListBean bean = listBeen.get(position - 1);
-            Log.d("DecorateSchoolAdapter", "bean:" + bean);
             if(bean == null)return;
             mContextViewHolder.mDecorateschoolRecycleviewContextImage.setImageURI(Uri.parse(bean.getImage()));
             mContextViewHolder.mDecorateschoolRecycleviewContextTextview.setText(bean.getTitle());

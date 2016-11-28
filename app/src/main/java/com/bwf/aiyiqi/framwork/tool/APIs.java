@@ -37,4 +37,8 @@ public interface APIs {
     public static final String DEOORATESCHOOL_TAGE_URL= " http://appapi.17house.com/StageApi.php?version=1&action=getTagsByStage&stage={0}&model=android";
     //装修学堂。获取news的地址
     final String DECORATESCHOOL_NEWS_URL="http://appapi.17house.com/NewsApi.php?";
+    //装修预算 装修报价地址：
+    String DECORATEBUDGET_OFFER_URL=" http://m.beijing.17house.com/baojia/?sem=android&model=android";
+    //业主说 精华的地址：
+    String SAY_ESSENCE_URL="http://bbs.17house.com/motnt/index.php?a=allThread&c=forumThreadList&mode=digest&uuid=86305803367590&pageSize=10&m=forum&page={0}&haspermission=yes&model=android&sessionToken=&app_version=android_com.aiyiqi.galaxy_1.1";
 }

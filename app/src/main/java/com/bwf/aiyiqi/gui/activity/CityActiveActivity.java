@@ -3,11 +3,11 @@ package com.bwf.aiyiqi.gui.activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseCityActiveDatas;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.CityActiveListViewAdapter;
-import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.CityActivePresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.CityActivePresenterImpl;
 import com.bwf.aiyiqi.mvp.view.CityActiveView;
@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 public class CityActiveActivity extends BaseActivity implements CityActiveView{
     @BindView(R.id.listview_city_active)
-    MyListView mListviewCityActive;
+    ListView mListviewCityActive;
 
     private CityActivePresenter mPresenter;
     private CityActiveListViewAdapter mViewAdapter;

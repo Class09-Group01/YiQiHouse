@@ -1,11 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/essencesay_contentitem_title_simple"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            app:roundAsCircle="true"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="10dp">
+            <TextView
+                android:id="@+id/essencesay_contentitem_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/essencesay_contentitem_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/ColorGray"
+                android:textSize="12sp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/essencesay_contentitem_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        />
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/essencesay_contentitem_simple"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:id="@+id/essencesay_contentitem_comefrom"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/essencesay_contentitem_comefrom_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:textColor="@color/blue"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/lib_style_head_more_right"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGray"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/essencesay_contentitem_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorGray"
+            android:textSize="12dp"/>
+        <ImageView
+            android:id="@+id/essencesay_contentitem_repleys"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/article_share"
+           />
 
     </LinearLayout>
 

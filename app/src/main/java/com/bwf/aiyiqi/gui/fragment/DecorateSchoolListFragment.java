@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorateSchoolNews;
@@ -116,7 +115,7 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
             mAdapter.addNewData(listBeen);
             lastNewsStage = newsStage;
         }
-        Toast.makeText(getActivity(), "listBeen:" + listBeen, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "listBeen:" + listBeen, Toast.LENGTH_SHORT).show();
     }
 
     @Override

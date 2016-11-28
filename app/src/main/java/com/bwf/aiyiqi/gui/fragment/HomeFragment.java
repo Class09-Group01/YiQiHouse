@@ -17,11 +17,8 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
-<<<<<<< HEAD
 import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
-=======
 import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
->>>>>>> d60124aed7fe9714922f02e4fc4442b564354e9c
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;

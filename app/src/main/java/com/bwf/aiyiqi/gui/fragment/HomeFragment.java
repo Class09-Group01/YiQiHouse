@@ -17,17 +17,27 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
+<<<<<<< HEAD
 import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
+=======
+import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
+>>>>>>> d60124aed7fe9714922f02e4fc4442b564354e9c
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
+import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
+import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
+import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
+import com.bwf.aiyiqi.gui.view.PagerDotIndicator;
+import com.bwf.aiyiqi.gui.view.SlideViewPager;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentRecyclePresenterImpl;
 import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 import com.bwf.aiyiqi.mvp.view.MainFragmentRecycleView;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,6 +64,11 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     MaterialRefreshLayout reflush;
     @BindView(R.id.activity_home_recycleview)
     RecyclerView activityHomeRecycleview;
+
+    private LinearLayout mLinearLayout_dot;
+    private SlideViewPager mSlideViewPager;
+    private BasePagerAdapter mPagerAdapter;
+    private PagerDotIndicator mDotIndicator;
     private MainFragmentRecyclePresenterImpl mRecyclePresenter;
     private MainFragmentRecycleAdapter mRecycleAdapter;
     private MainFragmentImagePresenterImpl mFragmentImagePresenter;
@@ -68,13 +83,9 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-//        mFragmentImagePresenter.load();
-
-        MainFragmentImagePresenterImpl mFragmentImagePresenter = new MainFragmentImagePresenterImpl(this);
-        mFragmentImagePresenter.load();
+        initViews();
         mFragmentImagePresenter=new MainFragmentImagePresenterImpl(this);
-
+        mFragmentImagePresenter.load();
 
 
 
@@ -113,6 +124,11 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
                 }
             }
         });
+    }
+
+    private void initViews() {
+        mSlideViewPager = (SlideViewPager) getActivity().findViewById(R.id.viewpager_fragment_main);
+        mLinearLayout_dot = (LinearLayout) getActivity().findViewById(R.id.ll_indicator_fragment_main);
     }
 
     @Override
@@ -173,6 +189,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
+                startActivity(new Intent(getActivity(), CaptureActivity.class));
                 break;
             case R.id.fragment_home_title_bar_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));
@@ -180,8 +197,10 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
             case R.id.fragment_home_title_bar_city:
                 break;
             case R.id.recycle_linearlayout_package_new:
+                startActivity(new Intent(getActivity(), DecorationCompanyActivity.class));
                 break;
             case R.id.recycle_linearlayout_activity:
+                startActivity(new Intent(getActivity(), CityActiveActivity.class));
                 break;
             case R.id.recycle_linearlayout_school:
                 startActivity(new Intent(getActivity(), DecorateSchoolActivity.class));
@@ -206,7 +225,11 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
 
     @Override
     public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
-
+        mDotIndicator = new PagerDotIndicator(getActivity(),mLinearLayout_dot,mSlideViewPager);
+        mDotIndicator.setNumberDots(datas.getData().size());
+        mDotIndicator.setCurrentDot(0);
+        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(),datas.getData());
+        mSlideViewPager.setAdapter(mPagerAdapter);
     }
 
     @Override

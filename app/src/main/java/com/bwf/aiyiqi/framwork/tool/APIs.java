@@ -26,9 +26,9 @@ public interface APIs {
 
     //老房整装 (h5网页)
      String  API_OLD_HOUSE_DECORATION  =  "http://hui.17house.com/svc/payment-facade/h5/activity177/index.html?model=android";
-
+    //一起团队
+    String API_YIQIGROUP = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteVendors";
     //同城活动
-
     String API_CITY_ACTIVE =
             "http://bbs.17house.com/motnt/index.php?a=activityThreadlist&c=forumThreadList&uuid=a444d1b2af4f&pageSize=10&uid=1633055&cityName=%E6%88%90%E9%83%BD&m=forum&page=1&model=android&sessionToken=6U49kCYKE260RqvPqEdFsBGskNQStKhm&app_version=android_com.aiyiqi.galaxy_1.1";
     //

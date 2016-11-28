@@ -3,31 +3,35 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    >
-    <LinearLayout
-        android:orientation="horizontal"
+              android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <ImageView
-            android:id="@+id/fragment_say_searchimage"
+            android:id="@+id/decoratebudget_backimage"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:src="@drawable/search_new"
-            android:padding="10dp"/>
+            android:src="@drawable/back_new_nor"
+            android:padding="10dp"
+            />
         <android.support.design.widget.TabLayout
-            android:id="@+id/fragment_say_tablayout"
+            android:id="@+id/decoratebudget_tablayout"
+            android:layout_marginRight="50dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="50dp"
-            app:tabMode="fixed"
+            android:layout_toRightOf="@+id/decoratebudget_backimage"
+            android:layout_marginLeft="5dp"
             app:tabGravity="center"
+            app:tabMode="fixed"
             app:tabSelectedTextColor="@color/tabSelectedTextColor"
             app:tabTextColor="@color/black"
             />
-    </LinearLayout>
+
+    </RelativeLayout>
     <android.support.v4.view.ViewPager
-        android:id="@+id/fragment_say_viewpager"
+        android:id="@+id/decoratebudget_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        >
+    </android.support.v4.view.ViewPager>
 </LinearLayout>

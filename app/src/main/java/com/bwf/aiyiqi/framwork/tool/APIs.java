@@ -42,10 +42,17 @@ public interface APIs {
     //装修学堂。获取news的地址
     final String DECORATESCHOOL_NEWS_URL="http://appapi.17house.com/NewsApi.php?";
 
+    //装修预算 装修报价地址：
+    String DECORATEBUDGET_OFFER_URL=" http://m.beijing.17house.com/baojia/?sem=android&model=android";
+    //业主说 精华的地址：
+    String SAY_ESSENCE_URL="http://bbs.17house.com/motnt/index.php?a=allThread&c=forumThreadList&mode=digest&uuid=86305803367590&pageSize=10&m=forum&page={0}&haspermission=yes&model=android&sessionToken=&app_version=android_com.aiyiqi.galaxy_1.1";
+
+
     //效果图 --> 专题
     String API_EFFECT_PICTURE_SUJECT="http://appapi.17house.com/xiaoguotuApi.php?version=1&page={0}&action=albumList2&pageSize=10&tagid=1&model=android";
 
     //首页 搜索的url
     String API_SEARCH = "http://bbs.17house.com/motnt/index.php?";
+
 
 }

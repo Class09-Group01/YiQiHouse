@@ -22,7 +22,7 @@ public class MainFragmentRecycleModel implements MainFragmentRecycleModelImpl{
     public void loadDatas(final Callback callback, HashMap<String,String> map) {
 
         OkHttpUtils.post()
-                .url(APIs.API_MAIN_FRAGMENT__RECYCLEVIE)
+                .url(APIs.API_SEARCH)
                 .params(map)
                 .build()
                 .execute(new StringCallback() {

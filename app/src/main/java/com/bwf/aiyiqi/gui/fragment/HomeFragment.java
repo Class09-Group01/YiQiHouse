@@ -17,7 +17,9 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
+import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
+import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
@@ -179,8 +181,10 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
             case R.id.fragment_home_title_bar_city:
                 break;
             case R.id.recycle_linearlayout_package_new:
+                startActivity(new Intent(getActivity(), DecorationCompanyActivity.class));
                 break;
             case R.id.recycle_linearlayout_activity:
+                startActivity(new Intent(getActivity(), CityActiveActivity.class));
                 break;
             case R.id.recycle_linearlayout_school:
                 startActivity(new Intent(getActivity(), DecorateSchoolActivity.class));

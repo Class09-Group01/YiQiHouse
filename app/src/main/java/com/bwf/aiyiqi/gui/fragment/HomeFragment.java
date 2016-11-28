@@ -15,11 +15,15 @@ import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
+import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
+import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
+import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentRecyclePresenterImpl;
+import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 import com.bwf.aiyiqi.mvp.view.MainFragmentRecycleView;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
@@ -30,13 +34,16 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
-
-
 /**
  * Created by bobo on 2016/11/23.
  */
 
-public class HomeFragment extends BaseFragment implements MainFragmentRecycleView {
+
+
+
+public class HomeFragment extends BaseFragment implements MainFragmentImage,MainFragmentRecycleView {
+
+
     @BindView(R.id.fragment_home_title_bar_scan)
     ImageView fragmentHomeTitleBarScan;
     @BindView(R.id.fragment_home_title_bar_search)
@@ -49,9 +56,9 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
     RecyclerView activityHomeRecycleview;
     private MainFragmentRecyclePresenterImpl mRecyclePresenter;
     private MainFragmentRecycleAdapter mRecycleAdapter;
+    private MainFragmentImagePresenterImpl mFragmentImagePresenter;
     private boolean isLoading = true;//是否正在加载，一进入就正在加载
     private boolean isNoMoreData;//判断是否是最后一页，没有更多数据了
-
 
     @Override
     protected int getContentViewResId() {
@@ -61,6 +68,15 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+//        mFragmentImagePresenter.load();
+
+        MainFragmentImagePresenterImpl mFragmentImagePresenter = new MainFragmentImagePresenterImpl(this);
+        mFragmentImagePresenter.load();
+        mFragmentImagePresenter=new MainFragmentImagePresenterImpl(this);
+
+
+
 
         //进入后自动刷新，首次加载
         mRecyclePresenter = new MainFragmentRecyclePresenterImpl(this);
@@ -169,6 +185,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
             case R.id.recycle_linearlayout_activity:
                 break;
             case R.id.recycle_linearlayout_school:
+                startActivity(new Intent(getActivity(), DecorateSchoolActivity.class));
                 break;
             case R.id.recycle_linearlayout_my_budget:
                 break;
@@ -184,4 +201,18 @@ public class HomeFragment extends BaseFragment implements MainFragmentRecycleVie
                 break;
         }
     }
+
+
+
+    @Override
+    public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
+
+    }
+
+    @Override
+    public void showLoadFailed() {
+
+    }
+
 }
+

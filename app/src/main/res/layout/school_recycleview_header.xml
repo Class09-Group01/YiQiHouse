@@ -2,18 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="50dp">
+              android:layout_height="50dp"
+   >
     <HorizontalScrollView
         android:id="@+id/hs_temp"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="20.0dip"
-        android:paddingTop="20.0dip"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
         android:scrollbars="none"
-        android:background="@color/colorGray">
+        android:background="@color/colorGray"
+        android:layout_gravity="center_vertical">
         <LinearLayout
             android:id="@+id/ll_item_school_enter"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             />

@@ -18,12 +18,12 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="让我们花10秒钟了解你"/>
+                android:text="@string/welcometitle_1"/>
             <TextView
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="以便发现你最需要的装修内容"/>
+                android:text="@string/welcometitle_2"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="选择性别:"/>
+                android:text="@string/sex"/>
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="选择生日:"/>
+                android:text="@string/birthday"/>
             <DatePicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="装修阶段:"/>
+                android:text="@string/decorationstage"/>
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,20 +85,20 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="正在装修"/>
+                    android:text="@string/beingdecorated"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="计划装修"/>
+                    android:text="@string/renovationplan"/>
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="已经入住"
+                    android:text="@string/AlreadyCheckIn"
                     />
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="暂无计划"/>
+                    android:text="@string/noPlan"/>
 
             </RadioGroup>
         </LinearLayout>
@@ -111,7 +111,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="进入一起装修"/>
+            android:text="@string/welcomeApp"/>
     </LinearLayout>
 
 </RelativeLayout>

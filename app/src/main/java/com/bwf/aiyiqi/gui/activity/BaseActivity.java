@@ -1,4 +1,4 @@
-package com.bwf.aiyiqi;
+package com.bwf.aiyiqi.gui.activity;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Rect;
@@ -7,35 +7,37 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.WindowManager;
+
 /**
  * Created by LG on 2016/10/14.
  * Tips:
  */
-public abstract class ActivityBase extends FragmentActivity {
+public abstract class BaseActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //设置为竖屏
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        //
+        initBeforeSetView();
         //为Activity绑定xml视图
         setContentView(getContentViewResId());
 
         initViews(); //初始化控件
         initDatas();//初始化数据
     }
+
+    protected abstract void initDatas();
+    protected void initBeforeSetView(){};
+    /**
+     * 初始化控件
+     */
+    protected abstract void initViews();
     /**
      * 提供Activity要绑定的xml资源id
      * @return
      */
     protected abstract int getContentViewResId();
-
-    /**
-     * 初始化控件
-     */
-    protected abstract void initViews();
-    protected abstract void initDatas();
     /**
      * 不用强转的findviewbyid
      */

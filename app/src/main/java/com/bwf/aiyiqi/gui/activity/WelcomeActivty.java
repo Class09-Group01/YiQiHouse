@@ -1,10 +1,12 @@
-package com.bwf.aiyiqi;
+package com.bwf.aiyiqi.gui.activity;
+
+import com.bwf.aiyiqi.R;
 
 /**
  * Created by Administrator on 2016/11/24.
  */
 
-public class WelcomeActivty extends ActivityBase {
+public class WelcomeActivty extends BaseActivity {
     @Override
     protected int getContentViewResId() {
         return R.layout.activity_welcome;

@@ -43,7 +43,8 @@
             android:layout_toRightOf="@+id/mf_recycleview_post_image"
             android:text="@string/post_textview_time"
             android:textColor="@color/ColorGray"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
+            <!--冲突 改为：  android:textSize="16sp"  -->
 
         <LinearLayout
             android:id="@+id/mf_recycleview_post_layout"
@@ -64,7 +65,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/post_textview_add_attention" />
+                android:text="@string/post_textview_add_attention"
+                android:textSize="14sp"/>
         </LinearLayout>
     </RelativeLayout>
 

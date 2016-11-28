@@ -73,31 +73,43 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        super.onBindViewHolder(holder, position);
         int type = getItemViewType(position);
-//        Log.d("MainFragmentRecycleAdap", "type:" + type);
+
         if (type == TYPE_COTENT_NEWS) {
-            ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
             NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
-//            Log.d("MainFragmentRecycleAdap", "dataBean.getType():" + dataBean.getTitle()+"  type"+type);
-            newsViewHolder.mfRecycleviewArticleTextviewTitile.setText(dataBean.getTitle());
-            newsViewHolder.mfRecycleviewArticleImage.setImageURI(Uri.parse(dataBean.getPath()));
+
+            ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
+            if(dataBean.getPath() != null){
+                newsViewHolder.mfRecycleviewArticleImage.setVisibility(View.VISIBLE);
+                newsViewHolder.mfRecycleviewArticleImage.setImageURI(Uri.parse(dataBean.getPath()));
+            }else{
+                newsViewHolder.mfRecycleviewArticleImage.setVisibility(View.GONE);
+            }
+            newsViewHolder.mfRecycleviewArticleTextviewContent.setText(dataBean.getTitle());
             newsViewHolder.mfRecycleviewArticleComments.setText(dataBean.getViews()+"");
             newsViewHolder.mfRecycleviewArticleTime.setText(dataBean.getDateline());
             newsViewHolder.mfRecycleviewArticleConcern.setText(dataBean.getFollowed()+"");
 
         } else if (type == TYPE_COTENT_CARD) {
-            ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
             CardViewHolder cardViewHolder = (CardViewHolder) holder;
+            ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
+            if(dataBean.getPath() != null){
+                cardViewHolder.mfRecycleviewPostImageContent.setVisibility(View.VISIBLE);
+                cardViewHolder.mfRecycleviewPostImageContent.setImageURI(Uri.parse(dataBean.getPath()));
+            }else{
+                cardViewHolder.mfRecycleviewPostImageContent.setVisibility(View.GONE);
+            }
+
             //TODO
-//            cardViewHolder.mfRecycleviewPostImageContent.setImageURI(Uri.parse(dataBean.getPath()));
             cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getTitle());
-            cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAuthor()));
+            cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAvtUrl()));
             cardViewHolder.mfRecycleviewPostTextviewTime.setText(dataBean.getDateline());
             cardViewHolder.mfRecycleviewPostComments.setText(dataBean.getReplies()+"");
             cardViewHolder.mfRecycleviewArticleConcern.setText(dataBean.getLike_num()+"");
-
+            cardViewHolder.mfRecycleviewPostForm.setText(dataBean.getForum().getName());
         }
-        super.onBindViewHolder(holder, position);
+
     }
 
 
@@ -116,7 +128,6 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         ImageView mfRecycleviewArticleCommentsImage;
         @BindView(R.id.mf_recycleview_article_comments)
         TextView mfRecycleviewArticleComments;
-
         NewsViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);

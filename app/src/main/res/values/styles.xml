@@ -33,4 +33,13 @@
         <item name="android:drawableRight">@drawable/arrow_pic_tab</item>
     </style>
 
+    <style name="feps_item_text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:spacing">5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_weight">1</item>
+    </style>
 </resources>

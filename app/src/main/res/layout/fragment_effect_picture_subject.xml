@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/fragment_effect_picture"
+        android:id="@+id/feps_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 

@@ -37,4 +37,9 @@ public interface APIs {
     public static final String DEOORATESCHOOL_TAGE_URL= " http://appapi.17house.com/StageApi.php?version=1&action=getTagsByStage&stage={0}&model=android";
     //装修学堂。获取news的地址
     final String DECORATESCHOOL_NEWS_URL="http://appapi.17house.com/NewsApi.php?";
+
+    //效果图 --> 专题
+    String API_EFFECT_PICTURE_SUJECT="http://appapi.17house.com/xiaoguotuApi.php?version=1&page={0}&action=albumList2&pageSize=10&tagid=1&model=android";
+
+
 }

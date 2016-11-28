@@ -29,6 +29,7 @@ import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 import com.bwf.aiyiqi.mvp.view.MainFragmentRecycleView;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -174,6 +175,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
+                startActivity(new Intent(getActivity(), CaptureActivity.class));
                 break;
             case R.id.fragment_home_title_bar_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));

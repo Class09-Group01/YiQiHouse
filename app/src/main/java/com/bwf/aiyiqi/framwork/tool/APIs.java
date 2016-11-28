@@ -9,24 +9,28 @@ public interface APIs {
     //##########################首页模块接口##########################
 
     //        1.1  首页轮播接口地址：
-    public static final String API_MAIN_FRAGMENT_VIEWPAGER = "http://118.178.142.34/YiQiHouse/HomeAD";
+    public static final String API_MAIN_FRAGMENT_VIEWPAGER =
+            "http://appapi.17house.com/AppManagerApi.php?version=1&action=getownerinfo&cityId=2&model=android";
 
     //1.3.1 装修公司界面接口
     //    轮播广告
-    public  static final  String  API_DECORATION_COMPANY_ACTIVITY_VIEWPAGER = "http://118.178.142.34/YiQiHouse/CompanyAD";
+    public  static final  String  API_DECORATION_COMPANY_ACTIVITY_VIEWPAGER =
+            "http://appapi.17house.com/AppManagerApi.php?version=1&action=integratedpackage&model=android&app_version=android_com.aiyiqi.galaxy_1.1";
 
     //   装修直播
-    public  static final  String  API_DECORATION_COMPANY_ACTIVITY_LISTVIEW = "http://118.178.142.34/YiQiHouse/DecorateLive";
+    public  static final  String  API_DECORATION_COMPANY_ACTIVITY_LISTVIEW =
+            "http://hui.17house.com/svc/payment-facade/housekeep/listLatestLiveBuildingSites";
 
     //新房整装(h5网页)
     String API_NEW_HOUSE_DECORATION = "http://hui.17house.com/svc/payment-facade/h5/activity677/index.html?model=android";
 
     //老房整装 (h5网页)
      String  API_OLD_HOUSE_DECORATION  =  "http://hui.17house.com/svc/payment-facade/h5/activity177/index.html?model=android";
-
+    //一起团队
+    String API_YIQIGROUP = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteVendors";
     //同城活动
-
-    String API_CITY_ACTIVE = "http://118.178.142.34/YiQiHouse/CityActive";
+    String API_CITY_ACTIVE =
+            "http://bbs.17house.com/motnt/index.php?a=activityThreadlist&c=forumThreadList&uuid=a444d1b2af4f&pageSize=10&uid=1633055&cityName=%E6%88%90%E9%83%BD&m=forum&page=1&model=android&sessionToken=6U49kCYKE260RqvPqEdFsBGskNQStKhm&app_version=android_com.aiyiqi.galaxy_1.1";
     //
     String API_MAIN_FRAGMENT__RECYCLEVIE = "http://118.178.142.34/YiQiHouse/HomeBBS?";
    //建材家具

@@ -2,16 +2,22 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityListView;
 import com.bwf.aiyiqi.entity.ResponseDecorationCompanyActivityViewPager;
 import com.bwf.aiyiqi.framwork.tool.APIs;
+import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.DecorationCompanyListViewAdapter;
+import com.bwf.aiyiqi.gui.adapter.DecorationCompanyPagerAdapter;
 import com.bwf.aiyiqi.gui.view.MyListView;
+import com.bwf.aiyiqi.gui.view.PagerDotIndicator;
+import com.bwf.aiyiqi.gui.view.SlideViewPager;
 import com.bwf.aiyiqi.mvp.presenter.DecorationCompanyActivityPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorationCompanyActivityPresenterImpl;
 import com.bwf.aiyiqi.mvp.view.DecorationCompanyView;
@@ -21,6 +27,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+
+import static com.bwf.aiyiqi.R.id.viewpager_fragment_main;
 
 /**
  * Created by lingchen52 on 2016/11/24.
@@ -41,9 +49,14 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     RelativeLayout mYiqiGroupDecorationActivityDecoration;
     @BindView(R.id.listView_activity_decoration_company)
     MyListView mListViewActivityDecorationCompany;
+    private LinearLayout mLinearLayout_dot;
+    private SlideViewPager mSlideViewPager;
+    private LayoutInflater mLayoutInflater;
 
+    private PagerDotIndicator mDotIndicator;
     private DecorationCompanyActivityPresenter mPresenter;
     private DecorationCompanyListViewAdapter mCompanyListViewAdapter;
+    private BasePagerAdapter mPagerAdapter;
     @Override
     protected void initDatas() {
         mPresenter = new DecorationCompanyActivityPresenterImpl(this);
@@ -52,6 +65,9 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
     @Override
     protected void initViews() {
+        mLayoutInflater = LayoutInflater.from(this);
+        mSlideViewPager = (SlideViewPager) findViewById(R.id.viewpager_fragment_main);
+        mLinearLayout_dot = (LinearLayout) findViewById(R.id.ll_indicator_fragment_main);
 
     }
 
@@ -67,13 +83,13 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.back_activity_decoration_company, R.id.viewpager_fragment_main, R.id.newhouse_decoration_activity_decoration, R.id.oldhouse_decoration_activity_decoration, R.id.look_site_playing_decoration_activity_decoration, R.id.site_playing_decoration_activity_decoration, R.id.yiqi_group_decoration_activity_decoration})
+    @OnClick({R.id.back_activity_decoration_company, viewpager_fragment_main, R.id.newhouse_decoration_activity_decoration, R.id.oldhouse_decoration_activity_decoration, R.id.look_site_playing_decoration_activity_decoration, R.id.site_playing_decoration_activity_decoration, R.id.yiqi_group_decoration_activity_decoration})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back_activity_decoration_company:
 
                 break;
-            case R.id.viewpager_fragment_main:
+            case viewpager_fragment_main:
 
                 break;
             case R.id.newhouse_decoration_activity_decoration:
@@ -100,6 +116,11 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
     @Override
     public void showViewPager(ResponseDecorationCompanyActivityViewPager datas) {
+        mDotIndicator = new PagerDotIndicator(this,mLinearLayout_dot,mSlideViewPager);
+        mDotIndicator.setNumberDots(datas.getData().size());
+        mDotIndicator.setCurrentDot(0);
+        mPagerAdapter = new DecorationCompanyPagerAdapter(this,datas.getData());
+        mSlideViewPager.setAdapter(mPagerAdapter);
 
     }
 

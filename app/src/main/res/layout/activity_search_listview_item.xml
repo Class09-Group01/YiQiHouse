@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:frsco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/asli_userimg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            frsco:roundAsCircle="true"
+            frsco:fadeDuration="1000"
+            android:layout_marginRight="10dp"
+            />
+
+        <TextView
+            android:id="@+id/asli_phonetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="@string/asli_phonetext"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/asli_contenttext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:maxLines="2"
+        android:layout_marginRight="100dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:ellipsize="end"
+        android:layout_marginLeft="10dp"
+        android:text="@string/article_textview_content"
+        />
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/asli_contentimg"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/ColorGray"/>
+
+    <TextView
+        android:id="@+id/asli_fromtext"
+        android:layout_width="800dp"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:textSize="14sp"
+        android:textColor="@color/blue"
+        android:layout_marginLeft="10dp"
+        android:text="@string/article_post_form"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal">
+        
+        <TextView
+            android:id="@+id/asli_timetext"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textColor="@color/ColorGray"
+            android:textSize="14sp"
+            android:text="@string/article_textview_time"
+            android:layout_weight="7"
+            />
+
+        <TextView
+            android:id="@+id/asli_liketext"
+            style="@style/feps_item_text"
+            android:textColor="@color/ColorGray"
+            android:drawableLeft="@mipmap/ic_taochan_like"
+            />
+        <TextView
+            android:id="@+id/asli_chattext"
+            style="@style/feps_item_text"
+            android:textColor="@color/ColorGray"
+            android:drawableLeft="@mipmap/comment_pressed"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/article_share"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -101,24 +101,8 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(getItemViewType(position) == TYPE_FOOTER){
-           FootViewHolder mFootHolder = (FootViewHolder) holder;
-            switch (footer_type){
-                case FOORET_LOADING:
-                    mFootHolder.recycleFootFail.setVisibility(View.GONE);
-                    mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
-                    mFootHolder.recycleFootProgressBar.setVisibility(View.VISIBLE);
-                    break;
-                case FOOTER_FAIL:
-                    mFootHolder.recycleFootFail.setVisibility(View.VISIBLE);
-                    mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
-                    mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
-                    break;
-                case FOORET_NOMOREDATA:
-                    mFootHolder.recycleFootFail.setVisibility(View.GONE);
-                    mFootHolder.recycleFooNoMoreData.setVisibility(View.VISIBLE);
-                    mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
-                    break;
-            }
+            FootViewHolder mFootHolder = (FootViewHolder) holder;
+            footerStatue(mFootHolder,footer_type);
         }
     }
 
@@ -136,6 +120,31 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
 
     }
 
+
+    /***
+     * 设置底部状态的方法
+     * @param mFootHolder
+     * @param footer_type
+     */
+    public void footerStatue(FootViewHolder mFootHolder,int footer_type){
+        switch (footer_type){
+            case FOORET_LOADING:
+                mFootHolder.recycleFootFail.setVisibility(View.GONE);
+                mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
+                mFootHolder.recycleFootProgressBar.setVisibility(View.VISIBLE);
+                break;
+            case FOOTER_FAIL:
+                mFootHolder.recycleFootFail.setVisibility(View.VISIBLE);
+                mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
+                mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
+                break;
+            case FOORET_NOMOREDATA:
+                mFootHolder.recycleFootFail.setVisibility(View.GONE);
+                mFootHolder.recycleFooNoMoreData.setVisibility(View.VISIBLE);
+                mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
+                break;
+        }
+    }
 
     public class FootViewHolder extends RecyclerView.ViewHolder{
         @BindView(R.id.recycle_foot_nomoredata)

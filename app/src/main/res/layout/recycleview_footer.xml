@@ -11,6 +11,7 @@
         android:text="@string/recycle_foot_nomoredata"
         android:textColor="@color/colorGreen"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         />
 
     <TextView
@@ -20,6 +21,7 @@
         android:text="@string/recycle_foot_fail"
         android:textColor="@color/colorGreen"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         />
 
     <ProgressBar
@@ -27,7 +29,8 @@
         style="?android:attr/progressBarStyleSmall"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        />
 
 
 </RelativeLayout>

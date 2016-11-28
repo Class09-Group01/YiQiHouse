@@ -20,6 +20,7 @@
         <item name="android:textColor">@color/main_bottom_text_color</item>
     </style>
 
+    <!--这里冲突 改为paddingLeft:20dp  paddingRight:20dp-->
     <style name="fepb">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">0dp</item>
@@ -28,8 +29,8 @@
         <item name="android:textSize">14sp</item>
         <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/fepb_text</item>
-        <item name="android:paddingLeft">30dp</item>
-        <item name="android:paddingRight">30dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
         <item name="android:drawableRight">@drawable/arrow_pic_tab</item>
     </style>
 

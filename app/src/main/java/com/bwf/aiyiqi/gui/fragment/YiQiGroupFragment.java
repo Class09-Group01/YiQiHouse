@@ -9,7 +9,7 @@ public class YiQiGroupFragment extends BaseFragment{
 
     public static Fragment newInstance(int i) {
 
-        return new YiQiGroupFragment();
+        return null;
     }
 
     @Override

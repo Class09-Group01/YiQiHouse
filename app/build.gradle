@@ -35,6 +35,6 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.alibaba:fastjson:1.2.18'
     compile project(':lib-zxing')
-
     compile 'com.alibaba:fastjson:1.2.21'
+    compile 'com.ogaclejapan.smarttablayout:library:1.6.1'
 }

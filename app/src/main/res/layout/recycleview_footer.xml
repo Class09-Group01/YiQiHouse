@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="60dp">
+    
+    <TextView
+        android:id="@+id/recycle_foot_nomoredata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recycle_foot_nomoredata"
+        android:textColor="@color/colorGreen"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/recycle_foot_fail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recycle_foot_fail"
+        android:textColor="@color/colorGreen"
+        android:layout_centerInParent="true"
+        />
+
+    <ProgressBar
+        android:id="@+id/recycle_foot_progressBar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true" />
+
+
+</RelativeLayout>

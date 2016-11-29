@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 
@@ -61,7 +60,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.activity_login_button_loginOrRegister:
 //                Toast.makeText(this,"此功能暂未开放",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this,ZiZhuXiaDanActivity.class));
+                startActivity(new Intent(LoginActivity.this,SelfOrderActivity.class));
                 break;
 
         }

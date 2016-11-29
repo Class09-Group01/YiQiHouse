@@ -54,4 +54,29 @@
     <string name="fragment_my_setting">设置</string>
     <string name="fragment_my_feedback">意见反馈</string>
     <string name="integral_rules">积分规则</string>
+    <string name="recycle_foot_nomoredata">没有更多数据了~</string>
+    <string name="recycle_foot_fail">加载失败~</string>
+    <string name="decorate_company">装修公司</string>
+    <string name="new_price">677元/㎡</string>
+    <string name="new_house_decoration">新房整装</string>
+    <string name="old_house_decoration">老房整装</string>
+    <string name="old_price">677+117元/㎡</string>
+    <string name="look_site_playing">看现场</string>
+    <string name="site_playing">工地直播</string>
+    <string name="yiqi_group">一起团队</string>
+    <string name="decorate_playing">装修直播</string>
+    <string name="decoration_precess">装修进度</string>
+    <string name="order">我要预约</string>
+    <string name="answer">在线答疑</string>
+
+
+    <string name="fepb_space">空间</string>
+    <string name="fepb_style">风格</string>
+    <string name="fepb_color">颜色</string>
+    <string name="fepb_local">局部</string>
+    <string name="end_date">报名截止日期:</string>
+
+    <string name="school_recycleview_fooder_text_nomoredata">没有更多数据了</string>
+    <string name="feps_item_textcontent">图片简介</string>
+    <string name="feps_item_des">描述</string>
 </resources>

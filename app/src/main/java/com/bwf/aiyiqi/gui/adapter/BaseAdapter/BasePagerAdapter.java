@@ -2,10 +2,9 @@ package com.bwf.aiyiqi.gui.adapter.BaseAdapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,24 +14,21 @@ import java.util.List;
  */
 
 public abstract class BasePagerAdapter<T> extends PagerAdapter {
-    private Context mContext;
-    private List<T> datas;
-    private List<SimpleDraweeView> images ;
+    public Context mContext;
+    public List<T> datas;
+    public List<View> mViews;
+    public LayoutInflater mLayoutInflater;
 
     public BasePagerAdapter(Context context, List<T> datas) {
         this.mContext = context;
-        if(datas == null || datas.size() == 0){
-            this.datas = new ArrayList<>();
-        }else{
-            this.datas = datas;
-        }
-        images = new ArrayList<SimpleDraweeView>();
-
+        this.mLayoutInflater = LayoutInflater.from(context);
+        mViews = new ArrayList<>();
+        this.datas = new ArrayList<>();
     }
 
     @Override
     public int getCount() {
-        return datas.size();
+        return mViews.size();
     }
 
     @Override
@@ -42,13 +38,13 @@ public abstract class BasePagerAdapter<T> extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(images.get(position));
-        return images.get(position);
+        container.addView(mViews.get(position));
+        return mViews.get(position);
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(images.get(position));
+        container.removeView(mViews.get(position%mViews.size()));
     }
 
 }

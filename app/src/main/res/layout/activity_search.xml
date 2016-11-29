@@ -37,6 +37,18 @@
         android:layout_height="1dp"
         android:background="@color/ColorGray"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
+        <ImageView
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search_more_new"/>
+
+    </RelativeLayout>
 
 </LinearLayout>

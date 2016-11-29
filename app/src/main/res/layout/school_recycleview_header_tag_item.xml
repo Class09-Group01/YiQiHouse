@@ -11,6 +11,5 @@
              android:textSize="13sp"
              android:textColor="@color/black"
              android:button="@null"
-             android:checked="false"
 
     />

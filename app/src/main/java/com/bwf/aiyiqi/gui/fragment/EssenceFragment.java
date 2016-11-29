@@ -51,7 +51,7 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView{
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mEssenceFragmenatRecycleview.setLayoutManager(mLayoutManager);
         mAdapter=new EssenceFragmentAdapter(getActivity());
-        mEssenceFragmenatRecycleview.setAdapter(mAdapter);
+//        mEssenceFragmenatRecycleview.setAdapter(mAdapter);
     }
     public void loadData(){
         mPresenter.loadEssenceSayPresenter();

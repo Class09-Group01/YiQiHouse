@@ -95,21 +95,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                     RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
                     lp.setMargins(15,0,0,0);//设置边距
-                    radioButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mGetNewsStage.getNewsStage(v);
-                            radioButton.setChecked(true);
-                            lastIndex= (int) radioButton.getTag();
-                        }
-                    });
                     headerViewHolder.mLlItemSchoolEnter.addView(radioButton,lp);
-//                    headerViewHolder.mLlItemSchoolEnter.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//                        @Override
-//                        public void onCheckedChanged(RadioGroup group, int checkedId) {
-//
-//                        }
-//                    });
                 }
             }
             for (int i = 0; i < headerViewHolder.mLlItemSchoolEnter.getChildCount(); i++) {
@@ -120,6 +106,15 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 } else {
                     radioButton.setText(list.get(i - 1));
                 }
+
+               radioButton.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       mGetNewsStage.getNewsStage(v);
+                   }
+               });
+
+
             }
             return;
         }

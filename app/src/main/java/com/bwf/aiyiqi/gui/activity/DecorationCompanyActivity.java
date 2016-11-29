@@ -66,7 +66,6 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     @Override
     protected void initViews() {
         mLayoutInflater = LayoutInflater.from(this);
-        mSlideViewPager = (SlideViewPager) findViewById(R.id.viewpager_fragment_main);
         mLinearLayout_dot = (LinearLayout) findViewById(R.id.ll_indicator_fragment_main);
 
     }
@@ -109,7 +108,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
                 break;
             case R.id.yiqi_group_decoration_activity_decoration:
-
+                startActivity(new Intent(this,YiQiGroupActivity.class));
                 break;
         }
     }

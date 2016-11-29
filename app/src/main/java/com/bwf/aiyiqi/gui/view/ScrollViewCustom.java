@@ -37,4 +37,20 @@ public class ScrollViewCustom extends ScrollView {
     public interface OnMyScrollChangedListener{
         void onMyScrollChanged(int x, int y, int oldX, int oldY);
     }
+
+//    public void setIntercept(boolean intercept) {
+//        isIntercept = intercept;
+//    }
+//    private boolean isIntercept;
+//
+//    @Override
+//    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        if (isIntercept){
+//            return true;
+//        }else{
+//            return false;
+////            return super.onInterceptTouchEvent(ev);
+//        }
+//
+//    }
 }

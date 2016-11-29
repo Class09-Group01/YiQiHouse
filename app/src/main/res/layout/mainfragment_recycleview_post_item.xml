@@ -3,7 +3,9 @@
     xmlns:frsco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
     android:background="@android:color/white"
     android:orientation="vertical">
 
@@ -32,7 +34,7 @@
             android:layout_toRightOf="@+id/mf_recycleview_post_image"
             android:text="@string/post_textview_name"
             android:textColor="@color/black"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/mf_recycleview_post_textview_time"
@@ -43,7 +45,7 @@
             android:layout_toRightOf="@+id/mf_recycleview_post_image"
             android:text="@string/post_textview_time"
             android:textColor="@color/ColorGray"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
             <!--冲突 改为：  android:textSize="16sp"  -->
 
         <LinearLayout
@@ -64,11 +66,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="@string/post_textview_add_attention"
                 android:textSize="14sp"/>
         </LinearLayout>
     </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/mf_recycleview_post_text_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_marginLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:text="@string/article_textview_content"/>
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/mf_recycleview_post_image_content"

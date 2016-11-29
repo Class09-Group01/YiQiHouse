@@ -67,6 +67,18 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_search_more_new"/>
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/activity_search_nosearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_marginTop="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_no_search"/>
+    </RelativeLayout>
     <ListView
         android:id="@+id/activity_search_listview"
         android:layout_width="match_parent"

@@ -2,18 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="330dp">
+              android:layout_height="wrap_content">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_item_listview_city_active"
         android:layout_width="match_parent"
-        android:layout_height="300dp"/>
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:gravity="center_vertical">
         <ImageView
             android:layout_width="wrap_content"
@@ -23,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end_date"
+            android:textSize="15sp"
             android:paddingLeft="10dp"/>
 
     </LinearLayout>

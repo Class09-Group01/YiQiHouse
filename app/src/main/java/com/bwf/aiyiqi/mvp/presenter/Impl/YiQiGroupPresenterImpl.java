@@ -23,24 +23,24 @@ public class YiQiGroupPresenterImpl implements YiQiGroupPresenter {
         this.mYiQiGroupModel = new YiQiGroupModelImpl();
     }
 
-
     @Override
     public void loadNextPage(String type) {
-        if(type != currentType && nextPage != 0){
-            nextPage = 0;
+//        if(type.equals(currentType) && nextPage != 0){
+//            nextPage = 0;
 //            lastType = type;
-        }
+//        }
         mYiQiGroupModel.loadDatas(type, nextPage, new YiQiGroupModel.Callback() {
             @Override
             public void loadDatasSuccess(ResponseYiQiGroup datas) {
-                mYiQiGroupView.showGridView(datas);
                 nextPage++;
+                mYiQiGroupView.showGridView(datas);
             }
-
             @Override
             public void loadDatasFailed() {
                 mYiQiGroupView.showLoadFailed();
+                nextPage--;
             }
         });
+        nextPage++;
     }
 }

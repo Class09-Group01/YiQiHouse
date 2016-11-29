@@ -4,13 +4,14 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
-    android:layout_marginBottom="10.0dip">
+              android:background="#ffffff"
+              android:layout_marginBottom="10.0dip">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_yiqigroup_activity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="180dp"
         fresco:roundedCornerRadius="1.0dp"
-        fresco:actualImageScaleType="fitXY"
+        fresco:actualImageScaleType="centerCrop"
         fresco:viewAspectRatio="1.33"
         android:layout_centerInParent="true"/>
     <LinearLayout
@@ -36,12 +37,14 @@
 
     <RatingBar
         android:id="@+id/ratingbar_rating_yiqiqroup"
+        style="@style/MyRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10.0dp"
+        android:layout_marginTop="10.0dip"
+        android:layout_marginBottom="10.0dip"
+        android:layout_marginLeft="15.0dip"
         android:isIndicator="true"
         android:stepSize="0.05"
         android:rating="5"
-        android:numStars="5"
-        android:layout_marginLeft="15.0dip"/>
+        android:numStars="5"/>
 </LinearLayout>

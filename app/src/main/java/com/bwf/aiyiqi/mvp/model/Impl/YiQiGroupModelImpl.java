@@ -18,6 +18,7 @@ import okhttp3.Call;
 public class YiQiGroupModelImpl implements YiQiGroupModel {
     @Override
     public void loadDatas(String type, int pageNo, final Callback callback) {
+        Log.d("YiQiGroupModelImpl", "pageNo:" + pageNo);
         OkHttpUtils.post()
                 .url(APIs.API_YIQIGROUP)
                 .addParams("token","DAB088BA50C9405E84C789055D657614")

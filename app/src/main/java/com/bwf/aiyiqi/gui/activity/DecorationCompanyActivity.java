@@ -109,7 +109,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
                 break;
             case R.id.yiqi_group_decoration_activity_decoration:
-
+                startActivity(new Intent(this,YiQiGroupActivity.class));
                 break;
         }
     }

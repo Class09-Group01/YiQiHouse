@@ -44,6 +44,7 @@
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
         <activity android:name=".gui.activity.EffectPictureActivity"/>
         <activity android:name=".gui.activity.DecorateBudgetActivity"/>
+        <activity android:name=".gui.activity.PostDetailActivity" />
 
     </application>
 

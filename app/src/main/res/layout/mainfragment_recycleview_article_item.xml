@@ -3,8 +3,10 @@
     xmlns:frsco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
     android:background="@android:color/white"
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
     android:orientation="vertical">
 
     <LinearLayout
@@ -41,6 +43,8 @@
             android:layout_marginLeft="10dp"
             android:text="@string/article_textview_content"
             android:textColor="@color/black"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textSize="18sp" />
     </LinearLayout>
 

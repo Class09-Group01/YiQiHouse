@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +16,8 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
-import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
+import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
@@ -27,6 +26,7 @@ import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.PagerDotIndicator;
+import com.bwf.aiyiqi.gui.view.RecycleViewCustom;
 import com.bwf.aiyiqi.gui.view.SlideViewPager;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentRecyclePresenterImpl;
@@ -41,14 +41,13 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 //import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
+
 /**
  * Created by bobo on 2016/11/23.
  */
 
 
-
-
-public class HomeFragment extends BaseFragment implements MainFragmentImage,MainFragmentRecycleView {
+public class HomeFragment extends BaseFragment implements MainFragmentImage, MainFragmentRecycleView {
 
 
     @BindView(R.id.fragment_home_title_bar_scan)
@@ -60,7 +59,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     @BindView(R.id.reflush)
     MaterialRefreshLayout reflush;
     @BindView(R.id.activity_home_recycleview)
-    RecyclerView activityHomeRecycleview;
+    RecycleViewCustom activityHomeRecycleview;
 
     private LinearLayout mLinearLayout_dot;
     private SlideViewPager mSlideViewPager;
@@ -81,44 +80,45 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initViews();
-        mFragmentImagePresenter=new MainFragmentImagePresenterImpl(this);
+        mFragmentImagePresenter = new MainFragmentImagePresenterImpl(this);
         mFragmentImagePresenter.load();
-
-
 
         //进入后自动刷新，首次加载
         mRecyclePresenter = new MainFragmentRecyclePresenterImpl(this);
         mRecyclePresenter.loadRecycleData();
 
-
         //设置Recycleview的布局管理，以及adapter 必须设置，否则空白
         final LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        //解决scrollview 里面嵌套 Recycleview 滚动卡的问题配置
+//        manager.setSmoothScrollbarEnabled(true);
+//        manager.setAutoMeasureEnabled(true);
+//        activityHomeRecycleview.setHasFixedSize(true);
+//        activityHomeRecycleview.setNestedScrollingEnabled(false);
+
 
         mRecycleAdapter = new MainFragmentRecycleAdapter(getActivity());
         activityHomeRecycleview.setAdapter(mRecycleAdapter);
         activityHomeRecycleview.setLayoutManager(manager);
 
+
+        //启动上拉加载更多 ，需要手动启动否则不生效
+        reflush.setLoadMore(true);
         //设置下拉刷新监听
         reflush.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
                 //每次只加载第一页
+                //设置下拉刷新监听
                 mRecycleAdapter.clearData();
                 mRecyclePresenter.loadReflresh();
             }
-        });
-        //设置上拉加载更多
-        activityHomeRecycleview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
             @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (manager.findLastVisibleItemPosition() == manager.getItemCount() -1){
-                    if (isNoMoreData)return; //已经没有更多数据了，就不在加载下一页了
-                    if(!isLoading){
-//                        mRecyclePresenter.loadRecycleData();
-                        isLoading = true;
-                    }
-                }
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                //设置上拉加载更多
+                mRecyclePresenter.loadRecycleData();
             }
         });
     }
@@ -141,6 +141,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     public void showRecycleSuccess(ResponseMainFragmentRecycleviewData data) {
         isLoading = false;//已经加载完成
         reflush.finishRefresh();
+        reflush.finishRefreshLoadMore();
         mRecycleAdapter.addData(data.getData());
         Toast.makeText(getActivity(), "data.getData().size():" + data.getData().size(), Toast.LENGTH_SHORT).show();
 
@@ -152,7 +153,9 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     public void showRecycleFail() {
         isLoading = false;//已经加载完成
         Toast.makeText(getActivity(), "fail", Toast.LENGTH_SHORT).show();
-        reflush.finishRefresh();
+//        reflush.finishRefresh();
+//        reflush.finishRefreshLoadMore();
+
 
         //刷新一下当前底部的状态 -- FOOTER_FAIL
         updateFooterState(mRecycleAdapter.FOOTER_FAIL);
@@ -164,17 +167,17 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
         isNoMoreData = true;//没有更多数据了
         Toast.makeText(getActivity(), "nodata", Toast.LENGTH_SHORT).show();
         reflush.finishRefresh();
+        reflush.finishRefreshLoadMore();
 
         //刷新一下当前底部的状态 -- FOORET_NOMOREDATA
         updateFooterState(mRecycleAdapter.FOORET_NOMOREDATA);
     }
 
     //更新底部的当前状态
-    public void updateFooterState(int foot_style){
+    public void updateFooterState(int foot_style) {
         mRecycleAdapter.setFooter_type(foot_style);
-        mRecycleAdapter.notifyItemChanged(mRecycleAdapter.getItemCount()-1);
+        mRecycleAdapter.notifyItemChanged(mRecycleAdapter.getItemCount() - 1);
     }
-
 
 
     @OnClick({R.id.fragment_home_title_bar_scan, R.id.fragment_home_title_bar_search,
@@ -219,13 +222,12 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage,Main
     }
 
 
-
     @Override
     public void showMainFragmentViewPagerImage(ResponseMainFragmentViewPagerDatas datas) {
-        mDotIndicator = new PagerDotIndicator(getActivity(),mLinearLayout_dot,mSlideViewPager);
+        mDotIndicator = new PagerDotIndicator(getActivity(), mLinearLayout_dot, mSlideViewPager);
         mDotIndicator.setNumberDots(datas.getData().size());
         mDotIndicator.setCurrentDot(0);
-        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(),datas.getData());
+        mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(), datas.getData());
         mSlideViewPager.setAdapter(mPagerAdapter);
     }
 

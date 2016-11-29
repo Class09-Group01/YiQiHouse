@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
+import com.bwf.aiyiqi.framwork.tool.Contact;
 import com.bwf.aiyiqi.gui.fragment.DecorateSchoolListFragment;
 
 import java.util.ArrayList;
@@ -18,12 +19,10 @@ import java.util.List;
 
 public class TabFragmentPagerAdapter extends FragmentPagerAdapter{
     private List<Fragment> mFragments;
-    private String tab[]={"验房收房","装修公司","量房设计","辅材选购","主材选购","家居选购","装修合同","主体拆迁",
-    "水电改造","防水处理","木土工程","瓦工工程","油工工程","主材安装","竣工验收","软装配饰","居家生活"};
     public TabFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
         mFragments=new ArrayList<>();
-        for (int i = 0; i <tab.length ; i++) {
+        for (int i = 0; i < Contact.tab.length ; i++) {
             mFragments.add(DecorateSchoolListFragment.newInstance(i+1));
         }
     }
@@ -45,6 +44,6 @@ public class TabFragmentPagerAdapter extends FragmentPagerAdapter{
     }
     @Override
     public CharSequence getPageTitle(int position) {
-        return tab[position];
+        return Contact.tab[position];
     }
 }

@@ -61,4 +61,6 @@ public interface APIs {
     //业主说 最新的地址
     String SAY_RECENTER_URL="http://bbs.17house.com/motnt/index.php?";
 
+    //帖子详情
+    String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
 }

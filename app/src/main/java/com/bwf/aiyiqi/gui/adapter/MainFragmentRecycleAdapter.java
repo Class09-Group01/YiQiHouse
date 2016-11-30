@@ -100,14 +100,14 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             }else{
                 cardViewHolder.mfRecycleviewPostImageContent.setVisibility(View.GONE);
             }
-
             //TODO
-            cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getTitle());
+            cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getAuthor());
             cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAvtUrl()));
             cardViewHolder.mfRecycleviewPostTextviewTime.setText(dataBean.getDateline());
             cardViewHolder.mfRecycleviewPostComments.setText(dataBean.getReplies()+"");
             cardViewHolder.mfRecycleviewArticleConcern.setText(dataBean.getLike_num()+"");
             cardViewHolder.mfRecycleviewPostForm.setText(dataBean.getForum().getName());
+            cardViewHolder.mfRecycleviewPostTextContent.setText(dataBean.getTitle());
         }
 
     }
@@ -131,6 +131,14 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         NewsViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO 跳转详情页面
+                    Log.d("MainFragmentRecycleAdap", "position:" + getAdapterPosition());
+                }
+            });
         }
     }
 
@@ -155,10 +163,23 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         ImageView mfRecycleviewPostCommentsImage;
         @BindView(R.id.mf_recycleview_post_comments)
         TextView mfRecycleviewPostComments;
+        @BindView(R.id.mf_recycleview_post_text_content)
+        TextView mfRecycleviewPostTextContent;
 
         CardViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO 跳转详情页面
+                    Log.d("MainFragmentRecycleAdap", "position:" + getAdapterPosition());
+                }
+            });
         }
     }
+
+
+
+
 }

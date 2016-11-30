@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -22,6 +23,8 @@ import butterknife.ButterKnife;
 public class RecentFragment extends BaseFragment {
     @BindView(R.id.essence_fragmenat_recycleview)
     RecyclerView mEssenceFragmenatRecycleview;
+    @BindView(R.id.essence_fragmenat_refresh)
+    CustomRefreshLayout mEssenceFragmenatRefresh;
     private LinearLayoutManager mLayoutManager;
 
     @Override
@@ -35,12 +38,14 @@ public class RecentFragment extends BaseFragment {
         init();
         loadData();
     }
-    public void init(){
-        mLayoutManager=new LinearLayoutManager(getActivity());
+
+    public void init() {
+        mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mEssenceFragmenatRecycleview.setLayoutManager(mLayoutManager);
     }
-    public void loadData(){
+
+    public void loadData() {
 
     }
 

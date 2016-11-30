@@ -39,6 +39,7 @@
         <activity android:name=".gui.activity.DecorationCompanyActivity"/>
         <activity android:name=".gui.activity.HouseDecorationActivity"/>
         <activity android:name=".gui.activity.CityActiveActivity"/>
+        <activity android:name=".gui.activity.YiQiGroupActivity"/>
         <activity
             android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
@@ -50,6 +51,7 @@
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
         <activity android:name=".gui.activity.EffectPictureActivity"/>
         <activity android:name=".gui.activity.DecorateBudgetActivity"/>
+        <activity android:name=".gui.activity.PostDetailActivity" />
 
     </application>
 

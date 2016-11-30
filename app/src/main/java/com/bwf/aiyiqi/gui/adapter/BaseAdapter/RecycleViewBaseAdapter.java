@@ -22,9 +22,9 @@ import butterknife.ButterKnife;
  */
 
 public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private final int TYPE_CONTENT = 0;
-    private final int TYPE_HEADER = 10;
-    private final int TYPE_FOOTER = 20;
+    public final int TYPE_CONTENT = 0;
+    public final int TYPE_HEADER = 10;
+    public final int TYPE_FOOTER = 20;
 
 
     public final int FOOTER_FAIL = -1;
@@ -36,10 +36,12 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
     public LayoutInflater inflater;
 
     private int footer_type;
+    public Context mContext;
 
     public RecycleViewBaseAdapter(Context context) {
         this.data = new ArrayList<>();
         this.inflater = LayoutInflater.from(context);
+        this.mContext=context;
     }
 
     public abstract int getHeaderCount();

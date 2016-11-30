@@ -43,4 +43,9 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:layout_weight">2</item>
     </style>
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar">
+        <item name="android:maxHeight">15.0dip</item>
+        <item name="android:minHeight">15.0dip</item>
+        <item name="android:progressDrawable">@drawable/lib_style_ratingbar_drawable</item>
+    </style>
 </resources>

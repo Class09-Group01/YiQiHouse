@@ -56,5 +56,6 @@
 
     <string name="asli_phonetext">电话号</string>
     <string name="jindu">装修进度</string>
+    <string name="textview_review_number">回贴</string>
 
 </resources>

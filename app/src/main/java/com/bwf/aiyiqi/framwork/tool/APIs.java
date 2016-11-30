@@ -59,4 +59,6 @@ public interface APIs {
     //工地直播 --》评论晒图
     String API_SITELIVE_COMMENTS = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteTrackByProgress";
 
+    //帖子详情
+    String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
 }

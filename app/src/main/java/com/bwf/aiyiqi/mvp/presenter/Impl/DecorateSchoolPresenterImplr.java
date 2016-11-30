@@ -17,7 +17,7 @@ public class DecorateSchoolPresenterImplr implements DecorateSchoolPresenter {
     private DecorateSchoolView mView;
     private int stageTag;
     private int stageNews;
-    private int page=0;
+    private int page;
     private int pageSize=10;
 
 

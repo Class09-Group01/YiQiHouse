@@ -51,6 +51,11 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
             if (!isLoading && mLayoutManager.findLastVisibleItemPosition() == mLayoutManager.getItemCount() - 1) {
                 loadNextData();
             }
+            if(mLayoutManager.findFirstVisibleItemPosition()==0){
+                mEssenceFragmenatRefresh.setCanPull(true);
+            }else {
+                mEssenceFragmenatRefresh.setCanPull(false);//设置后不拦截recycleview的滑动
+            }
         }
     };
 
@@ -75,7 +80,6 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
         mAdapter = new EssenceFragmentAdapter(getActivity());
         mEssenceFragmenatRecycleview.setAdapter(mAdapter);
         mAdapter.setItemOnClickListener(this);
-        mEssenceFragmenatRefresh.setCanPull(false);//设置后不拦截recycleview的滑动
         mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {

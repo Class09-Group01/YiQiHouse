@@ -7,5 +7,5 @@ package com.bwf.aiyiqi.mvp.presenter;
  */
 
 public interface RecenterSayPresenter {
-    void loadRecenterSayPresenter();
+    void loadRecenterSayPresenter(String cityName,String lastCityName);
 }

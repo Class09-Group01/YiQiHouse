@@ -18,9 +18,20 @@ import okhttp3.Call;
 
 public class RecenterSayModelImple implements RecenterSayModel {
     @Override
-    public void loadRecenterSay(String url, final CallBack callBack) {
+    public void loadRecenterSay(String url,String cityName,int page, final CallBack callBack) {
         OkHttpUtils.get()
                 .url(url)
+                .addParams("a","allThread")
+                .addParams("c","forumThreadList")
+                .addParams("uuid","86305803367590")
+                .addParams("pageSize","10")
+                .addParams("cityName",cityName)
+                .addParams("m","forum")
+                .addParams("page",page+"")
+                .addParams("haspermission","yes")
+                .addParams("model","android")
+                .addParams("sessionToken","")
+                .addParams("app version","android com.aiyiqi.galaxy 1.1")
                 .build()
                 .execute(new StringCallback() {
                     @Override

@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 
 import com.bwf.aiyiqi.R;
-import com.bwf.aiyiqi.gui.fragment.YiQiGroupFragment;
+import com.bwf.aiyiqi.gui.fragment.YiQiGroupFragmentDesign;
+import com.bwf.aiyiqi.gui.fragment.YiQiGroupFragmentHeadman;
+import com.bwf.aiyiqi.gui.fragment.YiQiGroupFragmentSupervision;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter;
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
@@ -32,9 +34,9 @@ public class YiQiGroupActivity extends BaseActivity implements ViewPager.OnPageC
     protected void initViews() {
         ButterKnife.bind(this);
         FragmentPagerItems.Creator creator = FragmentPagerItems.with(this);
-        creator.add("设计师", YiQiGroupFragment.class)
-                .add("工长",YiQiGroupFragment.class)
-                .add("监理",YiQiGroupFragment.class);
+        creator.add("设计师", YiQiGroupFragmentDesign.class)
+                .add("工长",YiQiGroupFragmentHeadman.class)
+                .add("监理",YiQiGroupFragmentSupervision.class);
         itemAdapter = new FragmentPagerItemAdapter(getSupportFragmentManager(),creator.create());
         mViewpager.setAdapter(itemAdapter);
         mTablayout.setViewPager(mViewpager);

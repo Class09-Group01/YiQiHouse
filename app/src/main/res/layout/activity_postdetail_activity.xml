@@ -122,6 +122,17 @@
                     android:text="@string/article_textview_time"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_detail_postdetail_activity"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"/>
+            <cn.lankton.flowlayout.FlowLayout
+                android:id="@+id/flowlayout_tag_postdetail_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"/>
         </LinearLayout>
 
     </ScrollView>

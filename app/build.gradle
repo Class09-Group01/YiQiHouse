@@ -38,4 +38,5 @@ dependencies {
     compile 'com.alibaba:fastjson:1.2.21'
     compile 'com.ogaclejapan.smarttablayout:library:1.6.1'
     compile 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1'
+    compile 'cn.lankton:flowlayout:1.+'
 }

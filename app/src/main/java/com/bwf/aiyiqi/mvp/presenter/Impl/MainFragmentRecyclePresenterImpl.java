@@ -19,6 +19,7 @@ public class MainFragmentRecyclePresenterImpl implements MainFragmentRecyclePres
     private MainFragmentRecycleModel model;
     private MainFragmentRecycleView view;
     private Map<String,String> map;
+    private Map<String,String> myMap;
 
     private int page = 1;
     private int lastType;
@@ -28,16 +29,32 @@ public class MainFragmentRecyclePresenterImpl implements MainFragmentRecyclePres
         this.model = new MainFragmentRecycleModel();
         this.view = view;
         map = new HashMap<>();
-        map.put("page",page+"");
+        myMap = new HashMap<>();
+        myMap.put("a","appindex");
+        myMap.put("c","index");
+        myMap.put("uuid","86305803367590");
+        myMap.put("uid","1633055");
+        myMap.put("m","misc");
+        myMap.put("haspermission","yes");
+        myMap.put("model","android");
+        myMap.put("sessionToken","6U49kCYKE260RqvPqEdFsBGskNQStKhm");
+        myMap.put("app_version","android_com.aiyiqi.galaxy_1.1");
+
+        //加载第一页时候的配置
+        setMap(-1,"");
     }
 
     public void setMap(int lastType,String lastId){
         map.clear();
+        map.putAll(myMap);
         map.put("page",page+"");
         if(page > 1){
             map.put("type",lastType+"");
             map.put("id",lastId);
             Log.d("MainFragmentRecyclePres", "lastId:"+lastId+"  lastType:"+lastType +"page:"+page);
+        }else{
+            map.put("type","3");
+            map.put("id","1218226");
         }
     }
 

@@ -19,15 +19,13 @@ import java.util.List;
 
 public class MainFragmentPagerAdapter<T> extends BasePagerAdapter implements View.OnClickListener {
     private List<ResponseMainFragmentViewPagerDatas.DataBean> datas;
-
     public MainFragmentPagerAdapter(Context context, List<ResponseMainFragmentViewPagerDatas.DataBean> datas) {
         super(context,datas);
-        if(datas == null || datas.size() == 0){
+        if(this.datas == null){
             this.datas = new ArrayList<>();
-        }else{
-            this.datas = datas;
         }
-        for (int i = 0; i < datas.size(); i++) {
+        this.datas.addAll(datas);
+        for (int i = 0; i < this.datas.size(); i++) {
             View view = mLayoutInflater.inflate(R.layout.viewpager_slide_image,null);
             view.setTag(view.findViewById(R.id.image_main_fragment_viewpager));
             mViews.add(view);

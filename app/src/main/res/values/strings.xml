@@ -79,4 +79,5 @@
     <string name="school_recycleview_fooder_text_nomoredata">没有更多数据了</string>
     <string name="feps_item_textcontent">图片简介</string>
     <string name="feps_item_des">描述</string>
+    <string name="asli_phonetext">电话号</string>
 </resources>

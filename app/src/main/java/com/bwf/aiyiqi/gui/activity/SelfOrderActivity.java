@@ -2,16 +2,25 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseSelfOrderDatas;
+import com.bwf.aiyiqi.gui.adapter.SelfOrderPagerAdapter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.SelfOrderActivityPresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.SelfOrderActivityPresenter;
 import com.bwf.aiyiqi.mvp.view.SelfOrderActivityView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/11/25.
@@ -20,33 +29,37 @@ import com.bwf.aiyiqi.mvp.view.SelfOrderActivityView;
 public class SelfOrderActivity extends BaseActivity implements SelfOrderActivityView, View.OnClickListener {
     private TabLayout selfOder_TabLayout;
     private ViewPager selfOrder_ViewPager;
-    private String[] selfOrder_titles;
-
+    private List<String> selfOrder_list;
+    private SelfOrderPagerAdapter selfOrderPagerAdapter;
     private RelativeLayout selfOrder_ensure;
     private ImageView selforder_black;
+
 
     @Override
     protected void initDatas() {
         SelfOrderActivityPresenter presenter = new SelfOrderActivityPresenterImpl(this);
-
+        selfOrderPagerAdapter=new SelfOrderPagerAdapter(getSupportFragmentManager());
+        selfOrder_list=new ArrayList<>();
+        presenter.loadSelfOrderDatas();
     }
 
     @Override
     protected void initViews() {
-
-        selfOder_TabLayout = (TabLayout) findViewById(R.id.activity_selforder_tablayout);
-        for (int i = 0; i < selfOrder_titles.length; i++) {
-            selfOder_TabLayout.addTab(selfOder_TabLayout.newTab()
-                    .setText(selfOrder_titles[i]));
-        }
         selfOrder_ensure = (RelativeLayout) findViewById(R.id.activity_selforder_ensure);
         selforder_black = (ImageView) findViewById(R.id.activity_selforder_black);
+        selfOder_TabLayout = (TabLayout) findViewById(R.id.activity_selforder_tablayout);
+        selfOrder_ViewPager = (ViewPager) findViewById(R.id.activity_selforder_viewpager);
+
+        selfOder_TabLayout.setupWithViewPager(selfOrder_ViewPager);
+        selfOrder_ViewPager.setAdapter(selfOrderPagerAdapter);
 
         selfOrder_ensure.setOnClickListener(this);
         selforder_black.setOnClickListener(this);
 
-
     }
+
+
+
 
     @Override
     protected int getContentViewResId() {
@@ -56,16 +69,26 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
 
     @Override
     public void loadDatasSuccess(ResponseSelfOrderDatas responseSelfOrderDatas) {
-
+        List<ResponseSelfOrderDatas.DataBeanX> data = responseSelfOrderDatas.getData();
+        for (int i = 0; i < data.size(); i++) {
+            selfOrder_list.add(data.get(i).getName()) ;
+        }
+        Toast.makeText(this, data.get(0).getName(), Toast.LENGTH_SHORT).show();
+        selfOrderPagerAdapter.addTab(selfOrder_list);
+        Log.d("SelfOrderActivity", data.get(0).getName());
     }
 
     @Override
     public void loadDatasFeil() {
 
+
+
     }
 
     @Override
     public void loadNoMoreData() {
+
+
 
     }
 
@@ -75,8 +98,8 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
             case R.id.activity_selforder_black :
                 finish();
                 break;
-//           case R.;
-//                break;
+//          case R.;
+//              break;
         }
     }
 }

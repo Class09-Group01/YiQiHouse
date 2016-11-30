@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.mvp.model.Impl;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.entity.ResponseSelfOrderDatas;
@@ -21,9 +22,9 @@ public class SelfOrderActivityModelImpl implements SelfOrderActivityModel {
 
     @Override
     public void loadDatas(HashMap<String,String> map,final CallBack callBack) {
-        OkHttpUtils.post()
-                .url(APIs.API_ZIZHU_ACTIVTY)
-                .params(map)
+        OkHttpUtils.get()
+                .url(APIs.API_SELF_ORDER_ACTIVTY)
+//              .params(map)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -33,12 +34,14 @@ public class SelfOrderActivityModelImpl implements SelfOrderActivityModel {
 
                     @Override
                     public void onResponse(String response, int id) {
+                        Log.d("SelfOrderActivityModelI", response);
                         if(!TextUtils.isEmpty(response)){
                             ResponseSelfOrderDatas datas =
                                     JSON.parseObject(response,ResponseSelfOrderDatas.class);
                             if (datas != null){
                                 callBack.loadDataSuccess(datas);
                             }
+                            Log.d("SelfOrderActivityModelI", datas.getData().get(0).getName());
                         }
                     }
                 });

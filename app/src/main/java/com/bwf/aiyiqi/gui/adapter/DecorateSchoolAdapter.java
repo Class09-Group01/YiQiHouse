@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
@@ -34,6 +35,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     List<String> list;
     private LayoutInflater mInflater;
     private Context mContext;
+    private int lastIndex;
 
     public DecorateSchoolAdapter(Context context) {
         mContext = context;
@@ -41,6 +43,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         listBeen = new ArrayList<>();
         list = new ArrayList<>();
     }
+
     @Override
     public int getItemViewType(int position) {
         if (position == 0) {
@@ -51,6 +54,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
         return TYPE_CONTEXT;
     }
+
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == TYPE_HEADER) {
@@ -66,11 +70,16 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     public void setDatas(List<String> list) {
         this.list.clear();
-        this.list .addAll(list);
+        this.list.addAll(list);
         notifyItemChanged(0);
     }
 
     public void addData(List<ResponseDecorateSchoolNews.DataBean.ListBean> listBeen) {
+        this.listBeen.addAll(listBeen);
+        notifyDataSetChanged();
+    }
+    public void addNewData(List<ResponseDecorateSchoolNews.DataBean.ListBean> listBeen){
+        this.listBeen.clear();
         this.listBeen.addAll(listBeen);
         notifyDataSetChanged();
     }
@@ -81,37 +90,45 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
             if (headerViewHolder.mLlItemSchoolEnter.getChildCount() == 0) {
                 for (int i = 0; i < list.size() + 1; i++) {
-//                    final int x = i;
-                    View view = mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
-//                    view.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            getIdex(x + 1);
-//                        }
-//                    });
-                    headerViewHolder.mLlItemSchoolEnter.addView(view);
+                    final RadioButton radioButton = (RadioButton) mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
+                    radioButton.setTag(i+1);
+                    RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
+                    lp.setMargins(15,0,0,0);//设置边距
+                    headerViewHolder.mLlItemSchoolEnter.addView(radioButton,lp);
                 }
             }
             for (int i = 0; i < headerViewHolder.mLlItemSchoolEnter.getChildCount(); i++) {
-                TextView textView = (TextView) headerViewHolder.mLlItemSchoolEnter.getChildAt(i).findViewById(R.id.school_recycle_header_textview);
+                RadioButton radioButton = (RadioButton) headerViewHolder.mLlItemSchoolEnter.getChildAt(i).findViewById(R.id.school_recycle_header_textview);
                 if (i == 0) {
-                    textView.setText("全部");
-                }else{
-                    textView.setText(list.get(i));
+                    radioButton.setText("全部");
+                    radioButton.setChecked(true);
+                } else {
+                    radioButton.setText(list.get(i - 1));
                 }
+
+               radioButton.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       mGetNewsStage.getNewsStage(v);
+                   }
+               });
+
+
             }
             return;
         }
         if (position == getItemCount() - 1) {
             //TODO
             return;
-        }else{
+        } else {
             ContextViewHolder mContextViewHolder = (ContextViewHolder) holder;
             ResponseDecorateSchoolNews.DataBean.ListBean bean = listBeen.get(position - 1);
+            if(bean == null)return;
             mContextViewHolder.mDecorateschoolRecycleviewContextImage.setImageURI(Uri.parse(bean.getImage()));
             mContextViewHolder.mDecorateschoolRecycleviewContextTextview.setText(bean.getTitle());
-            mContextViewHolder.mMfRecycleviewSchoolConcern.setText(bean.getViewCount()+"");
-            mContextViewHolder.mSchoolRecycleContextItemCollection.setText(bean.getIsJump()+"");
+            mContextViewHolder.mMfRecycleviewSchoolConcern.setText(bean.getViewCount() + "");
+            mContextViewHolder.mSchoolRecycleContextItemCollection.setText(bean.getIsJump() + "");
             mContextViewHolder.mMfRecycleviewArticleComments.setText(bean.getReplies());
         }
     }
@@ -124,7 +141,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     static class HeaderViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.ll_item_school_enter)
-        LinearLayout mLlItemSchoolEnter;
+        RadioGroup mLlItemSchoolEnter;
 
         HeaderViewHolder(View view) {
             super(view);
@@ -160,15 +177,13 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
-    public int index;
 
-    public void getIdex(int index) {
-        this.index = index;
+    private GetNewsStage mGetNewsStage;
+    public interface GetNewsStage{
+         void getNewsStage(View v);
     }
-
-    //等着fragment调用
-    public int toFragment() {
-        return index;
+    public void getGetNewsStage(GetNewsStage mGetNewsStage){
+        this.mGetNewsStage=mGetNewsStage;
     }
 
 

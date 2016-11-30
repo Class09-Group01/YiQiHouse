@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.activity;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bwf.aiyiqi.R;
@@ -38,6 +39,14 @@ public class EffectPictureActivity extends BaseActivity {
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+
+        //返回键 back
+        activityEffectPictureBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

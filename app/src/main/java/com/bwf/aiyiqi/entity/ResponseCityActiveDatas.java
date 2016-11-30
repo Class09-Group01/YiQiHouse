@@ -120,7 +120,7 @@ public class ResponseCityActiveDatas {
             private String urls;
             private String groupon_urls;
             private String attachment;
-            private int starttimefrom;
+            private String starttimefrom;
             private long expiration;
             private String attachments;
             private int activityclose;
@@ -272,11 +272,11 @@ public class ResponseCityActiveDatas {
                 this.attachment = attachment;
             }
 
-            public int getStarttimefrom() {
+            public String getStarttimefrom() {
                 return starttimefrom;
             }
 
-            public void setStarttimefrom(int starttimefrom) {
+            public void setStarttimefrom(String starttimefrom) {
                 this.starttimefrom = starttimefrom;
             }
 

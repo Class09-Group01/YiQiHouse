@@ -19,15 +19,19 @@ import java.util.List;
 
 public class DecorationCompanyPagerAdapter extends BasePagerAdapter {
     private List<ResponseDecorationCompanyActivityViewPager.DataBean> datas;
+
     public DecorationCompanyPagerAdapter(Context context, List<ResponseDecorationCompanyActivityViewPager.DataBean> datas) {
         super(context, datas);
-        if(datas == null || datas.size() == 0){
+        if (this.datas == null) {
             this.datas = new ArrayList<>();
-        }else{
-            this.datas = datas;
         }
-        for (int i = 0; i < datas.size(); i++) {
-            View view = mLayoutInflater.inflate(R.layout.viewpager_slide_image,null);
+        if (datas.size() <= 2) {
+            this.datas.addAll(datas);
+            this.datas.addAll(datas);
+        }
+        this.datas.addAll(datas);
+        for (int i = 0; i < this.datas.size(); i++) {
+            View view = mLayoutInflater.inflate(R.layout.viewpager_slide_image, null);
             view.setTag(view.findViewById(R.id.image_main_fragment_viewpager));
             mViews.add(view);
             view.findViewById(R.id.image_main_fragment_viewpager).setTag(i);
@@ -36,10 +40,10 @@ public class DecorationCompanyPagerAdapter extends BasePagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View  view = (View) mViews.get(position % datas.size());
+        View view = (View) mViews.get(position % datas.size());
         container.addView(view);
         SimpleDraweeView imageView = (SimpleDraweeView) view.getTag();
-        imageView.setImageURI(Uri.parse(datas.get(position%mViews.size()).getImagesrc()));
+        imageView.setImageURI(Uri.parse(datas.get(position % mViews.size()).getImagesrc()));
         return view;
     }
 }

@@ -56,5 +56,9 @@
 
     <string name="asli_phonetext">电话号</string>
     <string name="jindu">装修进度</string>
+    <string name="plate_fragment_firsttitle">%1$s装修总论坛</string>
+    <string name="plate_fragment_secondetitle">装修选购区</string>
+    <string name="plate_fragment_thirdtitle">品牌热议区</string>
+    <string name="gridview_item_threadsnum">总贴：%1$s</string>
 
 </resources>

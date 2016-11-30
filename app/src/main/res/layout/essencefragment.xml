@@ -12,11 +12,21 @@
             android:id="@+id/essence_fragmenat_recycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-        <ImageView
-            android:id="@+id/essence_fragmenat_float_image"
+        <ImageButton
+            android:id="@+id/essence_fragmenat_button_normal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_gravity="bottom|right"
+            android:layout_margin="15dp"
+            android:src="@drawable/float_layer_menu_normal"/>
+        <ImageButton
+            android:id="@+id/essence_fragmenat_button_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="15dp"
+            android:visibility="gone"
+            android:src="@drawable/float_layer_menu_close"/>
     </FrameLayout>
 
 </com.bwf.aiyiqi.gui.view.CustomRefreshLayout>

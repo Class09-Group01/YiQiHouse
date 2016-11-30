@@ -63,4 +63,6 @@ public interface APIs {
 
     //帖子详情
     String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
+    //业主说 板块的地址
+    String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
 }

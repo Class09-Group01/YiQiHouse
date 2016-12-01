@@ -78,7 +78,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
         String tid = getIntent().getStringExtra("tid");
         mPresenter = new PostDetailPresenterImpl(this);
         adapter = new PostCommuniteListViewAdapter(this);
-//        mListviewPostCommunite.setAdapter(adapter);
+        mListviewPostCommunite.setAdapter(adapter);
         mPresenter.loadPostDetail(tid);
         mPresenter.loadPostZan(tid);
         mPresenter.loadPostCommunite(tid);
@@ -148,7 +148,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     public void showPostCommunite(ResponsePostCommunite postCommunite) {
         if (postCommunite.getData() != null) {
             mReviewNumber.setText("回帖 （"+postCommunite.getData().size()+")");
-//            adapter.addDatas(postCommunite.getData());
+            adapter.addDatas(postCommunite.getData());
         }
     }
 

@@ -86,7 +86,7 @@
         android:layout_alignTop="@+id/time_item_listview_post_review"
         android:background="@drawable/ic_more_comment"/>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_alignParentEnd="true"

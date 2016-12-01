@@ -63,6 +63,10 @@
     <string name="plate_fragment_secondetitle">装修选购区</string>
     <string name="plate_fragment_thirdtitle">品牌热议区</string>
     <string name="gridview_item_threadsnum">总贴：%1$s</string>
+    <string name="popupwindow_linearlayout1">发帖</string>
+    <string name="popupwindow_linearlayout2">晒单</string>
+    <string name="popupwindow_linearlayout3">日记</string>
+    <string name="popupwindow_linearlayout4">投诉/表演</string>
 
 
 </resources>

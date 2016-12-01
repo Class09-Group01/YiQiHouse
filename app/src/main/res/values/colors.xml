@@ -12,4 +12,6 @@
     <color name="colorGreen">#ff00a051</color>
     <color name="tabSelectedTextColor">#698B22</color>
     <color name="my_top_bg">#ff00a051</color>
+    <color name="colorWhiteLight">#00ffffff</color>
+    <color name="ColorGraylight">#e0ffffff</color>
 </resources>

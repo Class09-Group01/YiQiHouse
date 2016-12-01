@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:fresco="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/userimg_item_listview_post_review"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/article_share"
+        fresco:roundAsCircle="true"/>
+
+    <TextView
+        android:id="@+id/username_item_listview_post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/userimg_item_listview_post_review"
+        android:text="name"/>
+
+    <TextView
+        android:id="@+id/review_item_listview_post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_item_listview_post_review"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/userimg_item_listview_post_review"
+        android:text="review"/>
+
+    <LinearLayout
+        android:id="@+id/ll_item_listview_post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_item_listview_post_review"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/userimg_item_listview_post_review"
+        android:orientation="vertical"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/time_item_listview_post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/review_item_listview_post_review"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/userimg_item_listview_post_review"
+        android:text="time"/>
+
+    <LinearLayout
+        android:id="@+id/ll_reviw_post_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/time_item_listview_post_review"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/userimg_item_listview_post_review"
+        android:background="@drawable/umeng_comm_forward_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_time_review"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="25dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/time_item_listview_post_review"
+        android:background="@drawable/ic_more_comment"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/ll_reviw_post_review"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGray"/>
+
+</RelativeLayout>

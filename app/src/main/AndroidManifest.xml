@@ -45,6 +45,7 @@
         <activity android:name=".gui.activity.EffectPictureActivity"/>
         <activity android:name=".gui.activity.DecorateBudgetActivity"/>
         <activity android:name=".gui.activity.PostDetailActivity" />
+        <activity android:name=".gui.activity.SiteLiveActivity"/>
 
     </application>
 

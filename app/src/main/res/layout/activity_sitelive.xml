@@ -15,8 +15,6 @@
         <com.bwf.aiyiqi.gui.view.ScrollViewCustom
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             >
 
             <LinearLayout
@@ -30,7 +28,10 @@
                 <!--设计师，-->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="150dp"
+                    android:padding="10dp"
+                    android:scrollbars="none"
+                    >
                     <LinearLayout
                         android:id="@+id/activity_sitelive_user"
                         android:layout_width="match_parent"
@@ -42,8 +43,10 @@
                 <!--装修进度-->
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="30dp"
                     android:textSize="16sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:gravity="center_vertical"
                     android:textColor="@color/black"
                     android:text="@string/jindu"/>
@@ -52,7 +55,11 @@
                 <!--装修进度图-->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="120dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:scrollbars="none"
+                    >
                     <LinearLayout
                         android:id="@+id/activity_sitelive_progress"
                         android:layout_width="match_parent"
@@ -64,13 +71,14 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1px"
-                    android:background="@color/grgray"/>
-
-                <com.bwf.aiyiqi.gui.view.RecycleViewCustom
+                    android:background="@color/grgray"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"/>
+                <com.bwf.aiyiqi.gui.view.MyListView
                     android:id="@+id/activity_sitelive_recycle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                </com.bwf.aiyiqi.gui.view.RecycleViewCustom>
+                </com.bwf.aiyiqi.gui.view.MyListView>
             </LinearLayout>
 
         </com.bwf.aiyiqi.gui.view.ScrollViewCustom>

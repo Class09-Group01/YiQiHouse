@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:gravity="center_vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/asci_item"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            fresco:roundAsCircle="true"
+            fresco:actualImageScaleType="centerCrop"
+            fresco:fadeDuration="1000"
+            fresco:placeholderImageScaleType="centerCrop"
+            fresco:placeholderImage="@mipmap/kf5_end_user"
+            />
+
+        <TextView
+            android:id="@+id/asci_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grgray"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:text="@string/post_textview_name"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/asci_item_textcontent"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="@string/article_textview_content"
+            android:gravity="center_vertical"/>
+
+        <com.bwf.aiyiqi.gui.view.MyGridView
+            android:id="@+id/asci_item_gridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:horizontalSpacing="10dp"
+            android:verticalSpacing="10dp"
+            android:numColumns="3">
+        </com.bwf.aiyiqi.gui.view.MyGridView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/asci_item_time"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:textColor="@color/colorGray"
+                android:gravity="center_vertical"
+                android:text="@string/article_textview_time"
+                />
+
+            <ImageView
+                android:id="@+id/asci_item_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/article_share"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

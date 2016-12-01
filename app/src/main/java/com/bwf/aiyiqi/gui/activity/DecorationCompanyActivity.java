@@ -86,7 +86,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.back_activity_decoration_company:
-
+                finish();
                 break;
             case viewpager_fragment_main:
 
@@ -105,7 +105,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
 
                 break;
             case R.id.site_playing_decoration_activity_decoration:
-
+                startActivity(new Intent(this,SiteLiveActivity.class));
                 break;
             case R.id.yiqi_group_decoration_activity_decoration:
                 startActivity(new Intent(this,YiQiGroupActivity.class));
@@ -124,14 +124,17 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     }
 
     @Override
-    public void showListView(ResponseDecorationCompanyActivityListView datas) {
+    public void showListView(final ResponseDecorationCompanyActivityListView datas) {
         List<ResponseDecorationCompanyActivityListView.DataBean> siteBeanList = datas.getData();
         mCompanyListViewAdapter = new DecorationCompanyListViewAdapter(this,siteBeanList);
         mListViewActivityDecorationCompany.setAdapter(mCompanyListViewAdapter);
         mListViewActivityDecorationCompany.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(DecorationCompanyActivity.this,SiteLiveActivity.class);
+                intent.putExtra("buidingId",datas.getData().get(position).getBuildingSite().getBuildingId());
+                intent.putExtra("comId",datas.getData().get(position).getBuildingSite().getProgressId()+"");
+                startActivity(intent);
             }
         });
     }

@@ -42,9 +42,12 @@ public class PostDetailModelImpl implements PostDetailModel {
                     public void onResponse(String response, int id) {
                         Log.d("PostDetailModelImpl", "loadPostDetailDatas:"+response);
                         ResponsePostDetail postDetail = JSON.parseObject(response, ResponsePostDetail.class);
-                        if(postDetail.getError().equals("0")){
-                            callback.loadPostDetailDatasSuccess(postDetail);
+                        if(postDetail != null){
+                            if(postDetail.getError().equals("0")){
+                                callback.loadPostDetailDatasSuccess(postDetail);
+                            }
                         }
+
                     }
                 });
 
@@ -75,8 +78,10 @@ public class PostDetailModelImpl implements PostDetailModel {
                     public void onResponse(String response, int id) {
                         Log.d("PostDetailModelImpl", "loadPostZanDatas:"+response);
                         ResponsePostZan postZan = JSON.parseObject(response, ResponsePostZan.class);
-                        if (postZan.getError().equals("0")){
-                            callback.loadPostZanDatasSuccess(postZan);
+                        if(postZan != null){
+                            if (postZan.getError().equals("0")){
+                                callback.loadPostZanDatasSuccess(postZan);
+                            }
                         }
                     }
                 });
@@ -111,9 +116,12 @@ public class PostDetailModelImpl implements PostDetailModel {
                     public void onResponse(String response, int id) {
                         Log.d("PostDetailModelImpl","loadPostCommuniteDatas:"+ response);
                         ResponsePostCommunite postCommunite = JSON.parseObject(response, ResponsePostCommunite.class);
-                        if(postCommunite.getError().equals("0")){
-                            callback.loadPostCommuniteDatasSuccess(postCommunite);
+                        if(postCommunite != null){
+                            if(postCommunite.getError().equals("0")){
+                                callback.loadPostCommuniteDatasSuccess(postCommunite);
+                            }
                         }
+
                     }
                 });
     }

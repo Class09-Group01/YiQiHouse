@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.EssenceSay;
 import com.bwf.aiyiqi.framwork.tool.Contact;
+import com.bwf.aiyiqi.gui.activity.PostDetailActivity;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.RecycleViewBaseAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -149,6 +151,9 @@ public class EssenceFragmentAdapter extends RecycleViewBaseAdapter<EssenceSay.Da
                 public void onClick(View v) {
                     int itemPosition=getAdapterPosition();
                     mItemOnClickListener.itemListener(v,itemPosition);
+                    Intent intent=new Intent(mContext, PostDetailActivity.class);
+                    intent.putExtra("tid",data.get(itemPosition).getTid());
+                    mContext.startActivity(intent);
                 }
             });
         }

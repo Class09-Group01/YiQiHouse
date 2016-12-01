@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.entity.ResponseArticleCommunite;
 import com.bwf.aiyiqi.entity.ResponseArticleDetail;
 import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.ArticleDetailPresenter;
@@ -87,13 +88,13 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
     }
 
     @Override
-    public void showRelatedArticle(ResponseArticleDetail.DataBean.RelatedNewsBean relatedNewsBean) {
-
+    public void showRelatedArticle(List<ResponseArticleDetail.DataBean.RelatedNewsBean> relatedNewsBean) {
 
     }
 
+
     @Override
-    public void showArticleCommunite() {
+    public void showArticleCommunite(ResponseArticleCommunite dataBean) {
 
     }
 

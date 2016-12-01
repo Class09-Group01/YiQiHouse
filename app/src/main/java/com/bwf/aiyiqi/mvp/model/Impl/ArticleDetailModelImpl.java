@@ -70,7 +70,7 @@ public class ArticleDetailModelImpl implements ArticleDetailModel {
                         ResponseArticleCommunite articleCommunite = JSON.parseObject(response, ResponseArticleCommunite.class);
                         if(articleCommunite != null){
                             if(articleCommunite.getError() != 0){
-//                                callback.loadArticleCommuniteSuccess(articleCommunite);
+                                callback.loadArticleCommuniteSuccess(articleCommunite);
                             }
                         }
                     }

@@ -1,7 +1,7 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
+import com.bwf.aiyiqi.entity.ResponseArticleCommunite;
 import com.bwf.aiyiqi.entity.ResponseArticleDetail;
-import com.bwf.aiyiqi.entity.ResponsePostCommunite;
 import com.bwf.aiyiqi.mvp.model.ArticleDetailModel;
 import com.bwf.aiyiqi.mvp.model.Impl.ArticleDetailModelImpl;
 import com.bwf.aiyiqi.mvp.presenter.ArticleDetailPresenter;
@@ -34,12 +34,12 @@ public class ArticleDetailPresenterImpl implements ArticleDetailPresenter, Artic
     @Override
     public void loadArticleDetailSuccess(ResponseArticleDetail.DataBean articleDetail) {
         mView.showArticleDetail(articleDetail);
-//        mView.showRelatedArticle((ResponseArticleDetail.DataBean.RelatedNewsBean) articleDetail.getRelatedNews());
+        mView.showRelatedArticle(articleDetail.getRelatedNews());
     }
 
     @Override
-    public void loadArticleCommuniteSuccess(ResponsePostCommunite dataBean) {
-
+    public void loadArticleCommuniteSuccess(ResponseArticleCommunite dataBean) {
+        mView.showArticleCommunite(dataBean);
     }
 
     @Override

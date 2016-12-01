@@ -67,7 +67,7 @@ public class DecorationCompanyActivity extends BaseActivity implements Decoratio
     protected void initViews() {
         mLayoutInflater = LayoutInflater.from(this);
         mLinearLayout_dot = (LinearLayout) findViewById(R.id.ll_indicator_fragment_main);
-
+        mSlideViewPager= (SlideViewPager) findViewById(R.id.viewpager_fragment_main);
     }
 
     @Override

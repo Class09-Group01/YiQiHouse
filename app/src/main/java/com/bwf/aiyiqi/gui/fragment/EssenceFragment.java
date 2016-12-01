@@ -12,9 +12,12 @@ import android.widget.Toast;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.EssenceSay;
 import com.bwf.aiyiqi.gui.adapter.EssenceFragmentAdapter;
+import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
 import com.bwf.aiyiqi.mvp.presenter.EssenceSayPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.EssenceSayPresenterImple;
 import com.bwf.aiyiqi.mvp.view.EssenceSayView;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 
 import java.util.List;
 
@@ -27,12 +30,34 @@ import butterknife.ButterKnife;
  * 作者：
  */
 
-public class EssenceFragment extends BaseFragment implements EssenceSayView{
+public class EssenceFragment extends BaseFragment implements EssenceSayView, EssenceFragmentAdapter.ItemOnClickListener {
     @BindView(R.id.essence_fragmenat_recycleview)
     RecyclerView mEssenceFragmenatRecycleview;
+    @BindView(R.id.essence_fragmenat_refresh)
+    CustomRefreshLayout mEssenceFragmenatRefresh;
     private LinearLayoutManager mLayoutManager;
     private EssenceFragmentAdapter mAdapter;
     private EssenceSayPresenter mPresenter;
+    private boolean isNoMoreData;
+    private boolean isLoading;
+    //RecyclerView 滑动的时候当显示到为当前页的某一Item时自动加载下一页
+    private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (isNoMoreData) {
+                return;
+            }
+            if (!isLoading && mLayoutManager.findLastVisibleItemPosition() == mLayoutManager.getItemCount() - 1) {
+                loadNextData();
+            }
+            if(mLayoutManager.findFirstVisibleItemPosition()==0){
+                mEssenceFragmenatRefresh.setCanPull(true);
+            }else {
+                mEssenceFragmenatRefresh.setCanPull(false);//设置后不拦截recycleview的滑动
+            }
+        }
+    };
 
     @Override
     protected int getContentViewResId() {
@@ -42,19 +67,30 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mEssenceFragmenatRecycleview.addOnScrollListener(mOnScrollListener);
         init();
-        loadData();
+        loadNextData();
     }
-    public void init(){
-        mPresenter=new EssenceSayPresenterImple(this);
-        mLayoutManager=new LinearLayoutManager(getActivity());
+
+    public void init() {
+        mPresenter = new EssenceSayPresenterImple(this);
+        mLayoutManager = new LinearLayoutManager(getActivity());
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mEssenceFragmenatRecycleview.setLayoutManager(mLayoutManager);
-        mAdapter=new EssenceFragmentAdapter(getActivity());
-//        mEssenceFragmenatRecycleview.setAdapter(mAdapter);
+        mAdapter = new EssenceFragmentAdapter(getActivity());
+        mEssenceFragmenatRecycleview.setAdapter(mAdapter);
+        mAdapter.setItemOnClickListener(this);
+        mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                loadNextData();
+            }
+        });
     }
-    public void loadData(){
+
+    private void loadNextData() {
         mPresenter.loadEssenceSayPresenter();
+        isLoading = true;
     }
 
     @Override
@@ -67,13 +103,27 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView{
 
     @Override
     public void showEssenceSayView(List<EssenceSay.DataBean> dataBeen) {
+        mEssenceFragmenatRefresh.finishRefresh();
+        if (dataBeen.size() == 0) {
+            isNoMoreData = true;
+            return;
+        }
         Toast.makeText(getActivity(), dataBeen.get(0).getSubject(), Toast.LENGTH_SHORT).show();
+//        Log.d("EssenceFragment", dataBeen.get(0).getSubject());
+//        Log.d("EssenceFragment", "dataBeen.size():" + dataBeen.size());
         mAdapter.addData(dataBeen);
+        isLoading = false;
 
     }
 
     @Override
     public void showViewFialed() {
 
+    }
+
+    //监听每个Item
+    @Override
+    public void itemListener(View view, int position) {
+        //TODO
     }
 }

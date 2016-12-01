@@ -58,5 +58,11 @@ public interface APIs {
     String API_SITELIVE_BASE_INFO = "http://hui.17house.com/svc/payment-facade/housekeep/getLiveBuildingSite";
     //工地直播 --》评论晒图
     String API_SITELIVE_COMMENTS = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteTrackByProgress";
+    //业主说 最新的地址
+    String SAY_RECENTER_URL="http://bbs.17house.com/motnt/index.php?";
 
+    //帖子详情
+    String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
+    //业主说 板块的地址
+    String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
 }

@@ -2,6 +2,7 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,6 +19,7 @@ import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.Impl.PostDetailPresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.PostDetailPresenter;
 import com.bwf.aiyiqi.mvp.view.PostView;
+import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.List;
@@ -105,6 +107,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
                 TextView tv = new TextView(this);
                 String text = UnicodeParser.decodeUnicode(message.get(i).getMsg());
 //                webview.loadData(text,"text/plain", "UTF-8");
+                Log.d("PostDetailActivity", "tv:" + tv);
                 tv.setText(message.get(i).getMsg());
                 tv.setTextColor(getResources().getColor(R.color.black));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
@@ -114,6 +117,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
                 SimpleDraweeView image = new SimpleDraweeView(this);
                 image.setMinimumHeight(500);
                 image.setMaxHeight(600);
+                image.setPadding(0,20,0,20);
                 image.setImageURI(Uri.parse(message.get(i).getMsg()));
                 mLlDetailPostdetailActivity.addView(image);
             }
@@ -123,6 +127,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
         for (int i = 0; i < tags.size(); i++) {
             TextView textview = new TextView(this);
             textview.setText(tags.get(i).getTagname());
+            textview.setPadding(10,10,10,10);
             mFlowlayoutTagPostdetailActivity.addView(textview);
         }
     }
@@ -136,6 +141,9 @@ public class PostDetailActivity extends BaseActivity implements PostView {
             mLlPostzan.addView(zannumber);
             for (int i = 0; i < postZan.getData().size(); i++) {
                 SimpleDraweeView userImage = new SimpleDraweeView(this);
+                RoundingParams roundingParams = RoundingParams.fromCornersRadius(5f);
+                roundingParams.setRoundAsCircle(true);
+                userImage.getHierarchy().setRoundingParams(roundingParams);
                 userImage.setImageURI(Uri.parse(postZan.getData().get(i).getAvtUrl()));
                 userImage.setMinimumHeight(100);
                 userImage.setMinimumWidth(100);

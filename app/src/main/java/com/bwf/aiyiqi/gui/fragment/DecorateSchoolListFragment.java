@@ -54,7 +54,6 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
         bundle.putInt("tagStage", tagStage);
         fragment.setArguments(bundle);
         return fragment;
-
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.bwf.aiyiqi.gui.activity;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -14,10 +12,7 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseSelfOrderDatas;
 import com.bwf.aiyiqi.gui.adapter.SelfOrderPagerAdapter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.SelfOrderActivityPresenterImpl;
-import com.bwf.aiyiqi.mvp.presenter.SelfOrderActivityPresenter;
 import com.bwf.aiyiqi.mvp.view.SelfOrderActivityView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +30,14 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
     private ImageView selforder_black;
 
 
+
     @Override
     protected void initDatas() {
-        SelfOrderActivityPresenter presenter = new SelfOrderActivityPresenterImpl(this);
-        selfOrderPagerAdapter=new SelfOrderPagerAdapter(getSupportFragmentManager());
-        selfOrder_list=new ArrayList<>();
+        SelfOrderActivityPresenterImpl presenter = new SelfOrderActivityPresenterImpl(this);
+        selfOrderPagerAdapter = new SelfOrderPagerAdapter(getSupportFragmentManager());
+        selfOrder_list = new ArrayList<>();
         presenter.loadSelfOrderDatas();
+
     }
 
     @Override
@@ -56,11 +53,8 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
         selfOrder_ensure.setOnClickListener(this);
         selforder_black.setOnClickListener(this);
 
+
     }
-
-
-
-
     @Override
     protected int getContentViewResId() {
         return R.layout.activity_self_order;
@@ -71,7 +65,8 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
     public void loadDatasSuccess(ResponseSelfOrderDatas responseSelfOrderDatas) {
         List<ResponseSelfOrderDatas.DataBeanX> data = responseSelfOrderDatas.getData();
         for (int i = 0; i < data.size(); i++) {
-            selfOrder_list.add(data.get(i).getName()) ;
+            selfOrder_list.add(data.get(i).getName());
+
         }
         Toast.makeText(this, data.get(0).getName(), Toast.LENGTH_SHORT).show();
         selfOrderPagerAdapter.addTab(selfOrder_list);

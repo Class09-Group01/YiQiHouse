@@ -9,12 +9,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="title"
+        android:textColor="@color/black"
+        android:layout_marginRight="100dp"
         android:textSize="16sp"/>
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_related_article"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
         android:layout_alignParentRight="true"/>
 
     <LinearLayout
@@ -24,17 +27,20 @@
         android:layout_below="@+id/title_related_article"
         android:layout_marginTop="10dp">
         <TextView
+            android:id="@+id/lookup_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/course_flag_browse"
             android:text="0000"/>
         <TextView
+            android:id="@+id/collection_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/essence_post_normal"
             android:text="0000"
             android:layout_marginLeft="20dp"/>
         <TextView
+            android:id="@+id/communite_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/course_flag_comment"

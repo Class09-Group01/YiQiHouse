@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:background="@mipmap/activity_end_time_flag"/>
         <TextView
+            android:id="@+id/deteline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/end_date"

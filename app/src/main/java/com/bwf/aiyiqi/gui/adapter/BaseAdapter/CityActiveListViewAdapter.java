@@ -5,9 +5,11 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseCityActiveDatas;
+import com.bwf.aiyiqi.framwork.tool.TimeTools;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import butterknife.BindView;
@@ -53,15 +55,20 @@ public class CityActiveListViewAdapter extends ListViewBaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         holder.mImageItemListviewCityActive.setImageURI(Uri.parse(mDatas.getData().getForumlist().get(position).getAttachments()));
+        long expiration = mDatas.getData().getForumlist().get(position).getExpiration();
+        holder.mDeteline.setText("报名截止日期: "+TimeTools.timestampToDate(expiration));
         return convertView;
     }
 
     static class ViewHolder {
         @BindView(R.id.image_item_listview_city_active)
         SimpleDraweeView mImageItemListviewCityActive;
-
+        @BindView(R.id.deteline)
+        TextView mDeteline;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
     }
+
+
 }

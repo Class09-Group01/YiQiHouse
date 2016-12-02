@@ -55,6 +55,7 @@ public interface APIs {
     String API_SEARCH = "http://bbs.17house.com/motnt/index.php?";
 
     //工地直播--》基本信息
+
     String API_SITELIVE_BASE_INFO = "http://hui.17house.com/svc/payment-facade/housekeep/getLiveBuildingSite";
     //工地直播 --》评论晒图
     String API_SITELIVE_COMMENTS = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteTrackByProgress";

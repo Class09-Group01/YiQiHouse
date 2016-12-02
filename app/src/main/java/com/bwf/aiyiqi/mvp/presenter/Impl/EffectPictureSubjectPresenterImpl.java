@@ -1,10 +1,11 @@
-package com.bwf.aiyiqi.mvp.presenter;
+package com.bwf.aiyiqi.mvp.presenter.Impl;
 
 import com.bwf.aiyiqi.entity.ResponseEffectPictrueSubjectDatas;
 import com.bwf.aiyiqi.framwork.tool.APIs;
 import com.bwf.aiyiqi.framwork.tool.UrlHandler;
 import com.bwf.aiyiqi.mvp.model.EffectPictureSubjectModel;
 import com.bwf.aiyiqi.mvp.model.Impl.EffectPictureSubjectModelImpl;
+import com.bwf.aiyiqi.mvp.presenter.EffectPictureSubjectPresenter;
 import com.bwf.aiyiqi.mvp.view.EffectPictureSubjectView;
 
 /**

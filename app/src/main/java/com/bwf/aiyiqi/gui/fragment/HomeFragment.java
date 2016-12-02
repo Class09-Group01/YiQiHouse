@@ -92,11 +92,10 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
         manager.setOrientation(LinearLayoutManager.VERTICAL);
 
         //解决scrollview 里面嵌套 Recycleview 滚动卡的问题配置
-//        manager.setSmoothScrollbarEnabled(true);
-//        manager.setAutoMeasureEnabled(true);
-//        activityHomeRecycleview.setHasFixedSize(true);
-//        activityHomeRecycleview.setNestedScrollingEnabled(false);
-
+        manager.setSmoothScrollbarEnabled(true);
+        manager.setAutoMeasureEnabled(true);
+        activityHomeRecycleview.setHasFixedSize(true);
+        activityHomeRecycleview.setNestedScrollingEnabled(false);
 
         mRecycleAdapter = new MainFragmentRecycleAdapter(getActivity());
         activityHomeRecycleview.setAdapter(mRecycleAdapter);

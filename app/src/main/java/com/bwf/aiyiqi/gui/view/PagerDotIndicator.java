@@ -46,7 +46,7 @@ public class PagerDotIndicator implements ViewPager.OnPageChangeListener {
     public void setNumberDots(int pageNums){
         this.dotsViews.clear();
         this.container.removeAllViews();
-        LayoutInflater inflater = LayoutInflater.from(mContext);
+         LayoutInflater inflater = LayoutInflater.from(mContext);
         for (int i = 0; i < pageNums; i++) {
             View dotView = inflater.inflate(R.layout.viewpager_indicator_dots,null);
             dotsViews.add(dotView.findViewById(R.id.image_viewpager_indicator_dot));

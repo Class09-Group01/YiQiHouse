@@ -63,6 +63,9 @@
     <string name="plate_fragment_secondetitle">装修选购区</string>
     <string name="plate_fragment_thirdtitle">品牌热议区</string>
     <string name="gridview_item_threadsnum">总贴：%1$s</string>
+    <string name="finish">完成</string>
+    <string name="nofinish">未完成</string>
+    <string name="finishing">进行中</string>
 
     <string name="popupwindow_linearlayout1">发帖</string>
     <string name="popupwindow_linearlayout2">晒单</string>
@@ -76,6 +79,7 @@
     <string name="all_tag_classify_decorate_pre">装修前</string>
     <string name="all_tag_classify_decorate_ping">装修中</string>
     <string name="all_tag_classify_decorate_finish">装修后</string>
+    <string name="comments">评论(0)</string>
 
 
 </resources>

@@ -15,7 +15,7 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseEffectPictrueSubjectDatas;
 import com.bwf.aiyiqi.framwork.tool.Contact;
 import com.bwf.aiyiqi.gui.adapter.FragmentEffectPictureSubjectAdapter;
-import com.bwf.aiyiqi.mvp.presenter.EffectPictureSubjectPresenterImpl;
+import com.bwf.aiyiqi.mvp.presenter.Impl.EffectPictureSubjectPresenterImpl;
 import com.bwf.aiyiqi.mvp.view.EffectPictureSubjectView;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;

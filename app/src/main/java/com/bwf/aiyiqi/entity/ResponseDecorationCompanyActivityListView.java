@@ -145,28 +145,28 @@ public class ResponseDecorationCompanyActivityListView {
              * isShow : 1
              */
 
-            private long buildingId;
+            private String buildingId;
             private int statusId;
             private int progressId;
             private int acceptanceProgressId;
-            private long orderId;
-            private long createTime;
-            private long updateTime;
-            private long userId;
+            private String orderId;
+            private String createTime;
+            private String updateTime;
+            private String userId;
             private int startDisclosure;
-            private long startDisclosureTime;
+            private String startDisclosureTime;
             private int splitAlter;
-            private long splitAlterTime;
+            private String splitAlterTime;
             private int waterElectricity;
-            private long waterElectricityTime;
+            private String waterElectricityTime;
             private int cementWood;
-            private long cementWoodTime;
+            private String cementWoodTime;
             private int paint;
-            private long paintTime;
+            private String paintTime;
             private int installation;
-            private long installationTime;
+            private String installationTime;
             private int finish;
-            private long finishTime;
+            private String finishTime;
             private String buildingIdStr;
             private int acceptanceStatus;
             private int bespeakExpired;
@@ -174,11 +174,11 @@ public class ResponseDecorationCompanyActivityListView {
             private int scheduleStatus;
             private int isShow;
 
-            public long getBuildingId() {
+            public String getBuildingId() {
                 return buildingId;
             }
 
-            public void setBuildingId(long buildingId) {
+            public void setBuildingId(String buildingId) {
                 this.buildingId = buildingId;
             }
 
@@ -206,35 +206,35 @@ public class ResponseDecorationCompanyActivityListView {
                 this.acceptanceProgressId = acceptanceProgressId;
             }
 
-            public long getOrderId() {
+            public String getOrderId() {
                 return orderId;
             }
 
-            public void setOrderId(long orderId) {
+            public void setOrderId(String orderId) {
                 this.orderId = orderId;
             }
 
-            public long getCreateTime() {
+            public String getCreateTime() {
                 return createTime;
             }
 
-            public void setCreateTime(long createTime) {
+            public void setCreateTime(String createTime) {
                 this.createTime = createTime;
             }
 
-            public long getUpdateTime() {
+            public String getUpdateTime() {
                 return updateTime;
             }
 
-            public void setUpdateTime(long updateTime) {
+            public void setUpdateTime(String updateTime) {
                 this.updateTime = updateTime;
             }
 
-            public long getUserId() {
+            public String getUserId() {
                 return userId;
             }
 
-            public void setUserId(long userId) {
+            public void setUserId(String userId) {
                 this.userId = userId;
             }
 
@@ -246,11 +246,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.startDisclosure = startDisclosure;
             }
 
-            public long getStartDisclosureTime() {
+            public String getStartDisclosureTime() {
                 return startDisclosureTime;
             }
 
-            public void setStartDisclosureTime(long startDisclosureTime) {
+            public void setStartDisclosureTime(String startDisclosureTime) {
                 this.startDisclosureTime = startDisclosureTime;
             }
 
@@ -262,11 +262,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.splitAlter = splitAlter;
             }
 
-            public long getSplitAlterTime() {
+            public String getSplitAlterTime() {
                 return splitAlterTime;
             }
 
-            public void setSplitAlterTime(long splitAlterTime) {
+            public void setSplitAlterTime(String splitAlterTime) {
                 this.splitAlterTime = splitAlterTime;
             }
 
@@ -278,11 +278,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.waterElectricity = waterElectricity;
             }
 
-            public long getWaterElectricityTime() {
+            public String getWaterElectricityTime() {
                 return waterElectricityTime;
             }
 
-            public void setWaterElectricityTime(long waterElectricityTime) {
+            public void setWaterElectricityTime(String waterElectricityTime) {
                 this.waterElectricityTime = waterElectricityTime;
             }
 
@@ -294,11 +294,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.cementWood = cementWood;
             }
 
-            public long getCementWoodTime() {
+            public String getCementWoodTime() {
                 return cementWoodTime;
             }
 
-            public void setCementWoodTime(long cementWoodTime) {
+            public void setCementWoodTime(String cementWoodTime) {
                 this.cementWoodTime = cementWoodTime;
             }
 
@@ -310,11 +310,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.paint = paint;
             }
 
-            public long getPaintTime() {
+            public String getPaintTime() {
                 return paintTime;
             }
 
-            public void setPaintTime(long paintTime) {
+            public void setPaintTime(String paintTime) {
                 this.paintTime = paintTime;
             }
 
@@ -326,11 +326,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.installation = installation;
             }
 
-            public long getInstallationTime() {
+            public String getInstallationTime() {
                 return installationTime;
             }
 
-            public void setInstallationTime(long installationTime) {
+            public void setInstallationTime(String installationTime) {
                 this.installationTime = installationTime;
             }
 
@@ -342,11 +342,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.finish = finish;
             }
 
-            public long getFinishTime() {
+            public String getFinishTime() {
                 return finishTime;
             }
 
-            public void setFinishTime(long finishTime) {
+            public void setFinishTime(String finishTime) {
                 this.finishTime = finishTime;
             }
 
@@ -413,7 +413,7 @@ public class ResponseDecorationCompanyActivityListView {
              * lat : 39.984577
              */
 
-            private long orderId;
+            private String orderId;
             private String layout;
             private String area;
             private String doorplate;
@@ -424,11 +424,11 @@ public class ResponseDecorationCompanyActivityListView {
             private double lng;
             private double lat;
 
-            public long getOrderId() {
+            public String getOrderId() {
                 return orderId;
             }
 
-            public void setOrderId(long orderId) {
+            public void setOrderId(String orderId) {
                 this.orderId = orderId;
             }
 
@@ -525,7 +525,7 @@ public class ResponseDecorationCompanyActivityListView {
              * userType : 0
              */
 
-            private long userId;
+            private String userId;
             private String realName;
             private String nickName;
             private int gender;
@@ -536,17 +536,17 @@ public class ResponseDecorationCompanyActivityListView {
             private int userPoint;
             private int userLevel;
             private int hasOrder;
-            private long updateTime;
+            private String updateTime;
             private int userPointIncrement;
-            private long userPointDate;
+            private String userPointDate;
             private String mobile;
             private int userType;
 
-            public long getUserId() {
+            public String getUserId() {
                 return userId;
             }
 
-            public void setUserId(long userId) {
+            public void setUserId(String userId) {
                 this.userId = userId;
             }
 
@@ -630,11 +630,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.hasOrder = hasOrder;
             }
 
-            public long getUpdateTime() {
+            public String getUpdateTime() {
                 return updateTime;
             }
 
-            public void setUpdateTime(long updateTime) {
+            public void setUpdateTime(String updateTime) {
                 this.updateTime = updateTime;
             }
 
@@ -646,11 +646,11 @@ public class ResponseDecorationCompanyActivityListView {
                 this.userPointIncrement = userPointIncrement;
             }
 
-            public long getUserPointDate() {
+            public String getUserPointDate() {
                 return userPointDate;
             }
 
-            public void setUserPointDate(long userPointDate) {
+            public void setUserPointDate(String userPointDate) {
                 this.userPointDate = userPointDate;
             }
 

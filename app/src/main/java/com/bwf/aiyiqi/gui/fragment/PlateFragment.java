@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.bwf.aiyiqi.gui.adapter.ChooseGridViewAdapter;
 import com.bwf.aiyiqi.gui.adapter.ForunGridViewAdapter;
 import com.bwf.aiyiqi.gui.adapter.HeatedDiscussionAdapter;
 import com.bwf.aiyiqi.gui.view.GridViewCustom;
+import com.bwf.aiyiqi.gui.view.PopupWindowSay;
 import com.bwf.aiyiqi.mvp.presenter.Impl.PlateSayPresenterImple;
 import com.bwf.aiyiqi.mvp.presenter.PlateSayPresenter;
 import com.bwf.aiyiqi.mvp.view.PlateSayView;
@@ -26,6 +28,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/11/28.
@@ -50,6 +53,9 @@ public class PlateFragment extends BaseFragment implements PlateSayView {
     LinearLayout mPlateFragmentLinearlayout;
     @BindView(R.id.plate_fragment_refresh)
     MaterialRefreshLayout mPlateFragmentRefresh;
+    @BindView(R.id.flate_fragmenat_button_normal)
+    ImageButton mFlateFragmenatButtonNormal;
+    private PopupWindowSay mPopupWindowSay;
     private PlateSayPresenter mPresenter;
     private ForunGridViewAdapter mForunGridViewAdapter;
     private ChooseGridViewAdapter mChooseGridViewAdapter;
@@ -82,6 +88,7 @@ public class PlateFragment extends BaseFragment implements PlateSayView {
                 loadData();
             }
         });
+        mPopupWindowSay=new PopupWindowSay(getActivity());
     }
 
     public void loadData() {
@@ -118,5 +125,10 @@ public class PlateFragment extends BaseFragment implements PlateSayView {
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
         ButterKnife.bind(this, rootView);
         return rootView;
+    }
+
+    @OnClick(R.id.flate_fragmenat_button_normal)
+    public void onClick() {
+        mPopupWindowSay.showPopupWindow(getActivity(),mFlateFragmenatButtonNormal);
     }
 }

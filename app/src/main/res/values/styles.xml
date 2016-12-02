@@ -48,4 +48,8 @@
         <item name="android:minHeight">15.0dip</item>
         <item name="android:progressDrawable">@drawable/lib_style_ratingbar_drawable</item>
     </style>
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/menushow</item>
+        <item name="android:windowExitAnimation">@anim/menuhide</item>
+    </style>
 </resources>

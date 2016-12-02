@@ -1,72 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.cjj.MaterialRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-    android:orientation="vertical">
-    <ScrollView
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+    <com.cjj.MaterialRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-       >
-        <LinearLayout
+        android:id="@+id/plate_fragment_refresh">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/plate_fragment_firsttitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="@string/plate_fragment_firsttitle"
-                android:textColor="@color/ColorGray"
-                android:layout_margin="10dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/ColorGray"/>
-            <com.bwf.aiyiqi.gui.view.GridViewCustom
-                android:id="@+id/plate_fragment_firstgridview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="2"
-                android:scrollbars="none"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"
-                android:background="@color/colorGray"/>
-            <TextView
-                android:id="@+id/plate_fragment_secondetitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="@string/plate_fragment_secondetitle"
-                android:textColor="@color/ColorGray"
-                android:layout_margin="10dp"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/ColorGray"/>
-            <com.bwf.aiyiqi.gui.view.GridViewCustom
-                android:id="@+id/plate_fragment_secondegridview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="2"
-                android:scrollbars="none"/>
+            android:layout_height="match_parent"
+           >
             <LinearLayout
-                android:id="@+id/plate_fragment_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <View
-                    android:id="@+id/plate_fragment_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="10dp"
-                    android:background="@color/colorGray"/>
                 <TextView
-                    android:id="@+id/plate_fragment_thirdtitle"
+                    android:id="@+id/plate_fragment_firsttitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="15sp"
-                    android:text="@string/plate_fragment_thirdtitle"
+                    android:text="@string/plate_fragment_firsttitle"
                     android:textColor="@color/ColorGray"
                     android:layout_margin="10dp"/>
                 <View
@@ -74,12 +27,75 @@
                     android:layout_height="1dp"
                     android:background="@color/ColorGray"/>
                 <com.bwf.aiyiqi.gui.view.GridViewCustom
-                    android:id="@+id/plate_fragment_thirdgridview"
+                    android:id="@+id/plate_fragment_firstgridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:numColumns="2"
                     android:scrollbars="none"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/colorGray"
+                    android:layout_marginTop="2dp"/>
+                <TextView
+                    android:id="@+id/plate_fragment_secondetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:text="@string/plate_fragment_secondetitle"
+                    android:textColor="@color/ColorGray"
+                    android:layout_margin="10dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/ColorGray"/>
+                <com.bwf.aiyiqi.gui.view.GridViewCustom
+                    android:id="@+id/plate_fragment_secondegridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:numColumns="2"
+                    android:scrollbars="none"/>
+                <LinearLayout
+                    android:id="@+id/plate_fragment_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <View
+                        android:id="@+id/plate_fragment_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="2dp"/>
+                    <TextView
+                        android:id="@+id/plate_fragment_thirdtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="@string/plate_fragment_thirdtitle"
+                        android:textColor="@color/ColorGray"
+                        android:layout_margin="10dp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/ColorGray"/>
+                    <com.bwf.aiyiqi.gui.view.GridViewCustom
+                        android:id="@+id/plate_fragment_thirdgridview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:numColumns="2"
+                        android:scrollbars="none"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</com.cjj.MaterialRefreshLayout>
+        </ScrollView>
+    </com.cjj.MaterialRefreshLayout>
+    <ImageButton
+        android:id="@+id/flate_fragmenat_button_normal"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/float_layer_menu_normal"
+        android:background="@color/colorWhiteLight"
+        />
+</FrameLayout>

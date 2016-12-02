@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.RecenterSay;
 import com.bwf.aiyiqi.gui.adapter.RecenterFragmentAdapter;
 import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
+import com.bwf.aiyiqi.gui.view.PopupWindowSay;
 import com.bwf.aiyiqi.mvp.presenter.Impl.RecenterSayPresenterImple;
 import com.bwf.aiyiqi.mvp.presenter.RecenterSayPresenter;
 import com.bwf.aiyiqi.mvp.view.RecenterSayView;
@@ -23,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/11/28.
@@ -30,14 +33,17 @@ import butterknife.ButterKnife;
  * 作者：
  */
 
-public class RecentFragment extends BaseFragment implements RecenterSayView,RecenterFragmentAdapter.RecenterItemOnClickListener{
+public class RecentFragment extends BaseFragment implements RecenterSayView, RecenterFragmentAdapter.RecenterItemOnClickListener {
     @BindView(R.id.essence_fragmenat_recycleview)
     RecyclerView mEssenceFragmenatRecycleview;
     @BindView(R.id.essence_fragmenat_refresh)
     CustomRefreshLayout mEssenceFragmenatRefresh;
+    @BindView(R.id.essence_fragmenat_button_normal)
+    ImageButton mEssenceFragmenatButtonNormal;
     private LinearLayoutManager mLayoutManager;
     private RecenterSayPresenter mPresenter;
-    private String cityName="成都";
+    private PopupWindowSay mPopupWindowSay;
+    private String cityName = "成都";
     private String lastCityName;
     private RecenterFragmentAdapter mRecenterFragmentAdapter;
 
@@ -59,7 +65,7 @@ public class RecentFragment extends BaseFragment implements RecenterSayView,Rece
         mEssenceFragmenatRecycleview.setLayoutManager(mLayoutManager);
         mEssenceFragmenatRecycleview.addOnScrollListener(onScrollListener);
 
-        mRecenterFragmentAdapter=new RecenterFragmentAdapter(getActivity());
+        mRecenterFragmentAdapter = new RecenterFragmentAdapter(getActivity());
         mEssenceFragmenatRecycleview.setAdapter(mRecenterFragmentAdapter);
         mRecenterFragmentAdapter.setItemOnClickListener(this);//监听每一个Item
         mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
@@ -68,29 +74,32 @@ public class RecentFragment extends BaseFragment implements RecenterSayView,Rece
                 loadData();
             }
         });
-        mPresenter=new RecenterSayPresenterImple(this);
+        mPresenter = new RecenterSayPresenterImple(this);
+       mPopupWindowSay=new PopupWindowSay(getActivity());
 
     }
 
     public void loadData() {
-        mPresenter.loadRecenterSayPresenter(cityName,lastCityName);
-        isLoading=true;
+        mPresenter.loadRecenterSayPresenter(cityName, lastCityName);
+        isLoading = true;
     }
+
     private boolean isLoading;
     private boolean isNomoreData;
 
-    private RecyclerView.OnScrollListener onScrollListener=new RecyclerView.OnScrollListener() {
+    private RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
         @Override
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
-            if(isNomoreData){
+            if (isNomoreData) {
                 return;
-            }if(!isLoading&&mLayoutManager.findLastVisibleItemPosition()==mLayoutManager.getItemCount()-2){
+            }
+            if (!isLoading && mLayoutManager.findLastVisibleItemPosition() == mLayoutManager.getItemCount() - 2) {
                 loadData();
             }
-            if(mLayoutManager.findFirstVisibleItemPosition()==0){
+            if (mLayoutManager.findFirstVisibleItemPosition() == 0) {
                 mEssenceFragmenatRefresh.setCanPull(true);
-            }else {
+            } else {
                 mEssenceFragmenatRefresh.setCanPull(false);
             }
         }
@@ -107,15 +116,15 @@ public class RecentFragment extends BaseFragment implements RecenterSayView,Rece
     @Override
     public void showRecenterSayView(List<RecenterSay.DataBean> dataBeen) {
         mEssenceFragmenatRefresh.finishRefresh();
-        if(dataBeen.size()==0){
+        if (dataBeen.size() == 0) {
             Toast.makeText(getActivity(), "没有更多的数据了", Toast.LENGTH_SHORT).show();
-            isNomoreData=true;
+            isNomoreData = true;
             return;
         }
-        cityName=lastCityName;
+        cityName = lastCityName;
         Toast.makeText(getActivity(), dataBeen.get(0).getAuthor(), Toast.LENGTH_SHORT).show();
         mRecenterFragmentAdapter.addData(dataBeen);
-        isLoading=false;
+        isLoading = false;
 
     }
 
@@ -128,5 +137,10 @@ public class RecentFragment extends BaseFragment implements RecenterSayView,Rece
     public void itemListener(View view, int position) {
         //TODO跳转
 
+    }
+
+    @OnClick(R.id.essence_fragmenat_button_normal)
+    public void onClick() {
+        mPopupWindowSay.showPopupWindow(getActivity(),mEssenceFragmenatButtonNormal);
     }
 }

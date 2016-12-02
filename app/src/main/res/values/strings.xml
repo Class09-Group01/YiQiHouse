@@ -75,7 +75,7 @@
     <string name="related_article">相关文章推荐</string>
     <string name="communita_article_detail">评论</string>
     <string name="input_communite">输入评论</string>
-
+    <string name="comments">评论(0)</string>
 
 
 </resources>

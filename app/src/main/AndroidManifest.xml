@@ -47,6 +47,7 @@
         <activity android:name=".gui.activity.PostDetailActivity" />
         <activity android:name=".gui.activity.SiteLiveActivity"/>
         <activity android:name=".gui.activity.ArticleDetailActivity" />
+        <activity android:name=".gui.activity.SiteLiveViewPagerActivity"/>
     </application>
 
 </manifest>

@@ -97,7 +97,6 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
         activityHomeRecycleview.setHasFixedSize(true);
         activityHomeRecycleview.setNestedScrollingEnabled(false);
 
-
         mRecycleAdapter = new MainFragmentRecycleAdapter(getActivity());
         activityHomeRecycleview.setAdapter(mRecycleAdapter);
         activityHomeRecycleview.setLayoutManager(manager);

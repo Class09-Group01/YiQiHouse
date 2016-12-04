@@ -88,14 +88,4 @@
             </LinearLayout>
         </ScrollView>
     </com.cjj.MaterialRefreshLayout>
-    <ImageButton
-        android:id="@+id/flate_fragmenat_button_normal"
-        android:layout_width="50dp"
-        android:layout_height="60dp"
-        android:scaleType="centerCrop"
-        android:layout_gravity="bottom|right"
-        android:layout_marginRight="15dp"
-        android:src="@drawable/float_layer_menu_normal"
-        android:background="@color/colorWhiteLight"
-        />
 </FrameLayout>

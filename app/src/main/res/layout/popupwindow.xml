@@ -10,16 +10,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginLeft="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="380dp">
+       >
         <ImageButton
             android:id="@+id/create_feed_normal"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:src="@drawable/create_feed_normal"
-            android:background="@color/ColorGraylight"
+            android:background="@color/colorWhiteLight"
             />
         <TextView
             android:id="@+id/create_feed_textview"
@@ -36,15 +34,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="380dp"
-        android:layout_marginLeft="220dp">
-        <ImageView
+        android:layout_alignParentRight="true"
+        >
+        <ImageButton
             android:id="@+id/show_order_normal"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:src="@drawable/show_order_normal"
+            android:background="@color/colorWhiteLight"
             />
         <TextView
             android:id="@+id/show_order_textview"
@@ -61,15 +59,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_marginLeft="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="180dp">
-        <ImageView
+        >
+        <ImageButton
             android:id="@+id/create_note_normal"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:src="@drawable/create_note_normal"
+            android:background="@color/colorWhiteLight"
+
             />
         <TextView
             android:id="@+id/create_note_textview"
@@ -86,16 +84,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="180dp"
-        android:layout_marginLeft="220dp">
-        <ImageView
+      android:layout_alignParentRight="true">
+        <ImageButton
             android:id="@+id/create_complain_normal"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:src="@drawable/create_complain_normal"
-          />
+            android:background="@color/colorWhiteLight"
+
+            />
         <TextView
             android:id="@+id/create_complain_textview"
             android:layout_width="wrap_content"
@@ -105,15 +103,15 @@
             android:textSize="16sp"
             android:textColor="@color/black"/>
     </LinearLayout>
-    <ImageButton
+    <ImageView
         android:id="@+id/essence_fragmenat_button_close"
         android:layout_width="50dp"
         android:layout_height="60dp"
         android:scaleType="centerCrop"
-       android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="40dp"
         android:src="@drawable/float_layer_menu_close"
         android:background="@color/colorWhiteLight"
         />

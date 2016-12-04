@@ -7,14 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.EssenceSay;
 import com.bwf.aiyiqi.gui.adapter.EssenceFragmentAdapter;
 import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
-import com.bwf.aiyiqi.gui.view.PopupWindowSay;
 import com.bwf.aiyiqi.mvp.presenter.EssenceSayPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.EssenceSayPresenterImple;
 import com.bwf.aiyiqi.mvp.view.EssenceSayView;
@@ -25,7 +23,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/11/28.
@@ -38,12 +35,9 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
     RecyclerView mEssenceFragmenatRecycleview;
     @BindView(R.id.essence_fragmenat_refresh)
     CustomRefreshLayout mEssenceFragmenatRefresh;
-    @BindView(R.id.essence_fragmenat_button_normal)
-    ImageButton mEssenceFragmenatButtonNormal;
     private LinearLayoutManager mLayoutManager;
     private EssenceFragmentAdapter mAdapter;
     private EssenceSayPresenter mPresenter;
-    private PopupWindowSay popsay;
     private boolean isNoMoreData;
     private boolean isLoading;
     //RecyclerView 滑动的时候当显示到为当前页的某一Item时自动加载下一页
@@ -86,7 +80,6 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
         mAdapter = new EssenceFragmentAdapter(getActivity());
         mEssenceFragmenatRecycleview.setAdapter(mAdapter);
         mAdapter.setItemOnClickListener(this);
-        popsay=new PopupWindowSay(getActivity());
         mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
@@ -134,12 +127,4 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
         //TODO
     }
 
-    @OnClick({R.id.essence_fragmenat_button_normal})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.essence_fragmenat_button_normal:
-                popsay.showPopupWindow(getActivity(),mEssenceFragmenatButtonNormal);
-                break;
-        }
-    }
 }

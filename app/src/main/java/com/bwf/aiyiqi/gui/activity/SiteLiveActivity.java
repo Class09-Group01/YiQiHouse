@@ -73,8 +73,12 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
         activitySiteliveListview.setAdapter(mAdapter);
 
         Intent intent = getIntent();
-        building = new String(intent.getStringExtra("buidingId"));
         String comId = intent.getStringExtra("comId");
+        String buidingId = intent.getStringExtra("buidingId");
+        if(TextUtils.isEmpty(buidingId)){
+            buidingId = "0";
+        }
+        building = new String(buidingId);
 
         mPresenter = new SiteLivePresenterImpl(this);
         if (!TextUtils.isEmpty(building) && !TextUtils.isEmpty(comId)) {

@@ -52,7 +52,6 @@ public class PopupWindowCustom {
                 return false;
             }
         });
-
         window.showAtLocation(v, Gravity.TOP,0,0);
     }
 }

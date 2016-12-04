@@ -1,7 +1,5 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
-import android.util.Log;
-
 import com.bwf.aiyiqi.entity.ResponseSiteLiveComments;
 import com.bwf.aiyiqi.entity.ResponseSiteLiveData;
 import com.bwf.aiyiqi.mvp.model.Impl.SiteLiveModelImpl;
@@ -60,7 +58,6 @@ public class SiteLivePresenterImpl implements SiteLivePresenter{
     @Override
     public void loadSiteLivePresenter() {
         setKeyValue();
-        Log.d("SiteLivePresenterImpl", comId + "" + proBuildingId);
         model.loadData(mapPro, mapCom, new SiteLiveModel.Callback() {
             @Override
             public void progressDataFail() {

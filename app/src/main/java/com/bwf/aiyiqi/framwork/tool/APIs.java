@@ -68,4 +68,15 @@ public interface APIs {
     String API_ARTICLE_DETAIL = "http://appapi.17house.com/NewsApi.php?";
     //业主说 板块的地址
     String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
+
+    //效果图
+    String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?version=1&page=1&action=albumList2&pageSize=10&tagid=1&model=android";
+
+    //1.3.7 设计/量度
+
+    //免费设计（h5页面）
+    String API_FREE_DESIGN = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/measureFree.html?model=android";
+
+    //免费量房（h5页面）
+    String API_FREE_SIZE = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/designFree.html?model=android";
 }

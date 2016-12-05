@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:drawableLeft="@mipmap/icon_time"
-                android:drawablePadding="10.0dp"
-                android:paddingBottom="13.0dp"
-                android:paddingLeft="45dp"
-                android:paddingTop="13.0dp"
-                android:textSize="17.0sp"
-                android:background="#ff00a051"
-                android:text="@string/order"
-                android:textStyle="bold"
-                android:textColor="@color/colorWhite"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:orientation="horizontal">
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:background="#ff00a051"
+        android:drawableLeft="@mipmap/icon_time"
         android:drawablePadding="10.0dp"
         android:paddingBottom="13.0dp"
-        android:paddingTop="13.0dp"
         android:paddingLeft="45dp"
+        android:paddingTop="13.0dp"
+        android:text="@string/order"
+        android:textColor="@color/colorWhite"
         android:textSize="17.0sp"
-        android:text="@string/answer"
-        android:textStyle="bold"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:background="#ffffff"
         android:drawableLeft="@mipmap/zixun_icon_selected"
+        android:drawablePadding="10.0dp"
+        android:paddingBottom="13.0dp"
+        android:paddingLeft="45dp"
+        android:paddingTop="13.0dp"
+        android:text="@string/answer"
         android:textColor="@color/colorGreen"
-        android:id="@+id/textView"/>
+        android:textSize="17.0sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>

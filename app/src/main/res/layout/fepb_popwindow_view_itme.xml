@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/fepb_item_img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:fadeDuration="1000"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/fepb_text_look"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grgray"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="14sp"
+            android:layout_marginRight="20dp"
+            android:text="@string/article_textview_comments"
+            android:drawableLeft="@mipmap/looked_num_icon"
+            android:drawablePadding="10dp"/>
+        <TextView
+            android:id="@+id/fepb_text_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grgray"
+            android:textSize="14sp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/article_textview_comments"
+            android:drawableLeft="@mipmap/ic_taochan_like"
+            android:drawablePadding="10dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -20,6 +20,7 @@ import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
+import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
@@ -216,6 +217,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
             case R.id.recycle_linearlayout_self_order:
                 break;
             case R.id.recycle_linearlayout_design_measure:
+                startActivity(new Intent(getActivity(), DesignActivity.class));
                 break;
         }
     }

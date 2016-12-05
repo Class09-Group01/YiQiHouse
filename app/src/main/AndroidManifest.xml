@@ -54,6 +54,7 @@
         <activity android:name=".gui.activity.AllTagClassify"/>
         <activity android:name=".gui.activity.LoginActivity"/>
         <activity android:name=".gui.activity.ForgetPasswordActivity"/>
+        <activity android:name=".gui.activity.DesignActivity" />
 
     </application>
 

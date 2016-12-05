@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="@dimen/activity_home_title_hight"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/fragment_home_title_bar">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -40,7 +41,7 @@
             android:layout_marginLeft="35dp"
             android:text="@string/fragment_home_title_bar_search"
             android:textSize="16sp"
-            android:textColor="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"
             />
     </RelativeLayout>
 
@@ -56,6 +57,7 @@
             android:text="@string/fragment_home_title_bar_city"
             android:textSize="16sp"
             android:gravity="center"
+            android:textColor="@color/colorWhite"
             />
         <ImageView
             android:layout_width="10dp"

@@ -66,6 +66,7 @@ public class MainFragmentRecyclePresenterImpl implements MainFragmentRecyclePres
 
     @Override
     public void loadRecycleData() {
+        Log.d("MainFragmentRecyclePres", "page:" + page);
         model.loadDatas(new MainFragmentRecycleModelImpl.Callback() {
             @Override
             public void loadDataSuccess(ResponseMainFragmentRecycleviewData datas) {

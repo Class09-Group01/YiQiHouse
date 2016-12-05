@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.gui.activity.ArticleDetailActivity;
+import com.bwf.aiyiqi.gui.activity.PostDetailActivity;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.RecycleViewBaseAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -63,7 +63,6 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("MainFragmentRecycleAdap", "viewType:" + viewType);
         if (viewType == TYPE_COTENT_NEWS) {
             View view = inflater.inflate(R.layout.mainfragment_recycleview_article_item, parent, false);
             return new NewsViewHolder(view);
@@ -81,7 +80,6 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
 
         if (type == TYPE_COTENT_NEWS) {
             NewsViewHolder newsViewHolder = (NewsViewHolder) holder;
-
             ResponseMainFragmentRecycleviewData.DataBean dataBean = data.get(position);
             if(dataBean.getPath() != null){
                 newsViewHolder.mfRecycleviewArticleImage.setVisibility(View.VISIBLE);
@@ -103,7 +101,6 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             }else{
                 cardViewHolder.mfRecycleviewPostImageContent.setVisibility(View.GONE);
             }
-            //TODO
             cardViewHolder.mfRecycleviewPostTextviewName.setText(dataBean.getAuthor());
             cardViewHolder.mfRecycleviewPostImage.setImageURI(Uri.parse(dataBean.getAvtUrl()));
             cardViewHolder.mfRecycleviewPostTextviewTime.setText(dataBean.getDateline());
@@ -138,8 +135,7 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO 跳转详情页面
-                    Log.d("MainFragmentRecycleAdap", "position:" + getAdapterPosition());
+                    //TODO 跳转文章详情页面
                     Intent intent = new Intent(mContext, ArticleDetailActivity.class);
                     intent.putExtra("newsId",data.get(getAdapterPosition()).getId());
                     mContext.startActivity(intent);
@@ -178,8 +174,10 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO 跳转详情页面
-                    Log.d("MainFragmentRecycleAdap", "position:" + getAdapterPosition());
+                    //TODO 跳转帖子详情页面
+                    Intent intent = new Intent(mContext, PostDetailActivity.class);
+                    intent.putExtra("tid",data.get(getAdapterPosition()).getId());
+                    mContext.startActivity(intent);
                 }
             });
         }

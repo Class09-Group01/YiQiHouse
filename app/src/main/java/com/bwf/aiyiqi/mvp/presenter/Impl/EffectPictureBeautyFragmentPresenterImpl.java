@@ -1,5 +1,7 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
+import android.util.Log;
+
 import com.bwf.aiyiqi.entity.ResponseEffectctBeautyDatas;
 import com.bwf.aiyiqi.mvp.model.EffectPictureBeautyFragmentModel;
 import com.bwf.aiyiqi.mvp.model.Impl.EffectPictureBeautyFragmentModelImpl;
@@ -25,20 +27,27 @@ public class EffectPictureBeautyFragmentPresenterImpl implements EffectPictureBe
         this.model = new EffectPictureBeautyFragmentModelImpl();
         map = new HashMap<>();
     }
-//
-//    public void setMap(){
-//        map.clear();
-//        map.put("version","1");
-//        map.put("page",page+"");
-//        map.put("pageSize","10");
-//        map.put("action","imageList2");
-//        map.put("tagid",tagId+"");
-//        map.put("model","android");
-//    }
+
+    public void setMap(int page,int tagId){
+        map.clear();
+        map.put("version","1");
+        map.put("page",page+"");
+        map.put("action","imageList2");
+        map.put("pageSize","10");
+        map.put("tagid",tagId+"");
+        map.put("model","android");
+    }
+
+    public void refreshEffectPictureData(){
+        page = 1;
+        loadEffectPictureData();
+    }
+
 
     @Override
     public void loadEffectPictureData() {
-//        setMap();
+        setMap(page,tagId);
+        Log.d("EffectPictureBeautyFrag", "page:" + page);
         model.loadDatas(new EffectPictureBeautyFragmentModel.Callback() {
             @Override
             public void loadDataSuccess(ResponseEffectctBeautyDatas datas) {

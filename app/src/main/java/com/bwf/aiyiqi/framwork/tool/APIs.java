@@ -70,5 +70,5 @@ public interface APIs {
     String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
 
     //效果图
-    String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?version=1&page=1&action=albumList2&pageSize=10&tagid=1&model=android";
+    String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?";
 }

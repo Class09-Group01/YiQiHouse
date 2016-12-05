@@ -71,4 +71,12 @@ public interface APIs {
 
     //效果图
     String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?version=1&page=1&action=albumList2&pageSize=10&tagid=1&model=android";
+
+    //1.3.7 设计/量度
+
+    //免费设计（h5页面）
+    String API_FREE_DESIGN = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/measureFree.html?model=android";
+
+    //免费量房（h5页面）
+    String API_FREE_SIZE = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/designFree.html?model=android";
 }

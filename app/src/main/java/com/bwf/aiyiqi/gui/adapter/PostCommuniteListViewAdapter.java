@@ -90,7 +90,7 @@ public class PostCommuniteListViewAdapter extends ListViewBaseAdapter {
                     String review = (String) mCommunite.get(i).getBlock();
                     String[] reviews = review.split(" ");
 //                    holder.mLlReviwPostReview.setVisibility(View.VISIBLE);
-                    if (reviews.length >= 5) {
+                    if (reviews.length == 6) {
                         holder.mNameTimeReview.setText(reviews[1] + " " + reviews[2] + " " + reviews[3] + " " + reviews[4]);
                         holder.mNameReview.setText(reviews[5]);
                     } else if (reviews.length == 4) {

@@ -51,6 +51,7 @@
         <activity android:name=".gui.activity.SiteLiveViewPagerActivity"/>
 
         <activity android:name=".gui.activity.ActivityHtmlCityActive" />
+        <activity android:name=".gui.activity.DesignActivity" />
 
     </application>
 

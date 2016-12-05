@@ -27,6 +27,12 @@ public class SelfOrderGirdViewAdapter extends BaseAdapter {
 
     }
 
+    public void addDtata(List<ResponseSelfOrderDatas.DataBeanX.DataBean> listben){
+        listbean.clear();
+        listbean.addAll(listben);
+        notifyDataSetChanged();
+    }
+
 
     @Override
     public int getCount() {

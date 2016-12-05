@@ -28,8 +28,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".gui.activity.ForgotPasswordActivity"/>
-        <activity android:name=".gui.activity.LoginActivity"/>
         <activity android:name=".gui.activity.SmsLoginActivity"/>
         <activity android:name=".gui.activity.WelcomeActivty"/>
         <activity android:name=".gui.activity.ScanActivity"/>

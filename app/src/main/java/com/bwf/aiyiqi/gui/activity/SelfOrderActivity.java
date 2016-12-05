@@ -2,17 +2,13 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseSelfOrderDatas;
 import com.bwf.aiyiqi.gui.adapter.SelfOrderPagerAdapter;
-import com.bwf.aiyiqi.mvp.presenter.Impl.SelfOrderActivityPresenterImpl;
-import com.bwf.aiyiqi.mvp.view.SelfOrderActivityView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,9 +64,7 @@ public class SelfOrderActivity extends BaseActivity implements SelfOrderActivity
             selfOrder_list.add(data.get(i).getName());
 
         }
-        Toast.makeText(this, data.get(0).getName(), Toast.LENGTH_SHORT).show();
         selfOrderPagerAdapter.addTab(selfOrder_list);
-        Log.d("SelfOrderActivity", data.get(0).getName());
     }
 
     @Override

@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseSelfOrderDatas;
-import com.bwf.aiyiqi.mvp.view.SelfOrderActivityView;
 
 import java.util.List;
 
@@ -29,7 +28,7 @@ public class SelfOrderFragment extends Fragment implements SelfOrderActivityView
     }
 
     protected int getContentViewResId() {
-        return R.layout.fragment_self_order;
+        return R.layout.activity_self_order;
     }
 
 

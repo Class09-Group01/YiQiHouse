@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.IntegralRulesActivity;
-import com.bwf.aiyiqi.gui.activity.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,29 +61,13 @@ public class MyFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), IntegralRulesActivity.class));
                 break;
             case R.id.fragment_my_dianji:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_new:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_attention:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_fan:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_collect:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_like:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_setting:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_feedback:
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-                break;
             case R.id.fragment_my_order:
                 startActivity(new Intent(getActivity(), LoginActivity.class));
                 break;

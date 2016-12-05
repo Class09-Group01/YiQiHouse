@@ -25,9 +25,9 @@ public class SelfOrderPagerAdapter extends FragmentPagerAdapter {
 
     }
 
-    public void addTab(List<String> selfOrder_Titles){
-        this.selfOrder_Titles.addAll(selfOrder_Titles);
-        for (int i = 0; i < selfOrder_Titles.size(); i++) {
+    public void addTab(List<String> titles){
+        selfOrder_Titles.addAll(titles);
+        for (int i = 0; i < selfOrder_Titles.size() +1; i++) {
             selfOrder_fragments.add(new SelfOrderFragment().getFragment());
         }
         notifyDataSetChanged();
@@ -39,8 +39,11 @@ public class SelfOrderPagerAdapter extends FragmentPagerAdapter {
     }
 
     public CharSequence getPageTitle(int position) {
-
-        return selfOrder_Titles.get(position);
+        if (position == 0){
+            return "全部";
+        }else{
+            return selfOrder_Titles.get(position - 1);
+        }
     }
 
     public int getCount() {

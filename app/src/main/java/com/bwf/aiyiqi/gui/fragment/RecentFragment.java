@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
  * 作者：
  */
 
-public class RecentFragment extends BaseFragment implements RecenterSayView, RecenterFragmentAdapter.RecenterItemOnClickListener {
+public class RecentFragment extends BaseFragment implements RecenterSayView{
     @BindView(R.id.essence_fragmenat_recycleview)
     RecyclerView mEssenceFragmenatRecycleview;
     @BindView(R.id.essence_fragmenat_refresh)
@@ -61,7 +61,6 @@ public class RecentFragment extends BaseFragment implements RecenterSayView, Rec
 
         mRecenterFragmentAdapter = new RecenterFragmentAdapter(getActivity());
         mEssenceFragmenatRecycleview.setAdapter(mRecenterFragmentAdapter);
-        mRecenterFragmentAdapter.setItemOnClickListener(this);//监听每一个Item
         mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
@@ -123,12 +122,6 @@ public class RecentFragment extends BaseFragment implements RecenterSayView, Rec
 
     @Override
     public void showViewFialed() {
-
-    }
-
-    @Override
-    public void itemListener(View view, int position) {
-        //TODO跳转
 
     }
 }

@@ -58,7 +58,6 @@ public class SiteLivePresenterImpl implements SiteLivePresenter{
     @Override
     public void loadSiteLivePresenter() {
         setKeyValue();
-
         model.loadData(mapPro, mapCom, new SiteLiveModel.Callback() {
             @Override
             public void progressDataFail() {

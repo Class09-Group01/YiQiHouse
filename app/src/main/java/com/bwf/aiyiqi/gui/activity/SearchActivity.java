@@ -67,6 +67,7 @@ public class SearchActivity extends BaseActivity implements SearchActivityView {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 //                if(isNoMoreData)return;
                 if (!TextUtils.isEmpty(s.toString().trim()) && !isLoading) {
+                    mAdapter.setSearch(s.toString());
                     mPresenter.loadSearchData(s.toString());
                     activitySearchEditCancle.setVisibility(View.VISIBLE);
                     isLoading = true;

@@ -75,7 +75,11 @@
     <string name="related_article">相关文章推荐</string>
     <string name="communita_article_detail">评论</string>
     <string name="input_communite">输入评论</string>
-
+    <string name="all_tag_classify_text">全部装修流程</string>
+    <string name="all_tag_classify_decorate_pre">装修前</string>
+    <string name="all_tag_classify_decorate_ping">装修中</string>
+    <string name="all_tag_classify_decorate_finish">装修后</string>
+    <string name="comments">评论(0)</string>
 
 
 </resources>

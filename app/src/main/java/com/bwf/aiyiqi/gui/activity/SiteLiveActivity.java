@@ -3,6 +3,7 @@ package com.bwf.aiyiqi.gui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckedTextView;
@@ -16,6 +17,7 @@ import com.bwf.aiyiqi.entity.ResponseSiteLiveComments;
 import com.bwf.aiyiqi.entity.ResponseSiteLiveData;
 import com.bwf.aiyiqi.gui.adapter.SiteLiveListViewAdapter;
 import com.bwf.aiyiqi.gui.view.MyListView;
+import com.bwf.aiyiqi.gui.view.ScrollViewCustom;
 import com.bwf.aiyiqi.mvp.presenter.Impl.SiteLivePresenterImpl;
 import com.bwf.aiyiqi.mvp.view.SiteLiveView;
 import com.cjj.MaterialRefreshLayout;
@@ -48,8 +50,12 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     MaterialRefreshLayout reflush;
     @BindView(R.id.textView)
     TextView textView;
+    @BindView(R.id.activity_sitelive_scrollview)
+    ScrollViewCustom activitySiteliveScrollview;
     private SiteLivePresenterImpl mPresenter;
     private SiteLiveListViewAdapter mAdapter;
+    private String building;
+
 
     @Override
     protected int getContentViewResId() {
@@ -59,18 +65,25 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
-        mAdapter = new SiteLiveListViewAdapter(this,R.layout.acitivity_sitelive_comments_item);
+        mAdapter = new SiteLiveListViewAdapter(this, R.layout.acitivity_sitelive_comments_item);
+        //给listVIew加一个底部 显示没有更多数据了
+
+        activitySiteliveListview.addFooterView(LayoutInflater.from(this).inflate
+                (R.layout.school_recycleview_fooder,activitySiteliveListview,false));
         activitySiteliveListview.setAdapter(mAdapter);
 
         Intent intent = getIntent();
-        String building = intent.getStringExtra("buidingId");
         String comId = intent.getStringExtra("comId");
+        String buidingId = intent.getStringExtra("buidingId");
+        if(TextUtils.isEmpty(buidingId)){
+            buidingId = "0";
+        }
+        building = new String(buidingId);
 
         mPresenter = new SiteLivePresenterImpl(this);
-        if(!TextUtils.isEmpty(building) && !TextUtils.isEmpty(comId)){
-            mPresenter.setId(comId,building);
+        if (!TextUtils.isEmpty(building) && !TextUtils.isEmpty(comId)) {
+            mPresenter.setId(comId, building);
         }
-
         mPresenter.loadSiteLivePresenter();
     }
 
@@ -80,7 +93,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     }
 
     //动态添加progress进度的相关信息
-    public void addProgress(ResponseSiteLiveData.DataBean data) {
+    public void addProgress(final ResponseSiteLiveData.DataBean data) {
         imageListviewActivityDecorationCompany.setImageURI(Uri.parse(data.getImageUrl()));
         siteItemListviewDecoration.setText(data.getOrderHouse().getAddress());
         compositionItemListviewDecoration.setText(data.getOrderHouse().getLayout());
@@ -104,15 +117,24 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
                 View view = LayoutInflater.from(this).inflate(R.layout.acitivity_sitelive_progress_progress_item, activitySiteliveProgress, false);
                 ProgressViewHolder holder = new ProgressViewHolder(view);
                 holder.asppItemText.setText(data.getProgress().get(i).getProgressName());
-                setProgress(holder,data.getProgress().get(i).getProgressStatus());
+                setProgress(holder, data.getProgress().get(i).getProgressStatus());
                 activitySiteliveProgress.addView(view);
+                final int progressId = data.getProgress().get(i).getProgressId();
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d("SiteLiveActivity", progressId + " "+building);
+                        mPresenter.setId(progressId+"", building);
+                        mPresenter.loadSiteLivePresenter();
+                    }
+                });
             }
         }
     }
 
 
-    private void setProgress(ProgressViewHolder holder,int proStatus){
-        switch (proStatus){
+    private void setProgress(ProgressViewHolder holder, int proStatus) {
+        switch (proStatus) {
             //装修状态： 0 --> 未开工  1 -->进行中 2 --> 完成
             case 0:
                 holder.asppItemCheckedico.setChecked(false);
@@ -140,6 +162,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
 
     /**
      * user的工作岗位转换
+     *
      * @param id
      * @return
      */
@@ -166,7 +189,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     //以下是网络数据请求结果回调
     @Override
     public void showSiteProgressDataSuccess(ResponseSiteLiveData data) {
-        Toast.makeText(this, "progress" + data.getData().getProgress().size(), Toast.LENGTH_SHORT).show();
+        activitySiteliveScrollview.scrollTo(0,0);
         addProgress(data.getData());
     }
 
@@ -182,7 +205,9 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
 
     @Override
     public void showSiteCommentsDataSuccess(ResponseSiteLiveComments data) {
+        activitySiteliveScrollview.scrollTo(0,0);
         Toast.makeText(this, "data" + data.getData().size(), Toast.LENGTH_SHORT).show();
+        mAdapter.clearData();
         mAdapter.addData(data.getData());
     }
 
@@ -213,6 +238,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
         TextView aspuItemTextname;
         @BindView(R.id.aspu_item_textwork)
         TextView aspuItemTextwork;
+
         UserViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
@@ -225,6 +251,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
         CheckedTextView asppItemCheckedico;
         @BindView(R.id.aspp_item_text)
         TextView asppItemText;
+
         ProgressViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

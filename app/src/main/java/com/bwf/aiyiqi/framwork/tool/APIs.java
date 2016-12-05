@@ -79,4 +79,6 @@ public interface APIs {
 
     //免费量房（h5页面）
     String API_FREE_SIZE = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/designFree.html?model=android";
+    //1.3.6 自主下单
+    String API_AUTO_ORDER = "http://appapi.17house.com/GrouponApi.php?";
 }

@@ -52,6 +52,7 @@
 
         <activity android:name=".gui.activity.ActivityHtmlCityActive" />
         <activity android:name=".gui.activity.DesignActivity" />
+        <activity android:name=".gui.activity.AutoOrderActivity" />
 
     </application>
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
+import com.bwf.aiyiqi.gui.activity.AutoOrderActivity;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
 import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
@@ -215,6 +216,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
                 startActivity(new Intent(getActivity(), EffectPictureActivity.class));
                 break;
             case R.id.recycle_linearlayout_self_order:
+                startActivity(new Intent(getActivity(), AutoOrderActivity.class));
                 break;
             case R.id.recycle_linearlayout_design_measure:
                 startActivity(new Intent(getActivity(), DesignActivity.class));

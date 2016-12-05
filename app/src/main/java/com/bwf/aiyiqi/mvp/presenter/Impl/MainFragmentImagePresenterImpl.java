@@ -6,6 +6,8 @@ import com.bwf.aiyiqi.mvp.model.MainFragmentImageModel;
 import com.bwf.aiyiqi.mvp.presenter.MainFragmentImagePresenter;
 import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 
+import java.util.HashMap;
+
 /**
  * Created by lingchen52 on 2016/11/24.
  */
@@ -17,6 +19,9 @@ public class MainFragmentImagePresenterImpl implements MainFragmentImagePresente
     public MainFragmentImagePresenterImpl(MainFragmentImage view) {
         this.view = view;
         this.mModel = new MainFragmentImageModelImpl();
+    }
+    public void getmap(){
+
     }
 
     @Override

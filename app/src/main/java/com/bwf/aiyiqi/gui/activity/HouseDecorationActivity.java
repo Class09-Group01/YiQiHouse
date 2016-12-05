@@ -26,7 +26,9 @@ public class HouseDecorationActivity extends BaseActivity {
     WebView mWebview;
 
     private TextView mTextView;
-    private WebSettings mWebSettings;
+    private WebSettings
+
+            mWebSettings;
     @Override
     protected void initDatas() {
         Intent intent = getIntent();

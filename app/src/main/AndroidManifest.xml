@@ -51,6 +51,9 @@
         <activity android:name=".gui.activity.SiteLiveViewPagerActivity"/>
 
         <activity android:name=".gui.activity.ActivityHtmlCityActive" />
+        <activity android:name=".gui.activity.AllTagClassify"/>
+        <activity android:name=".gui.activity.LoginActivity"/>
+        <activity android:name=".gui.activity.ForgetPasswordActivity"/>
 
     </application>
 

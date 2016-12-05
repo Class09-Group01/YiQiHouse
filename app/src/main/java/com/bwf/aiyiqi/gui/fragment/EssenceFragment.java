@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
  * 作者：
  */
 
-public class EssenceFragment extends BaseFragment implements EssenceSayView, EssenceFragmentAdapter.ItemOnClickListener {
+public class EssenceFragment extends BaseFragment implements EssenceSayView {
     @BindView(R.id.essence_fragmenat_recycleview)
     RecyclerView mEssenceFragmenatRecycleview;
     @BindView(R.id.essence_fragmenat_refresh)
@@ -79,7 +79,6 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
         mEssenceFragmenatRecycleview.setLayoutManager(mLayoutManager);
         mAdapter = new EssenceFragmentAdapter(getActivity());
         mEssenceFragmenatRecycleview.setAdapter(mAdapter);
-        mAdapter.setItemOnClickListener(this);
         mEssenceFragmenatRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
             public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
@@ -109,8 +108,6 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
             return;
         }
         Toast.makeText(getActivity(), dataBeen.get(0).getSubject(), Toast.LENGTH_SHORT).show();
-//        Log.d("EssenceFragment", dataBeen.get(0).getSubject());
-//        Log.d("EssenceFragment", "dataBeen.size():" + dataBeen.size());
         mAdapter.addData(dataBeen);
         isLoading = false;
 
@@ -119,12 +116,6 @@ public class EssenceFragment extends BaseFragment implements EssenceSayView, Ess
     @Override
     public void showViewFialed() {
 
-    }
-
-    //监听每个Item
-    @Override
-    public void itemListener(View view, int position) {
-        //TODO
     }
 
 }

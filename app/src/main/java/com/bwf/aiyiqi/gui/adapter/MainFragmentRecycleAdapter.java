@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
+import com.bwf.aiyiqi.gui.activity.ArticleDetailActivity;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.RecycleViewBaseAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -26,10 +28,11 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
         <ResponseMainFragmentRecycleviewData.DataBean> {
     private final int TYPE_COTENT_NEWS = 1;
     private final int TYPE_COTENT_CARD = 3;
-
+    private Context mContext;
 
     public MainFragmentRecycleAdapter(Context context) {
         super(context);
+        mContext = context;
     }
 
     @Override
@@ -137,6 +140,9 @@ public class MainFragmentRecycleAdapter extends RecycleViewBaseAdapter
                 public void onClick(View v) {
                     //TODO 跳转详情页面
                     Log.d("MainFragmentRecycleAdap", "position:" + getAdapterPosition());
+                    Intent intent = new Intent(mContext, ArticleDetailActivity.class);
+                    intent.putExtra("newsId",data.get(getAdapterPosition()).getId());
+                    mContext.startActivity(intent);
                 }
             });
         }

@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public interface RecenterSayModel {
-    void loadRecenterSay(String url, CallBack callBack);
+    void loadRecenterSay(String url,String cityName,int page, CallBack callBack);
     public interface CallBack{
         void loadRecenterSaySuccess(List<RecenterSay.DataBean> dataBeen);
         void loadRecenterSayFailed();

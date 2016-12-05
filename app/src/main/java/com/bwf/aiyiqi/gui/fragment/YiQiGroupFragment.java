@@ -26,15 +26,15 @@ public class YiQiGroupFragment extends BaseFragment implements YiQiGroupView, Ab
     @BindView(R.id.gridview_yiqigroup_activity)
     GridView mGridview;
 
-    private YiQiGroupGridViewAdapter mGridViewAdapter;
-    private YiQiGroupPresenter mPresenter;
+    public YiQiGroupGridViewAdapter mGridViewAdapter;
+    public YiQiGroupPresenter mPresenter;
 
     public void initDatas(){
         mPresenter = new YiQiGroupPresenterImpl("1701",this);
         loadNextPage();
     }
-    private boolean isLoading;
-    private void loadNextPage(){
+    public boolean isLoading;
+    public void loadNextPage(){
         mPresenter.loadNextPage("1701");
         isLoading = true;
     }
@@ -42,7 +42,7 @@ public class YiQiGroupFragment extends BaseFragment implements YiQiGroupView, Ab
 
     }
     @Override
-    protected int getContentViewResId() {
+    public int getContentViewResId() {
         return R.layout.gridview_yiqigroup;
     }
     @Override

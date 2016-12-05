@@ -55,9 +55,18 @@ public interface APIs {
     String API_SEARCH = "http://bbs.17house.com/motnt/index.php?";
 
     //工地直播--》基本信息
+
     String API_SITELIVE_BASE_INFO = "http://hui.17house.com/svc/payment-facade/housekeep/getLiveBuildingSite";
     //工地直播 --》评论晒图
     String API_SITELIVE_COMMENTS = "http://hui.17house.com/svc/payment-facade/housekeep/listBuildingSiteTrackByProgress";
+    //业主说 最新的地址
+    String SAY_RECENTER_URL="http://bbs.17house.com/motnt/index.php?";
 
     String API_SELF_ORDER_ACTIVTY = "http://appapi.17house.com/GrouponApi.php?version=1&action=getSingleSupplementInfo&cityId=2&model=android&app_version=android_com.aiyiqi.galaxy_1.1";
+    //帖子详情
+    String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
+    //文章详情
+    String API_ARTICLE_DETAIL = "http://appapi.17house.com/NewsApi.php?";
+    //业主说 板块的地址
+    String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
 }

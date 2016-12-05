@@ -5,7 +5,7 @@
               android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/image_viewpager_indicator_dot"
-        android:layout_width="4.dp"
+        android:layout_width="4.0dp"
         android:layout_height="4.0dp"
         android:layout_margin="3.0dp"
         android:scaleType="centerCrop"/>

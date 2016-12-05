@@ -3,25 +3,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp">
 
-        <View
-            android:id="@+id/back_activity_site_playing"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/lib_style_head_back_nor"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/site_playing"/>
-    </RelativeLayout>
+    <include
+        layout="@layout/fragment_home_title"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -84,50 +68,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="25dp"
-            android:layout_weight="1"
-            android:background="@color/colorGreen"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_time"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/order"
-                android:textColor="@color/colorWhite"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="25dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/zixun_icon_selected"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/answer"
-                android:textColor="@color/colorGreen"/>
-        </LinearLayout>
-
-    </LinearLayout>
+    <include
+        layout="@layout/layout_footer_decoration_company"/>
 </RelativeLayout>

@@ -69,7 +69,7 @@ public class ArticleDetailModelImpl implements ArticleDetailModel {
                         Log.d("ArticleDetailModelImpl", response);
                         ResponseArticleCommunite articleCommunite = JSON.parseObject(response, ResponseArticleCommunite.class);
                         if(articleCommunite != null){
-                            if(articleCommunite.getError() != 0){
+                            if(articleCommunite.getError() == 0){
                                 callback.loadArticleCommuniteSuccess(articleCommunite);
                             }
                         }

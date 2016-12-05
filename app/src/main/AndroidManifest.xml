@@ -54,6 +54,12 @@
         <activity android:name=".gui.activity.PostDetailActivity" />
         <activity android:name=".gui.activity.SiteLiveActivity"/>
         <activity android:name=".gui.activity.ArticleDetailActivity" />
+
+        <activity android:name=".gui.activity.SiteLiveViewPagerActivity"/>
+
+        <activity android:name=".gui.activity.ActivityHtmlCityActive" />
+        <activity android:name=".gui.activity.DesignActivity" />
+
     </application>
 
 </manifest>

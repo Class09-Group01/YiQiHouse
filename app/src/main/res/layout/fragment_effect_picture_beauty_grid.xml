@@ -51,7 +51,11 @@
         <GridView
             android:id="@+id/fepb_gridview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:verticalSpacing="1dp"
+            android:horizontalSpacing="1dp"
+            android:numColumns="2"
+            >
         </GridView>
 
     </com.cjj.MaterialRefreshLayout>

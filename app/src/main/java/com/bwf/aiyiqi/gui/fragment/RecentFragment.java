@@ -7,14 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.RecenterSay;
 import com.bwf.aiyiqi.gui.adapter.RecenterFragmentAdapter;
 import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
-import com.bwf.aiyiqi.gui.view.PopupWindowSay;
 import com.bwf.aiyiqi.mvp.presenter.Impl.RecenterSayPresenterImple;
 import com.bwf.aiyiqi.mvp.presenter.RecenterSayPresenter;
 import com.bwf.aiyiqi.mvp.view.RecenterSayView;
@@ -25,7 +23,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/11/28.
@@ -38,11 +35,8 @@ public class RecentFragment extends BaseFragment implements RecenterSayView, Rec
     RecyclerView mEssenceFragmenatRecycleview;
     @BindView(R.id.essence_fragmenat_refresh)
     CustomRefreshLayout mEssenceFragmenatRefresh;
-    @BindView(R.id.essence_fragmenat_button_normal)
-    ImageButton mEssenceFragmenatButtonNormal;
     private LinearLayoutManager mLayoutManager;
     private RecenterSayPresenter mPresenter;
-    private PopupWindowSay mPopupWindowSay;
     private String cityName = "成都";
     private String lastCityName;
     private RecenterFragmentAdapter mRecenterFragmentAdapter;
@@ -75,7 +69,6 @@ public class RecentFragment extends BaseFragment implements RecenterSayView, Rec
             }
         });
         mPresenter = new RecenterSayPresenterImple(this);
-       mPopupWindowSay=new PopupWindowSay(getActivity());
 
     }
 
@@ -137,10 +130,5 @@ public class RecentFragment extends BaseFragment implements RecenterSayView, Rec
     public void itemListener(View view, int position) {
         //TODO跳转
 
-    }
-
-    @OnClick(R.id.essence_fragmenat_button_normal)
-    public void onClick() {
-        mPopupWindowSay.showPopupWindow(getActivity(),mEssenceFragmenatButtonNormal);
     }
 }

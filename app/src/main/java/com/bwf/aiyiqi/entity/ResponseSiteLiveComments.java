@@ -454,4 +454,30 @@ public class ResponseSiteLiveComments {
             }
         }
     }
+
+    public List<DataAt> dataAts;
+
+    public List<DataAt> getDataAts() {
+        return dataAts;
+    }
+    public void setDataAts(List<DataAt> dataAts) {
+        this.dataAts = dataAts;
+    }
+    public static class DataAt{
+        private String id;
+        private String name;
+
+        public String getId() {
+            return id;
+        }
+        public void setId(String id) {
+            this.id = id;
+        }
+        public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }

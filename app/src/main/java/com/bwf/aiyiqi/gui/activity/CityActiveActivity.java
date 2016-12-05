@@ -1,5 +1,6 @@
 package com.bwf.aiyiqi.gui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -47,6 +48,7 @@ public class CityActiveActivity extends BaseActivity implements CityActiveView{
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+
     }
 
     @Override
@@ -59,10 +61,16 @@ public class CityActiveActivity extends BaseActivity implements CityActiveView{
                 String url = datas.getData().getForumlist().get(position).getUrls();
                 if (url.equals("")){
                     //跳转到团购会Activity
+                    url=datas.getData().getForumlist().get(position).getGroupon_urls();
+                    Intent intent = new Intent(CityActiveActivity.this,ActivityHtmlCityActive.class);
+                    intent.putExtra("url",url);
+                    startActivity(intent);
 
                 }else{
                     //跳转到H5页面，并传入url
-
+                    Intent intent = new Intent(CityActiveActivity.this,ActivityHtmlCityActive.class);
+                    intent.putExtra("url",url);
+                    startActivity(intent);
                 }
             }
         });

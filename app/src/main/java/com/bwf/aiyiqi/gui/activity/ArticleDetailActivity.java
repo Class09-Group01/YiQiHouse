@@ -2,6 +2,7 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseArticleCommunite;
 import com.bwf.aiyiqi.entity.ResponseArticleDetail;
+import com.bwf.aiyiqi.gui.adapter.ArticleCommuniteAdapter;
+import com.bwf.aiyiqi.gui.adapter.RelatedArticleAdapter;
 import com.bwf.aiyiqi.gui.view.MyListView;
 import com.bwf.aiyiqi.mvp.presenter.ArticleDetailPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.ArticleDetailPresenterImpl;
@@ -44,13 +47,18 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
     @BindView(R.id.listview_article_communite)
     MyListView mListviewArticleCommunite;
     private ArticleDetailPresenter mPresenter;
-
+    private RelatedArticleAdapter mRelatedArticleAdapter;
+    private ArticleCommuniteAdapter mCommuniteAdapter;
     @Override
     protected void initDatas() {
         String newsId = getIntent().getStringExtra("newsId");
         mPresenter = new ArticleDetailPresenterImpl(this);
         mPresenter.loadArticleDetail(newsId);
         mPresenter.loadArticleCommunite(newsId);
+        mRelatedArticleAdapter = new RelatedArticleAdapter(this);
+        mCommuniteAdapter = new ArticleCommuniteAdapter(this);
+        mListviewRelatedArticle.setAdapter(mRelatedArticleAdapter);
+        mListviewArticleCommunite.setAdapter(mCommuniteAdapter);
     }
 
     @Override
@@ -89,12 +97,17 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
 
     @Override
     public void showRelatedArticle(List<ResponseArticleDetail.DataBean.RelatedNewsBean> relatedNewsBean) {
+        mRelatedArticleAdapter.setDataBeen(relatedNewsBean);
 
     }
 
 
     @Override
     public void showArticleCommunite(ResponseArticleCommunite dataBean) {
+        if(!dataBean.getData().getTotal().equals("0")){
+            Log.d("ArticleDetailActivity", dataBean.getData().getTotal());
+            mCommuniteAdapter.setDataBeen(dataBean.getData().getData());
+        }
 
     }
 

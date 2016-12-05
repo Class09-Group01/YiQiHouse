@@ -1,15 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-    android:gravity="center">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-      android:textColor="@drawable/all_tag_textcolor"
-        />
-
-
-</LinearLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<CheckedTextView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+                 android:textSize="15sp"
+                 android:textColor="@drawable/all_tag_textcolor"
+                 android:background="@color/colorWhite"
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:id="@+id/all_tag_classify_item_text"
+                />

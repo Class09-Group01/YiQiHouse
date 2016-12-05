@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -63,8 +64,20 @@ public class DecorateSchoolActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.decorateschool_imageall:
-                startActivity(new Intent(this,AllTagClassify.class));
+                int pagerPosition = mDecorateschoolViewpager.getCurrentItem();
+                Log.d("DecorateSchoolActivity", "pagerPosition:" + pagerPosition);
+                int requestCode = 0;
+                Intent mIntent = new Intent(this, AllTagClassify.class);
+                mIntent.putExtra("pagerPosition", pagerPosition);
+                startActivityForResult(mIntent, requestCode);
+                this.overridePendingTransition(R.anim.decorate_school_anima_inl, R.anim.lift_out);
                 break;
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        int pageItem = data.getIntExtra("tagPosition", 12);
+        mDecorateschoolViewpager.setCurrentItem(pageItem);
     }
 }

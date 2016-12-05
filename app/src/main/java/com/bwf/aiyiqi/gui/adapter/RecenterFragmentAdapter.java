@@ -92,7 +92,7 @@ public class RecenterFragmentAdapter extends RecycleViewBaseAdapter<RecenterSay.
                 @Override
                 public void onClick(View v) {
                     int itemPosition=getAdapterPosition();
-                    mItemOnClickListener.itemListener(v,itemPosition);
+//                    mItemOnClickListener.itemListener(v,itemPosition);
                     String tid=data.get(itemPosition).getTid();
                     Intent intent=new Intent(mContext, PostDetailActivity.class);
                     intent.putExtra("tid",tid);

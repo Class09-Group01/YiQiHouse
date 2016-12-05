@@ -2,7 +2,10 @@ package com.bwf.aiyiqi.gui.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +16,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.activity.LoginActivity;
 
 /**
  * Created by Administrator on 2016/12/1.
@@ -65,39 +68,38 @@ public class PopupWindowSay {
             @Override
             public void onClick(View v) {
                 outTo();
-//                mPopupWindow.dismiss();
             }
         });
         mImageButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO
-                Toast.makeText(mContext, "你好1", Toast.LENGTH_SHORT).show();
                 outTo();
+                mHandler.sendEmptyMessageDelayed(0,700);
             }
         });
         mImageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO
-                Toast.makeText(mContext, "你好2", Toast.LENGTH_SHORT).show();
                 outTo();
+                mHandler.sendEmptyMessageDelayed(0,700);
             }
         });
         mImageButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO
-                Toast.makeText(mContext, "你好3", Toast.LENGTH_SHORT).show();
                 outTo();
+                mHandler.sendEmptyMessageDelayed(0,700);
             }
         });
         mImageButton4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO
-                Toast.makeText(mContext, "你好4", Toast.LENGTH_SHORT).show();
                 outTo();
+                mHandler.sendEmptyMessageDelayed(0,600);
             }
         });
 
@@ -161,5 +163,11 @@ public class PopupWindowSay {
             }
         });
     }
+    private Handler mHandler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            mContext.startActivity(new Intent(mContext, LoginActivity.class));
+        }
+    };
 
 }

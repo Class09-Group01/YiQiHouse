@@ -62,6 +62,7 @@ public interface APIs {
     //业主说 最新的地址
     String SAY_RECENTER_URL="http://bbs.17house.com/motnt/index.php?";
 
+    String API_SELF_ORDER_ACTIVTY = "http://appapi.17house.com/GrouponApi.php?version=1&action=getSingleSupplementInfo&cityId=2&model=android&app_version=android_com.aiyiqi.galaxy_1.1";
     //帖子详情
     String API_POSTDETAIL = "http://bbs.17house.com/motnt/index.php?";
     //文章详情
@@ -70,5 +71,17 @@ public interface APIs {
     String SAY_PLATE_URL="http://bbs.17house.com/motnt/index.php?";
 
     //效果图
+<<<<<<< HEAD
     String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?";
+=======
+    String API_EFFECT_PICTURE_BEAUTY ="http://appapi.17house.com/xiaoguotuApi.php?version=1&page=1&action=albumList2&pageSize=10&tagid=1&model=android";
+
+    //1.3.7 设计/量度
+
+    //免费设计（h5页面）
+    String API_FREE_DESIGN = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/measureFree.html?model=android";
+
+    //免费量房（h5页面）
+    String API_FREE_SIZE = "http://hui.17house.com/svc/payment-facade/h5/measureDesignFree/designFree.html?model=android";
+>>>>>>> 7c2f7bcd5219efd3372c83f706a0925106f7683a
 }

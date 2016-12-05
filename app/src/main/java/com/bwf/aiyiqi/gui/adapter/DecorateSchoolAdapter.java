@@ -37,6 +37,7 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     private Context mContext;
     private int lastIndex;
 
+
     public DecorateSchoolAdapter(Context context) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
@@ -92,17 +93,20 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 for (int i = 0; i < list.size() + 1; i++) {
                     final RadioButton radioButton = (RadioButton) mInflater.inflate(R.layout.school_recycleview_header_tag_item, null);
                     radioButton.setTag(i+1);
+                    radioButton.setId(i+1);
                     RadioGroup.LayoutParams lp = new RadioGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                             ViewGroup.LayoutParams.WRAP_CONTENT);
                     lp.setMargins(15,0,0,0);//设置边距
+                    if(i==0){
+                        radioButton.setChecked(true);
+                    }
                     headerViewHolder.mLlItemSchoolEnter.addView(radioButton,lp);
                 }
             }
             for (int i = 0; i < headerViewHolder.mLlItemSchoolEnter.getChildCount(); i++) {
-                RadioButton radioButton = (RadioButton) headerViewHolder.mLlItemSchoolEnter.getChildAt(i).findViewById(R.id.school_recycle_header_textview);
+                RadioButton radioButton = (RadioButton) headerViewHolder.mLlItemSchoolEnter.getChildAt(i).findViewById(i+1);
                 if (i == 0) {
                     radioButton.setText("全部");
-                    radioButton.setChecked(true);
                 } else {
                     radioButton.setText(list.get(i - 1));
                 }
@@ -113,8 +117,6 @@ public class DecorateSchoolAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                        mGetNewsStage.getNewsStage(v);
                    }
                });
-
-
             }
             return;
         }

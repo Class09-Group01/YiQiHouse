@@ -150,7 +150,6 @@ public class EssenceFragmentAdapter extends RecycleViewBaseAdapter<EssenceSay.Da
                 @Override
                 public void onClick(View v) {
                     int itemPosition=getAdapterPosition();
-                    mItemOnClickListener.itemListener(v,itemPosition);
                     Intent intent=new Intent(mContext, PostDetailActivity.class);
                     intent.putExtra("tid",data.get(itemPosition).getTid());
                     mContext.startActivity(intent);
@@ -158,12 +157,5 @@ public class EssenceFragmentAdapter extends RecycleViewBaseAdapter<EssenceSay.Da
             });
         }
     }
-    public interface ItemOnClickListener{
-        void itemListener(View view,int position);
-    }
-    private ItemOnClickListener mItemOnClickListener;
 
-    public void setItemOnClickListener(ItemOnClickListener itemOnClickListener) {
-        mItemOnClickListener = itemOnClickListener;
-    }
 }

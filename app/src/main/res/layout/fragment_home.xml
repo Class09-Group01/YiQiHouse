@@ -33,6 +33,10 @@
             </RelativeLayout>
 
             <!--8个导航按钮-->
+            <include layout="@layout/mainfragment_recycleview_selectionkey"/>
+
+            <include
+                layout="@layout/mainfragment_recycleview_selectionkey"/>
             <include layout="@layout/mainfragment_recycleview_selectionkey" />
 
             <!--内容显示Recycleview-->

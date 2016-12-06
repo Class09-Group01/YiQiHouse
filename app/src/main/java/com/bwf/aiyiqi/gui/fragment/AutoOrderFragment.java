@@ -2,14 +2,15 @@ package com.bwf.aiyiqi.gui.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseAutoOrder;
-import com.bwf.aiyiqi.gui.adapter.AutoOrderGridviewAdapter;
+import com.bwf.aiyiqi.gui.adapter.AutoOrderRecycleViewAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,18 +20,19 @@ import butterknife.ButterKnife;
  */
 
 public class AutoOrderFragment extends BaseFragment {
-    private  ResponseAutoOrder datas ;
+    @BindView(R.id.gridview_auto_order)
+    RecyclerView mGridviewAutoOrder;
+    private ResponseAutoOrder datas;
     private int tag;
-    private AutoOrderGridviewAdapter adapter;
-    public  AutoOrderFragment(int tag, ResponseAutoOrder data){
+    private AutoOrderRecycleViewAdapter mRecycleViewAdapter;
+
+    public AutoOrderFragment(int tag, ResponseAutoOrder data) {
         this.datas = data;
         Bundle bundle = new Bundle();
-        bundle.putInt("tag",tag);
+        bundle.putInt("tag", tag);
         this.setArguments(bundle);
     }
 
-    @BindView(R.id.gridview_auto_order)
-    GridView mGridviewAutoOrder;
 
     @Override
     protected int getContentViewResId() {
@@ -46,10 +48,11 @@ public class AutoOrderFragment extends BaseFragment {
     private void initDatas() {
         Bundle bundle = getArguments();
         tag = bundle.getInt("tag");
-        adapter = new AutoOrderGridviewAdapter(getContext(),tag);
-        adapter.setDatas(datas.getData());
-        mGridviewAutoOrder.setAdapter(adapter);
-
+        mRecycleViewAdapter = new AutoOrderRecycleViewAdapter(getContext(), tag);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),3);
+        mGridviewAutoOrder.setLayoutManager(gridLayoutManager);
+        mRecycleViewAdapter.setDatas(datas.getData());
+        mGridviewAutoOrder.setAdapter(mRecycleViewAdapter);
 
     }
 

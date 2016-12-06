@@ -117,6 +117,15 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
                 View view = LayoutInflater.from(this).inflate(R.layout.acitivity_sitelive_progress_progress_item, activitySiteliveProgress, false);
                 ProgressViewHolder holder = new ProgressViewHolder(view);
                 holder.asppItemText.setText(data.getProgress().get(i).getProgressName());
+
+
+
+
+
+
+
+
+
                 setProgress(holder, data.getProgress().get(i).getProgressStatus());
                 activitySiteliveProgress.addView(view);
                 final int progressId = data.getProgress().get(i).getProgressId();

@@ -129,7 +129,7 @@ public class ScanActivity extends BaseActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
             outputStream.flush();
             outputStream.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

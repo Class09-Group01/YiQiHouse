@@ -49,4 +49,5 @@ public class EffectPictureFragmentPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return titles[position];
     }
+    
 }

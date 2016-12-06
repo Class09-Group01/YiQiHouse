@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.lankton.flowlayout.FlowLayout;
 
 /**
@@ -61,6 +63,10 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     TextView mReviewNumber;
     @BindView(R.id.listview_post_communite)
     MyListView mListviewPostCommunite;
+    @BindView(R.id.title)
+    TextView mTitle;
+    @BindView(R.id.edittext)
+    EditText mEdittext;
 
     private PostDetailPresenter mPresenter;
     private PostCommuniteListViewAdapter adapter;
@@ -73,6 +79,8 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+        mTitle.setText("帖子详情");
+
     }
 
     @Override
@@ -90,6 +98,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
+
 
     }
 
@@ -117,7 +126,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
                 SimpleDraweeView image = new SimpleDraweeView(this);
                 image.setMinimumHeight(500);
                 image.setMaxHeight(600);
-                image.setPadding(0,20,0,20);
+                image.setPadding(0, 20, 0, 20);
                 image.setImageURI(Uri.parse(message.get(i).getMsg()));
                 mLlDetailPostdetailActivity.addView(image);
             }
@@ -127,7 +136,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
         for (int i = 0; i < tags.size(); i++) {
             TextView textview = new TextView(this);
             textview.setText(tags.get(i).getTagname());
-            textview.setPadding(10,10,10,10);
+            textview.setPadding(10, 10, 10, 10);
             mFlowlayoutTagPostdetailActivity.addView(textview);
         }
     }
@@ -155,7 +164,7 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     @Override
     public void showPostCommunite(ResponsePostCommunite postCommunite) {
         if (postCommunite.getData() != null) {
-            mReviewNumber.setText("回帖 （"+postCommunite.getData().size()+")");
+            mReviewNumber.setText("回帖 （" + postCommunite.getData().size() + ")");
             adapter.addDatas(postCommunite.getData());
         }
     }
@@ -173,5 +182,11 @@ public class PostDetailActivity extends BaseActivity implements PostView {
     @Override
     public void showPostCommuniteFailed() {
 
+    }
+
+    @OnClick(R.id.back_activity_decoration_company)
+    public void onClick() {
+        finish();
+        return;
     }
 }

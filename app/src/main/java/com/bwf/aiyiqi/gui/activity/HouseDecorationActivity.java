@@ -10,9 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.framwork.tool.APIs;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by lingchen52 on 2016/11/25.
@@ -22,6 +24,8 @@ public class HouseDecorationActivity extends BaseActivity {
 
     @BindView(R.id.back_activity_decoration_company)
     ImageView mBackActivityDecorationCompany;
+    @BindView(R.id.title)
+    TextView mTitle;
     @BindView(R.id.webview)
     WebView mWebview;
 
@@ -29,6 +33,7 @@ public class HouseDecorationActivity extends BaseActivity {
     private WebSettings
 
             mWebSettings;
+
     @Override
     protected void initDatas() {
         Intent intent = getIntent();
@@ -36,7 +41,12 @@ public class HouseDecorationActivity extends BaseActivity {
         Log.d("HouseDecorationActivity", url);
         mWebSettings = mWebview.getSettings();
         mWebSettings.setJavaScriptEnabled(true);
-        mWebview.setWebViewClient(new WebViewClient(){
+        if(url.equals(APIs.API_NEW_HOUSE_DECORATION)){
+            mTitle.setText("新房整装");
+        }else{
+            mTitle.setText("老房整装");
+        }
+        mWebview.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 mWebview.loadUrl(url);
@@ -69,5 +79,11 @@ public class HouseDecorationActivity extends BaseActivity {
         // TODO: add setContentView(...) invocation
 
 
+    }
+
+    @OnClick(R.id.back_activity_decoration_company)
+    public void onClick() {
+        finish();
+        return;
     }
 }

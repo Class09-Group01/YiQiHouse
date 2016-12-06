@@ -15,18 +15,20 @@
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
 
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                android:background="@color/colorWhite">
+                android:background="@color/colorWhite"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_collapseMode="parallax">
 
                     <ImageView
                         android:layout_width="match_parent"
@@ -113,5 +115,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>

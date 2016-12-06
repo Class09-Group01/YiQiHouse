@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.lankton.flowlayout.FlowLayout;
 
 /**
@@ -46,9 +48,14 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
     TextView mTextviewCommuniteNumber;
     @BindView(R.id.listview_article_communite)
     MyListView mListviewArticleCommunite;
+    @BindView(R.id.title)
+    TextView mTitle;
+    @BindView(R.id.edit_input)
+    EditText mEditInput;
     private ArticleDetailPresenter mPresenter;
     private RelatedArticleAdapter mRelatedArticleAdapter;
     private ArticleCommuniteAdapter mCommuniteAdapter;
+
     @Override
     protected void initDatas() {
         String newsId = getIntent().getStringExtra("newsId");
@@ -64,6 +71,8 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+        mTitle.setText("文章详情");
+
     }
 
     @Override
@@ -76,18 +85,18 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
         mArticleTitle.setText(dataBean.getCurrentNews().getTitle());
         List<String> content = dataBean.getCurrentNews().getContent();
         for (int i = 0; i < content.size(); i++) {
-            if(i%2 == 0){
+            if (i % 2 == 0) {
                 TextView textView = new TextView(this);
                 textView.setText(content.get(i));
                 textView.setTextColor(getResources().getColor(R.color.black));
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15);
-                textView.setPadding(30,10,30,10);
+                textView.setPadding(30, 10, 30, 10);
                 mLlArticleDetail.addView(textView);
-            }else{
+            } else {
                 SimpleDraweeView image = new SimpleDraweeView(this);
                 image.setMinimumHeight(600);
                 image.setMaxHeight(800);
-                image.setPadding(30,10,30,10);
+                image.setPadding(30, 10, 30, 10);
                 image.setImageURI(Uri.parse(content.get(i)));
                 mLlArticleDetail.addView(image);
             }
@@ -104,7 +113,7 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
 
     @Override
     public void showArticleCommunite(ResponseArticleCommunite dataBean) {
-        if(!dataBean.getData().getTotal().equals("0")){
+        if (!dataBean.getData().getTotal().equals("0")) {
             Log.d("ArticleDetailActivity", dataBean.getData().getTotal());
             mCommuniteAdapter.setDataBeen(dataBean.getData().getData());
         }
@@ -131,5 +140,11 @@ public class ArticleDetailActivity extends BaseActivity implements ArticleDetail
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
 
+    }
+
+    @OnClick(R.id.back_activity_decoration_company)
+    public void onClick() {
+        finish();
+        return;
     }
 }

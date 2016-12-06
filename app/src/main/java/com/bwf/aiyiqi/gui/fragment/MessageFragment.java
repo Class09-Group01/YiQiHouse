@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
+import com.bwf.aiyiqi.gui.activity.LoginActivity;
 
 /**
  * Created by Administrator on 2016/11/23.

@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.activity.IntegralRulesActivity;
+import com.bwf.aiyiqi.gui.activity.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

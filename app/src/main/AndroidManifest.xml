@@ -32,7 +32,6 @@
         <activity android:name=".gui.activity.WelcomeActivty"/>
         <activity android:name=".gui.activity.ScanActivity"/>
         <activity android:name=".gui.activity.SearchActivity"/>
-        <activity android:name=".gui.activity.SelfOrderActivity"/>
         <activity android:name=".gui.activity.IntegralRulesActivity"/>
         <activity android:name=".gui.activity.DecorationCompanyActivity"/>
         <activity android:name=".gui.activity.HouseDecorationActivity"/>

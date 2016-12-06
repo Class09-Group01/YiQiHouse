@@ -1,7 +1,6 @@
 package com.bwf.aiyiqi.mvp.model.Impl;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.entity.ResponseEffectctBeautyDatas;
@@ -23,6 +22,7 @@ public class EffectPictureBeautyFragmentModelImpl implements EffectPictureBeauty
     public void loadDatas(final Callback callback, HashMap<String, String> map) {
         OkHttpUtils.get()
                 .url(APIs.API_EFFECT_PICTURE_BEAUTY)
+                .params(map)
                 .build()
                 .execute(new StringCallback() {
                     @Override
@@ -31,7 +31,6 @@ public class EffectPictureBeautyFragmentModelImpl implements EffectPictureBeauty
                     }
                     @Override
                     public void onResponse(String response, int id) {
-                        Log.d("EffectPictureBeautyFrag", "res:" + response);
                         if (TextUtils.isEmpty(response)) return;
                         ResponseEffectctBeautyDatas datas = JSON.parseObject(response, ResponseEffectctBeautyDatas.class);
                         if (datas != null) {

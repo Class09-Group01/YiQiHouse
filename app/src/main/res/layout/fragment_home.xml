@@ -6,7 +6,7 @@
     android:orientation="vertical"
     >
 
-    <ScrollView
+    <com.bwf.aiyiqi.gui.view.ScrollViewCustom
         android:id="@+id/activity_home_ScrollViewCustom"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,12 +30,10 @@
                     <include layout="@layout/fragment_home_viewpager" />
                 </LinearLayout>
 
-                <!--activity_home_title-->
-                <include layout="@layout/fragment_home_title_bar" />
             </RelativeLayout>
 
             <!--8个导航按钮-->
-            <include layout="@layout/mainfragment_recycleview_selectionkey" />
+            <include layout="@layout/mainfragment_recycleview_selectionkey"/>
 
             <!--内容显示Recycleview-->
             <com.bwf.aiyiqi.gui.view.RecycleViewCustom
@@ -46,5 +44,8 @@
             </com.bwf.aiyiqi.gui.view.RecycleViewCustom>
 
         </LinearLayout>
-    </ScrollView>
+    </com.bwf.aiyiqi.gui.view.ScrollViewCustom>
+    <!--activity_home_title-->
+    <include layout="@layout/fragment_home_title_bar"
+        />
 </com.cjj.MaterialRefreshLayout>

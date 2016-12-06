@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentRecycleviewData;
 import com.bwf.aiyiqi.entity.ResponseMainFragmentViewPagerDatas;
+import com.bwf.aiyiqi.gui.activity.AutoOrderActivity;
 import com.bwf.aiyiqi.gui.activity.BuildingFurnitureActivity;
 import com.bwf.aiyiqi.gui.activity.CityActiveActivity;
 import com.bwf.aiyiqi.gui.activity.DecorateBudgetActivity;
@@ -22,12 +24,14 @@ import com.bwf.aiyiqi.gui.activity.DecorateSchoolActivity;
 import com.bwf.aiyiqi.gui.activity.DecorationCompanyActivity;
 import com.bwf.aiyiqi.gui.activity.DesignActivity;
 import com.bwf.aiyiqi.gui.activity.EffectPictureActivity;
+import com.bwf.aiyiqi.gui.activity.ScanActivity;
 import com.bwf.aiyiqi.gui.activity.SearchActivity;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.BasePagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentPagerAdapter;
 import com.bwf.aiyiqi.gui.adapter.MainFragmentRecycleAdapter;
 import com.bwf.aiyiqi.gui.view.PagerDotIndicator;
 import com.bwf.aiyiqi.gui.view.RecycleViewCustom;
+import com.bwf.aiyiqi.gui.view.ScrollViewCustom;
 import com.bwf.aiyiqi.gui.view.SlideViewPager;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentImagePresenterImpl;
 import com.bwf.aiyiqi.mvp.presenter.Impl.MainFragmentRecyclePresenterImpl;
@@ -35,7 +39,6 @@ import com.bwf.aiyiqi.mvp.view.MainFragmentImage;
 import com.bwf.aiyiqi.mvp.view.MainFragmentRecycleView;
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
-import com.uuzuche.lib_zxing.activity.CaptureActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,6 +64,10 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
     MaterialRefreshLayout reflush;
     @BindView(R.id.activity_home_recycleview)
     RecycleViewCustom activityHomeRecycleview;
+    @BindView(R.id.fragment_home_title_bar)
+    LinearLayout fragmentHomeTitleBar;
+    @BindView(R.id.activity_home_ScrollViewCustom)
+    ScrollViewCustom activityHomeScrollViewCustom;
 
     private LinearLayout mLinearLayout_dot;
     private SlideViewPager mSlideViewPager;
@@ -74,6 +81,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
 
     @Override
     protected int getContentViewResId() {
+
         return R.layout.fragment_home;
     }
 
@@ -121,6 +129,21 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
                 mRecyclePresenter.loadRecycleData();
             }
         });
+        //设置title栏渐变
+        activityHomeScrollViewCustom.setOnMyScrollChanged(new ScrollViewCustom.OnMyScrollChangedListener() {
+            @Override
+            public void onMyScrollChanged(int x, int y, int oldX, int oldY) {
+                if(y <= 0){
+                    fragmentHomeTitleBar.setBackgroundColor(Color.argb(0,0,0xbb,0));
+                }else if(y <= mSlideViewPager.getHeight()){
+                    fragmentHomeTitleBar.setBackgroundColor(Color.argb((int) (y*1.0/mSlideViewPager.getHeight()*255),0,0xbb,0));
+                }else {
+                    fragmentHomeTitleBar.setBackgroundColor(Color.argb(255,0,0xbb,0));
+                    return;
+                }
+            }
+        });
+
     }
 
     private void initViews() {
@@ -143,8 +166,6 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
         reflush.finishRefresh();
         reflush.finishRefreshLoadMore();
         mRecycleAdapter.addData(data.getData());
-        Toast.makeText(getActivity(), "data.getData().size():" + data.getData().size(), Toast.LENGTH_SHORT).show();
-
         //刷新一下当前底部的状态 -- FOORET_LOADING
         updateFooterState(mRecycleAdapter.FOORET_LOADING);
     }
@@ -189,7 +210,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
-                startActivity(new Intent(getActivity(), CaptureActivity.class));
+                startActivity(new Intent(getActivity(), ScanActivity.class));
                 break;
             case R.id.fragment_home_title_bar_search:
                 startActivity(new Intent(getActivity(), SearchActivity.class));
@@ -215,6 +236,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
                 startActivity(new Intent(getActivity(), EffectPictureActivity.class));
                 break;
             case R.id.recycle_linearlayout_self_order:
+                startActivity(new Intent(getActivity(), AutoOrderActivity.class));
                 break;
             case R.id.recycle_linearlayout_design_measure:
                 startActivity(new Intent(getActivity(), DesignActivity.class));

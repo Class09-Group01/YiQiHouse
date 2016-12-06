@@ -27,8 +27,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".gui.activity.ScanActivity"/>
+
+        <!--将zxing的二维码扫描显示转到自己的scanActivtity中-->
+        <activity android:name=".gui.activity.ScanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+
+        </activity>
+        <activity android:name=".gui.activity.SmsLoginActivity"/>
+        <activity android:name=".gui.activity.WelcomeActivty"/>
         <activity android:name=".gui.activity.SearchActivity"/>
+        <activity android:name=".gui.activity.IntegralRulesActivity"/>
         <activity android:name=".gui.activity.DecorationCompanyActivity"/>
         <activity android:name=".gui.activity.HouseDecorationActivity"/>
         <activity android:name=".gui.activity.CityActiveActivity"/>
@@ -55,6 +67,7 @@
         <activity android:name=".gui.activity.LoginActivity"/>
         <activity android:name=".gui.activity.ForgetPasswordActivity"/>
         <activity android:name=".gui.activity.DesignActivity" />
+        <activity android:name=".gui.activity.AutoOrderActivity" />
 
     </application>
 

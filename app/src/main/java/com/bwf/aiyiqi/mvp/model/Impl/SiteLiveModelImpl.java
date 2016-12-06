@@ -1,7 +1,6 @@
 package com.bwf.aiyiqi.mvp.model.Impl;
 
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.bwf.aiyiqi.entity.ResponseSiteLiveComments;
@@ -64,7 +63,6 @@ public class SiteLiveModelImpl implements SiteLiveModel {
 
             @Override
             public void onResponse(String response, int id) {
-                Log.d("SiteLiveModelImpl", "loadComentsData:"+response);
                 if (TextUtils.isEmpty(response))return;
                 ResponseSiteLiveComments data = JSON.parseObject(response, ResponseSiteLiveComments.class);
                 if(data != null){

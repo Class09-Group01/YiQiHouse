@@ -1,10 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <fragment
+        android:id="@+id/scan_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.uuzuche.lib_zxing.activity.CaptureFragment"/>
+    <ImageView
+        android:id="@+id/scan_photo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="二维码扫描界面"/>
-</LinearLayout>
+        android:src="@mipmap/kf5_img_from_camera_pressed"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentBottom="true"
+        />
+    <ImageView
+        android:id="@+id/scan_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/kf5_img_from_file_pressed"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <ImageView
+        android:id="@+id/scan_led"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/zhuangxiufs"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <ImageView
+        android:id="@+id/test"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"/>
+
+</RelativeLayout>

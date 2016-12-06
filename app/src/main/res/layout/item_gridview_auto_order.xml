@@ -8,7 +8,7 @@
         android:id="@+id/image_gridview_auto_order"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        fresco:actualImageScaleType="centerInside"/>
+        fresco:actualImageScaleType="fitXY"/>
     <TextView
         android:id="@+id/name_gridview_auto_order"
         android:layout_width="wrap_content"

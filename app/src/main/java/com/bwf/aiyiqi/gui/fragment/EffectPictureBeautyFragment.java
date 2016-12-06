@@ -20,6 +20,7 @@ import com.bwf.aiyiqi.gui.adapter.BaseAdapter.EffectPictureBeautyGridAdapter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.EffectPictureBeautyFragmentPresenterImpl;
 import com.bwf.aiyiqi.mvp.view.EffectPictureBeautyFragmentView;
 import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,6 +45,8 @@ public class EffectPictureBeautyFragment extends BaseFragment implements EffectP
     MaterialRefreshLayout reflush;
     private EffectPictureBeautyFragmentPresenterImpl mPresent;
     private EffectPictureBeautyGridAdapter mAdapter;
+    private boolean isLoading = true;
+
     @Override
     protected int getContentViewResId() {
         return R.layout.fragment_effect_picture_beauty;
@@ -62,8 +65,23 @@ public class EffectPictureBeautyFragment extends BaseFragment implements EffectP
         mPresent = new EffectPictureBeautyFragmentPresenterImpl(this);
         mAdapter = new EffectPictureBeautyGridAdapter(getActivity(),R.layout.fepb_popwindow_view_itme);
         mPresent.loadEffectPictureData();
-
         fepbGridview.setAdapter(mAdapter);
+
+        reflush.setLoadMore(true);
+        reflush.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                mPresent.refreshEffectPictureData();
+                mAdapter.clearData();
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                mPresent.loadEffectPictureData();
+                isLoading = true;
+            }
+        });
+
     }
 
     private CheckedTextView currentView;
@@ -131,16 +149,23 @@ public class EffectPictureBeautyFragment extends BaseFragment implements EffectP
     @Override
     public void showEffectDataSuccess(ResponseEffectctBeautyDatas data) {
         mAdapter.addData(data.getData().getList());
+        isLoading = false;
+        reflush.finishRefresh();
+        reflush.finishRefreshLoadMore();
     }
 
     @Override
     public void showEffectFail() {
         Toast.makeText(getActivity(), "onEorror", Toast.LENGTH_SHORT).show();
-
+        isLoading = false;
+        reflush.finishRefresh();
+        reflush.finishRefreshLoadMore();
     }
 
     @Override
     public void showEffectNoMoreData() {
-
+        isLoading = false;
+        reflush.finishRefresh();
+        reflush.finishRefreshLoadMore();
     }
 }

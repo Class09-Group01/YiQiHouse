@@ -28,9 +28,17 @@
             </intent-filter>
         </activity>
 
+        <!--将zxing的二维码扫描显示转到自己的scanActivtity中-->
+        <activity android:name=".gui.activity.ScanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+
+        </activity>
         <activity android:name=".gui.activity.SmsLoginActivity"/>
         <activity android:name=".gui.activity.WelcomeActivty"/>
-        <activity android:name=".gui.activity.ScanActivity"/>
         <activity android:name=".gui.activity.SearchActivity"/>
         <activity android:name=".gui.activity.IntegralRulesActivity"/>
         <activity android:name=".gui.activity.DecorationCompanyActivity"/>

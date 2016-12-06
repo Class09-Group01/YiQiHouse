@@ -125,7 +125,7 @@
     <string name="forgetpassword_agin_password">请设置新的密码</string>
     <string name="forgetpassword_get_identifyingcode">请输入验证码</string>
     <string name="forget_password_identifyingcode_textview">获取验证码</string>
-
+    <string name="recycle_foot_loadmore">上滑加载更多</string>
 
 
 </resources>

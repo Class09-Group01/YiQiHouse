@@ -10,4 +10,5 @@ public interface SearchActivityView {
     void showSearchDataSuccess(ResponseSearchDatas datas);
     void showSearchFail();
     void showNoMoreData();
+    void showNoSearchData();
 }

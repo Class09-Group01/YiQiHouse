@@ -1,5 +1,7 @@
 package com.bwf.aiyiqi.mvp.presenter.Impl;
 
+import android.util.Log;
+
 import com.bwf.aiyiqi.entity.ResponseSearchDatas;
 import com.bwf.aiyiqi.mvp.model.Impl.SearchActivityModelIml;
 import com.bwf.aiyiqi.mvp.model.SearchActivityModel;
@@ -39,30 +41,46 @@ public class SearchActivityPresenterImpl implements SearchActivityPresenter {
         map.put("pageSize","10");
     }
 
-    private void setaMap(String searchText){
+    private void setaMap(String searchText,int page){
         myMap.clear();
         myMap.putAll(map);
         myMap.put("page",page+"");
         myMap.put("kw",searchText);
     }
 
+    //加载更多
+    public void loadSearchDataMore(String searchText){
+        page++;
+        setaMap(searchText,page);
+        loadSearchData(searchText);
+    }
+    //加载第一页
+    public void loadSearchDataFirst(String searchText){
+        page = 1;
+        setaMap(searchText,page);
+        loadSearchData(searchText);
+    }
+
+
     @Override
     public void loadSearchData(String searchText) {
-        setaMap(searchText);
         model.loadData(myMap, new SearchActivityModel.Callback() {
             @Override
             public void loadDataSuccess(ResponseSearchDatas datas) {
                 view.showSearchDataSuccess(datas);
             }
-
             @Override
             public void loadFail() {
                 view.showSearchFail();
             }
-
             @Override
             public void loadNoMoreData() {
-                view.showNoMoreData();
+                if(page>1){
+                    view.showNoMoreData();
+                }else {
+                    view.showNoSearchData();
+                }
+                Log.d("SearchActivity", "page:" + page);
             }
         });
     }

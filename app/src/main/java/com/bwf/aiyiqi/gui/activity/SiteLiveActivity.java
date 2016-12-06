@@ -3,7 +3,6 @@ package com.bwf.aiyiqi.gui.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckedTextView;
@@ -55,6 +54,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     private SiteLivePresenterImpl mPresenter;
     private SiteLiveListViewAdapter mAdapter;
     private String building;
+    private int userChildCount ;
 
 
     @Override
@@ -89,7 +89,6 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
 
     @Override
     protected void initDatas() {
-
     }
 
     //动态添加progress进度的相关信息
@@ -97,20 +96,23 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
         imageListviewActivityDecorationCompany.setImageURI(Uri.parse(data.getImageUrl()));
         siteItemListviewDecoration.setText(data.getOrderHouse().getAddress());
         compositionItemListviewDecoration.setText(data.getOrderHouse().getLayout());
-        activitySiteliveUser.removeAllViews();
         activitySiteliveProgress.removeAllViews();
+        userChildCount = activitySiteliveUser.getChildCount();
         int size = Math.max(data.getMembers().size(), data.getProgress().size());
         for (int i = 0; i < size; i++) {
             //成员
             if (i < data.getMembers().size()) {
-                View view = LayoutInflater.from(this).inflate(R.layout.acitivity_sitelive_progress_user_item, activitySiteliveUser, false);
+                activitySiteliveUser.getChildAt(i).setVisibility(View.VISIBLE);
+                View view = activitySiteliveUser.getChildAt(i);
                 UserViewHolder holder = new UserViewHolder(view);
                 if (data.getMembers().get(i).getAvatar() != null) {
                     holder.aspuItemUserimg.setImageURI(Uri.parse(data.getMembers().get(i).getAvatar()));
                 }
                 holder.aspuItemTextname.setText(data.getMembers().get(i).getRealName());
                 holder.aspuItemTextwork.setText(bossIdToJob(data.getMembers().get(i).getBossId()));
-                activitySiteliveUser.addView(view);
+            }else if(i>=userChildCount){
+            }else {
+                activitySiteliveUser.getChildAt(i).setVisibility(View.GONE);
             }
             //工程进度
             if (i < data.getProgress().size()) {
@@ -123,7 +125,6 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.d("SiteLiveActivity", progressId + " "+building);
                         mPresenter.setId(progressId+"", building);
                         mPresenter.loadSiteLivePresenter();
                     }

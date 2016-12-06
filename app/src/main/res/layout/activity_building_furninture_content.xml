@@ -27,7 +27,7 @@
             android:layout_height="20dp"
             frsco:fadeDuration="1000"
             frsco:actualImageScaleType="centerCrop"
-            frsco:placeholderImage="@mipmap/icon_time"
+            frsco:placeholderImage="@mipmap/loading_placeholder"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"

@@ -8,6 +8,7 @@
         android:id="@+id/image_item_listview_site_playing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        fresco:placeholderImage="@mipmap/loading_placeholder"
         fresco:roundAsCircle="true"/>
     <TextView
         android:id="@+id/name_item_listview_site_playing"

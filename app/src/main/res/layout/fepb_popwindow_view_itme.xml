@@ -10,6 +10,7 @@
         android:layout_height="200dp"
         fresco:actualImageScaleType="centerCrop"
         fresco:fadeDuration="1000"
+        fresco:placeholderImage="@mipmap/loading_placeholder"
         />
     <LinearLayout
         android:layout_width="match_parent"

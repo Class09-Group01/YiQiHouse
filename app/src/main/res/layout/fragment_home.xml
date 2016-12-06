@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -26,7 +25,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
                     <include layout="@layout/fragment_home_viewpager" />
                 </LinearLayout>
 
@@ -48,4 +46,13 @@
     <!--activity_home_title-->
     <include layout="@layout/fragment_home_title_bar"
         />
+
+    <ImageView
+        android:id="@+id/to_top"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_go_top"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="20dp"/>
 </com.cjj.MaterialRefreshLayout>

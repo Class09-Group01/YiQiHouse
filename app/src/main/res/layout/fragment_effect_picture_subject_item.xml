@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="280dp">
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/feps_item_imgcontent"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        fresco:actualImageScaleType="centerCrop"
+        fresco:placeholderImage="@mipmap/loading_placeholder"
         />
 
     <LinearLayout

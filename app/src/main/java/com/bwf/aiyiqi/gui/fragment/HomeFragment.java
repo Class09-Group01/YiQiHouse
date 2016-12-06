@@ -206,7 +206,7 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
             R.id.recycle_linearlayout_activity, R.id.recycle_linearlayout_school,
             R.id.recycle_linearlayout_my_budget, R.id.recycle_linearlayout_category,
             R.id.recycle_linearlayout_rending_new, R.id.recycle_linearlayout_self_order,
-            R.id.recycle_linearlayout_design_measure})
+            R.id.recycle_linearlayout_design_measure,R.id.to_top})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_title_bar_scan:
@@ -241,6 +241,9 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
             case R.id.recycle_linearlayout_design_measure:
                 startActivity(new Intent(getActivity(), DesignActivity.class));
                 break;
+            case R.id.to_top:
+                activityHomeScrollViewCustom.smoothScrollTo(0,0);
+                break;
         }
     }
 
@@ -253,10 +256,8 @@ public class HomeFragment extends BaseFragment implements MainFragmentImage, Mai
         mPagerAdapter = new MainFragmentPagerAdapter<>(getContext(), datas.getData());
         mSlideViewPager.setAdapter(mPagerAdapter);
     }
-
     @Override
     public void showLoadFailed() {
-
     }
 
 }

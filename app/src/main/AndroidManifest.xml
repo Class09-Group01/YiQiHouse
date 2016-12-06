@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bwf.aiyiqi">
+          package="com.bwf.aiyiqi">
+
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <!-- Zxing二维码的权限 -->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
 
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -23,17 +25,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".gui.activity.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
         <!--将zxing的二维码扫描显示转到自己的scanActivtity中-->
-        <activity android:name=".gui.activity.ScanActivity"
+        <activity
+            android:name=".gui.activity.ScanActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"
             >
 
         </activity>
@@ -46,28 +49,32 @@
         <activity android:name=".gui.activity.CityActiveActivity"/>
         <activity android:name=".gui.activity.YiQiGroupActivity"/>
         <activity
-            android:configChanges="orientation|keyboardHidden"
             android:name="com.uuzuche.lib_zxing.activity.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden"
             android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"
             ></activity>
         <activity android:name=".gui.activity.BuildingFurnitureActivity"/>
         <activity android:name=".gui.activity.DecorateSchoolActivity"/>
         <activity android:name=".gui.activity.EffectPictureActivity"/>
         <activity android:name=".gui.activity.DecorateBudgetActivity"/>
-        <activity android:name=".gui.activity.PostDetailActivity" />
+        <activity
+            android:name=".gui.activity.PostDetailActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".gui.activity.SiteLiveActivity"/>
-        <activity android:name=".gui.activity.ArticleDetailActivity" />
+        <activity
+            android:name=".gui.activity.ArticleDetailActivity"
+            android:windowSoftInputMode="stateHidden"/>
 
         <activity android:name=".gui.activity.SiteLiveViewPagerActivity"/>
 
-        <activity android:name=".gui.activity.ActivityHtmlCityActive" />
+        <activity android:name=".gui.activity.ActivityHtmlCityActive"/>
         <activity android:name=".gui.activity.AllTagClassify"/>
         <activity android:name=".gui.activity.LoginActivity"/>
         <activity android:name=".gui.activity.ForgetPasswordActivity"/>
-        <activity android:name=".gui.activity.DesignActivity" />
-        <activity android:name=".gui.activity.AutoOrderActivity" />
+        <activity android:name=".gui.activity.DesignActivity"/>
+        <activity android:name=".gui.activity.AutoOrderActivity"/>
 
     </application>
 

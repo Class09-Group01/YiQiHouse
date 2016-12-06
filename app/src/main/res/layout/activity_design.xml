@@ -17,6 +17,7 @@
             android:background="@color/colorWhite">
 
             <View
+                android:id="@+id/back_design_activity"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentLeft="true"

@@ -54,6 +54,19 @@ public class TimeTools {
         }
         return times;
     }
-
+    public static String showTime(String timestamp){
+        String myCommuniteTime = null;
+        long time = Long.valueOf(timestamp);
+        long timeMillis = System.currentTimeMillis();
+        long communiteTime = (timeMillis/1000 - time)/3600;
+        if(communiteTime == 0){
+            myCommuniteTime = "刚刚";
+        }else if(communiteTime >= 1 && communiteTime <= 24){
+            myCommuniteTime = myCommuniteTime+"小时前";
+        }else if (communiteTime > 24){
+            myCommuniteTime = "几天前";
+        }
+        return myCommuniteTime;
+    }
 
 }

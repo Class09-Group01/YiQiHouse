@@ -2,6 +2,7 @@ package com.bwf.aiyiqi.gui.activity;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -52,6 +53,8 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     TextView textView;
     @BindView(R.id.activity_sitelive_scrollview)
     ScrollViewCustom activitySiteliveScrollview;
+    @BindView(R.id.title)
+    TextView mTitle;
     private SiteLivePresenterImpl mPresenter;
     private SiteLiveListViewAdapter mAdapter;
     private String building;
@@ -65,17 +68,18 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+        mTitle.setText("工地直播");
         mAdapter = new SiteLiveListViewAdapter(this, R.layout.acitivity_sitelive_comments_item);
         //给listVIew加一个底部 显示没有更多数据了
 
         activitySiteliveListview.addFooterView(LayoutInflater.from(this).inflate
-                (R.layout.school_recycleview_fooder,activitySiteliveListview,false));
+                (R.layout.school_recycleview_fooder, activitySiteliveListview, false));
         activitySiteliveListview.setAdapter(mAdapter);
 
         Intent intent = getIntent();
         String comId = intent.getStringExtra("comId");
         String buidingId = intent.getStringExtra("buidingId");
-        if(TextUtils.isEmpty(buidingId)){
+        if (TextUtils.isEmpty(buidingId)) {
             buidingId = "0";
         }
         building = new String(buidingId);
@@ -132,8 +136,8 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.d("SiteLiveActivity", progressId + " "+building);
-                        mPresenter.setId(progressId+"", building);
+                        Log.d("SiteLiveActivity", progressId + " " + building);
+                        mPresenter.setId(progressId + "", building);
                         mPresenter.loadSiteLivePresenter();
                     }
                 });
@@ -198,7 +202,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
     //以下是网络数据请求结果回调
     @Override
     public void showSiteProgressDataSuccess(ResponseSiteLiveData data) {
-        activitySiteliveScrollview.scrollTo(0,0);
+        activitySiteliveScrollview.scrollTo(0, 0);
         addProgress(data.getData());
     }
 
@@ -214,7 +218,7 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
 
     @Override
     public void showSiteCommentsDataSuccess(ResponseSiteLiveComments data) {
-        activitySiteliveScrollview.scrollTo(0,0);
+        activitySiteliveScrollview.scrollTo(0, 0);
         Toast.makeText(this, "data" + data.getData().size(), Toast.LENGTH_SHORT).show();
         mAdapter.clearData();
         mAdapter.addData(data.getData());
@@ -238,6 +242,19 @@ public class SiteLiveActivity extends BaseActivity implements SiteLiveView {
             case R.id.reflush:
                 break;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.back_activity_decoration_company)
+    public void onClick() {
+        finish();
+        return;
     }
 
     public class UserViewHolder {

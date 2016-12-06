@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseArticleCommunite;
+import com.bwf.aiyiqi.framwork.tool.TimeTools;
 import com.bwf.aiyiqi.gui.adapter.BaseAdapter.ListViewBaseAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -66,7 +67,8 @@ public class ArticleCommuniteAdapter extends ListViewBaseAdapter {
         holder.mImageUserCommunite.setImageURI(Uri.parse(mDataBeen.get(position).getUserheadimage()));
         holder.mNameUserCommunite.setText(mDataBeen.get(position).getComment_user_name());
         holder.mDetailUserCommunite.setText(mDataBeen.get(position).getComment_content());
-        holder.mTimeUserCommunite.setText(mDataBeen.get(position).getComment_time());
+        String communite = TimeTools.showTime(mDataBeen.get(position).getComment_time());
+        holder.mTimeUserCommunite.setText(communite);
         Log.d("ArticleCommuniteAdapter", mDataBeen.get(position).getComment_user_name());
         return convertView;
     }

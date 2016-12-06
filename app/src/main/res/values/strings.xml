@@ -110,6 +110,9 @@
     <string name="all_tag_classify_decorate_ping">装修中</string>
     <string name="all_tag_classify_decorate_finish">装修后</string>
     <string name="comments">评论(0)</string>
+
+    <string name="text_autoorder_yiqinet">一起网保障</string>
+
     <string name="login_register_cancle">取消</string>
     <string name="login_register">登录/注册</string>
     <string name="login_register_identity">请输入账号</string>
@@ -122,6 +125,7 @@
     <string name="forgetpassword_agin_password">请设置新的密码</string>
     <string name="forgetpassword_get_identifyingcode">请输入验证码</string>
     <string name="forget_password_identifyingcode_textview">获取验证码</string>
+
 
 
 </resources>

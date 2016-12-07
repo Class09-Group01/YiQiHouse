@@ -1,9 +1,11 @@
 package com.bwf.aiyiqi.gui.activity;
 
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -23,18 +25,23 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Administrator on 2016/11/25.
  */
 
-public class BuildingFurnitureActivity extends BaseActivity implements BuildingFurnitureView{
+public class BuildingFurnitureActivity extends BaseActivity implements BuildingFurnitureView {
     @BindView(R.id.abf_linearlayout)
     LinearLayout abfLinearlayout;
     @BindView(R.id.abf_scrollview)
     ScrollView abfScrollview;
     @BindView(R.id.reflush)
     MaterialRefreshLayout reflush;
+    @BindView(R.id.back_activity_decoration_company)
+    ImageView mBackActivityDecorationCompany;
+    @BindView(R.id.title)
+    TextView mTitle;
     private BuildingFurniturePresenter mPresenter;
 
     @Override
@@ -45,6 +52,7 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
     @Override
     protected void initViews() {
         ButterKnife.bind(this);
+        mTitle.setText("建材家居");
         mPresenter = new BuildingFurniturePresenterImpl(this);
         mPresenter.loadResponseBfpData();
     }
@@ -56,9 +64,11 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
 
     /**
      * 这是动态添加内容，在网络数据请求成功的时候调用
+     *
      * @param data
      */
     private int index;
+
     public void addContentView(ResposneBuildingFurnitureData data) {
         final List<ResposneBuildingFurnitureData.DataBean> datas = data.getData();
         //避免重复添加
@@ -71,7 +81,7 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
             mHolder.abfTitle.setText(datas.get(i).getTitle());
             mHolder.abfIcon.setImageURI(Uri.parse(datas.get(i).getIcon()));
             BuildingFurnitureGridAdapter mAdapter =
-                    new BuildingFurnitureGridAdapter(this,R.layout.activity_building_furninture_content_item);
+                    new BuildingFurnitureGridAdapter(this, R.layout.activity_building_furninture_content_item);
             //为每一个gridView 添加adapter 还有他的内容
             mHolder.abfMygridview.setAdapter(mAdapter);
             mAdapter.setData(datas.get(i).getChildren());
@@ -107,6 +117,18 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
 
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+    }
+
+    @OnClick(R.id.back_activity_decoration_company)
+    public void onClick() {
+        finish();
+        return;
+    }
+
 
     public class ChildViewHolder {
         @BindView(R.id.abf_title)
@@ -115,6 +137,7 @@ public class BuildingFurnitureActivity extends BaseActivity implements BuildingF
         GridViewCustom abfMygridview;
         @BindView(R.id.abf_icon)
         SimpleDraweeView abfIcon;
+
         ChildViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

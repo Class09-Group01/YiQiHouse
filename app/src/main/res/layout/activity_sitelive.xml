@@ -25,7 +25,6 @@
                 <!--装修图-->
                 <include layout="@layout/item_listview_activity_decoration_company"/>
 
-                <include layout="@layout/item_listview_activity_decoration_company" />
                 <!--设计师，-->
                 <LinearLayout
                     android:id="@+id/activity_sitelive_user"

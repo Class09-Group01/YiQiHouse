@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckedTextView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.gui.fragment.HomeFragment;
@@ -128,5 +129,24 @@ public class MainActivity extends BaseActivity {
 //            ps.close();
 //        }
 //    }
+
+    /***
+     * 再按一次退出
+     */
+    private long oldTime;
+    private long currentTime;
+    private int exitTime = 3000;//3秒退出
+    @Override
+    public void onBackPressed() {
+        currentTime = System.currentTimeMillis();
+        if( currentTime - oldTime >= exitTime){
+            oldTime = currentTime;
+            Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(0);
+        }
+    }
 
 }

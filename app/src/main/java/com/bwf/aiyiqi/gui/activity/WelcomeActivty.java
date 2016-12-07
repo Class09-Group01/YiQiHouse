@@ -1,6 +1,7 @@
 package com.bwf.aiyiqi.gui.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -67,7 +68,6 @@ public class WelcomeActivty extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 setDecEnable(checkedId);
-
                 if (checkedId == R.id.plan) {
                     if(yearCheck == -1){
                         yearCheck = R.id.this_year;
@@ -110,11 +110,11 @@ public class WelcomeActivty extends BaseActivity {
             decChecked = true;
             if (sexChecked) {
                 welcomeBtn.setEnabled(true);
+                welcomeBtn.setBackgroundColor(Color.argb(255,0,0xbb,0));
             }
         } else {
             decChecked = false;
-            welcomeBtn.setEnabled(true);
-            welcomeBtn.setAlpha(1);
+            welcomeBtn.setEnabled(false);
         }
     }
 
@@ -123,11 +123,17 @@ public class WelcomeActivty extends BaseActivity {
             sexChecked = true;
             if (decChecked) {
                 welcomeBtn.setEnabled(true);
+                welcomeBtn.setBackgroundColor(Color.argb(255,0,0xbb,0));
             }
         } else {
             sexChecked = false;
-            welcomeBtn.setEnabled(true);
-            welcomeBtn.setAlpha(1);
+            welcomeBtn.setEnabled(false);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }

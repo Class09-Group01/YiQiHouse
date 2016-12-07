@@ -220,8 +220,7 @@
         android:layout_height="50dp"
         android:enabled="false"
         android:textColor="@android:color/white"
-        android:alpha="0.6"
-        android:background="@color/material_green"
+        android:background="#6600bb00"
         android:text="@string/welcomeApp" />
 
 </LinearLayout>

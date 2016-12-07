@@ -120,21 +120,23 @@ public class ScanActivity extends BaseActivity {
 
 
     public String saveBitmap(Bitmap bitmap){
-        File file = new File("/storage/sdcard0/UCDownloads/"+ System.currentTimeMillis()+".png");
+        File file = new File("/storage/sdcard0/yiqihouse");
         if (!file.exists()){
             file.mkdirs();
         }
+        String path = null;
         try {
-            FileOutputStream outputStream = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+            path = file.getAbsolutePath()+File.separator + System.currentTimeMillis() + ".png";
+            FileOutputStream outputStream = new FileOutputStream(path);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
             outputStream.flush();
             outputStream.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return file.getPath();
+        return path;
 
     }
 

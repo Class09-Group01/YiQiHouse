@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <!--TODO工地直播title-->
-    <include layout="@layout/fragment_home_title" />
+    <include layout="@layout/fragment_home_title"/>
 
     <com.cjj.MaterialRefreshLayout
         android:id="@id/reflush"
@@ -23,21 +23,52 @@
                 android:orientation="vertical">
 
                 <!--装修图-->
+                <include layout="@layout/item_listview_activity_decoration_company"/>
+
                 <include layout="@layout/item_listview_activity_decoration_company" />
-
                 <!--设计师，-->
-                <HorizontalScrollView
+                <LinearLayout
+                    android:id="@+id/activity_sitelive_user"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    android:scrollbars="none">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
 
-                    <LinearLayout
-                        android:id="@+id/activity_sitelive_user"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"></LinearLayout>
-                </HorizontalScrollView>
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
                 <!--装修进度-->
                 <TextView
@@ -48,7 +79,7 @@
                     android:paddingRight="10dp"
                     android:text="@string/jindu"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"/>
 
 
                 <!--装修进度图-->
@@ -71,7 +102,7 @@
                     android:layout_height="1px"
                     android:background="@color/grgray"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp" />
+                    android:paddingRight="10dp"/>
 
                 <com.bwf.aiyiqi.gui.view.MyListView
                     android:id="@+id/activity_sitelive_recycle"
@@ -80,6 +111,8 @@
             </LinearLayout>
         </com.bwf.aiyiqi.gui.view.ScrollViewCustom>
     </com.cjj.MaterialRefreshLayout>
+
+    <include layout="@layout/layout_footer_decoration_company"/>
     <include layout="@layout/layout_footer_decoration_company" />
 
 </LinearLayout>

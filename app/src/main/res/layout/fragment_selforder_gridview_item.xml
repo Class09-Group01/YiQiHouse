@@ -3,17 +3,17 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:gravity="center">
     <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/image_gridview_auto_order"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:id="@+id/selforder_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         fresco:placeholderImage="@mipmap/loading_placeholder"
-        android:scaleType="centerCrop"/>
+        />
     <TextView
-        android:id="@+id/name_gridview_auto_order"
+        android:id="@+id/selforder_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

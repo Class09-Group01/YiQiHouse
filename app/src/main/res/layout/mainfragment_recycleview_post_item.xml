@@ -22,6 +22,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             frsco:actualImageScaleType="centerCrop"
+            frsco:placeholderImage="@mipmap/loading_placeholder"
             frsco:fadeDuration="1000"
             frsco:roundAsCircle="true" />
 
@@ -91,6 +92,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         frsco:actualImageScaleType="centerCrop"
+        frsco:placeholderImage="@mipmap/loading_placeholder"
         frsco:fadeDuration="1000" />
 
     <RelativeLayout

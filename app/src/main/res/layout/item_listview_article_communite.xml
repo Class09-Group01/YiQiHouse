@@ -9,6 +9,7 @@
         android:id="@+id/image_user_communite"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        fresco:placeholderImage="@mipmap/loading_placeholder"
         fresco:roundAsCircle="true"/>
 
     <TextView

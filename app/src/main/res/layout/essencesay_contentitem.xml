@@ -15,6 +15,7 @@
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"
             frsco:actualImageScaleType="centerCrop"
+            frsco:placeholderImage="@mipmap/loading_placeholder"
             frsco:roundAsCircle="true"
             frsco:fadeDuration="1000"/>
         <LinearLayout

@@ -287,8 +287,8 @@ public class EssenceSay {
             private int stage;
             private String community;
             private int layout;
-            private int area;
-            private int budget;
+            private String area;
+            private String budget;
             private int style;
 
             public int getStage() {
@@ -315,19 +315,19 @@ public class EssenceSay {
                 this.layout = layout;
             }
 
-            public int getArea() {
+            public String getArea() {
                 return area;
             }
 
-            public void setArea(int area) {
+            public void setArea(String area) {
                 this.area = area;
             }
 
-            public int getBudget() {
+            public String getBudget() {
                 return budget;
             }
 
-            public void setBudget(int budget) {
+            public void setBudget(String budget) {
                 this.budget = budget;
             }
 

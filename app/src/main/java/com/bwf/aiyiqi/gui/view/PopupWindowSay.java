@@ -104,10 +104,13 @@ public class PopupWindowSay {
         });
 
     }
+    //获取状态栏的高度
     public int getStatusBarHeight() {
         int result = 0;
+        //获取状态栏的ID
         int resourceId = mContext.getResources().getIdentifier("status_bar_height", "dimen", "android");
         if (resourceId > 0) {
+            //通过ID获取状态栏的高度
             result = mContext.getResources().getDimensionPixelSize(resourceId);
         }
         return result;

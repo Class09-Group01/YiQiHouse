@@ -5,5 +5,7 @@
     android:clickable="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    fresco:actualImageScaleType="centerCrop">
+    fresco:actualImageScaleType="centerCrop"
+    fresco:placeholderImage="@mipmap/loading_placeholder"
+    >
 </com.facebook.drawee.view.SimpleDraweeView>

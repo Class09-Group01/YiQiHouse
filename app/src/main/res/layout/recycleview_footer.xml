@@ -29,8 +29,16 @@
         style="?android:attr/progressBarStyleSmall"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:visibility="gone"
         android:layout_centerInParent="true"
         />
-
+    <TextView
+        android:id="@+id/recycle_foot_loadmore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recycle_foot_loadmore"
+        android:textColor="@color/colorGreen"
+        android:layout_centerInParent="true"
+        />
 
 </RelativeLayout>

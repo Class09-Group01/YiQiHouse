@@ -10,6 +10,7 @@
         android:layout_margin="15dp"
         fresco:retryImageScaleType="centerCrop"
         fresco:roundAsCircle="true"
+        fresco:placeholderImage="@mipmap/loading_placeholder"
         fresco:fadeDuration="1000"/>
     <LinearLayout
         android:id="@+id/recenter_say_linearlayout"

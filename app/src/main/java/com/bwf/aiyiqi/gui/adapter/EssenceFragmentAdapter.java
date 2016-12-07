@@ -70,7 +70,7 @@ public class EssenceFragmentAdapter extends RecycleViewBaseAdapter<EssenceSay.Da
                 String layoutA = styleArr[layout - 1];
                 int styles = dataBean.getHouseInfo().getStyle();
                 String stylesA = styleArr[styles - 1];
-                mContentViewHolder.mEssencesayContentitemDetails.setText(layoutA + "室" + stylesA + "厅" + "、" + mContext.getString(R.string.area, dataBean.getHouseInfo().getArea()) + "、" + mContext.getString(R.string.budget, dataBean.getHouseInfo().getBudget()) + "、" + community + "、" + strStage);
+                mContentViewHolder.mEssencesayContentitemDetails.setText(layoutA + "室" + stylesA + "厅" + "、" + mContext.getString(R.string.area, dataBean.getHouseInfo().getArea()) + "、" + mContext.getString(R.string.budget, (dataBean.getHouseInfo().getBudget())) + "、" + community + "、" + strStage);
             }
             mContentViewHolder.mEssencesayContentitemTagsLinearlayout.removeAllViews();
             if (dataBean.getTags().size()==0) {

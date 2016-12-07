@@ -22,9 +22,9 @@ public class OrderFragmentPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         this.datas = datas;
         mFragments = new ArrayList<>();
-        mFragments.add(new AutoOrderFragment(0,datas));
+        mFragments.add(AutoOrderFragment.newInstant(0,datas));
         for (int i = 0; i < datas.getData().size(); i++) {
-            mFragments.add(new AutoOrderFragment(i+1,datas));
+            mFragments.add(AutoOrderFragment.newInstant(i+1,datas));
         }
     }
 

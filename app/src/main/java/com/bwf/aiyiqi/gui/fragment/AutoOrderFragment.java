@@ -22,16 +22,19 @@ import butterknife.ButterKnife;
 public class AutoOrderFragment extends BaseFragment {
     @BindView(R.id.gridview_auto_order)
     RecyclerView mGridviewAutoOrder;
-    private ResponseAutoOrder datas;
+    private static ResponseAutoOrder datas;
     private int tag;
     private AutoOrderRecycleViewAdapter mRecycleViewAdapter;
 
-    public AutoOrderFragment(int tag, ResponseAutoOrder data) {
-        this.datas = data;
+    public static AutoOrderFragment newInstant(int tag, ResponseAutoOrder data) {
+        AutoOrderFragment fragment = new AutoOrderFragment();
+        datas = data;
         Bundle bundle = new Bundle();
         bundle.putInt("tag", tag);
-        this.setArguments(bundle);
+        fragment.setArguments(bundle);
+        return fragment;
     }
+
 
 
     @Override

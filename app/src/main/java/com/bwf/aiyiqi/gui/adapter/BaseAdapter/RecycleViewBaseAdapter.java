@@ -133,17 +133,17 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
             case FOORET_LOADING:
                 mFootHolder.recycleFootFail.setVisibility(View.GONE);
                 mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
-                mFootHolder.recycleFootProgressBar.setVisibility(View.VISIBLE);
+                mFootHolder.recycleFootLoadMore.setVisibility(View.VISIBLE);
                 break;
             case FOOTER_FAIL:
                 mFootHolder.recycleFootFail.setVisibility(View.VISIBLE);
                 mFootHolder.recycleFooNoMoreData.setVisibility(View.GONE);
-                mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
+                mFootHolder.recycleFootLoadMore.setVisibility(View.GONE);
                 break;
             case FOORET_NOMOREDATA:
                 mFootHolder.recycleFootFail.setVisibility(View.GONE);
                 mFootHolder.recycleFooNoMoreData.setVisibility(View.VISIBLE);
-                mFootHolder.recycleFootProgressBar.setVisibility(View.GONE);
+                mFootHolder.recycleFootLoadMore.setVisibility(View.GONE);
                 break;
         }
     }
@@ -155,6 +155,8 @@ public abstract class RecycleViewBaseAdapter<T> extends RecyclerView.Adapter<Rec
         TextView recycleFootFail;
         @BindView(R.id.recycle_foot_progressBar)
         ProgressBar recycleFootProgressBar;
+        @BindView(R.id.recycle_foot_loadmore)
+        TextView recycleFootLoadMore;
         FootViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);

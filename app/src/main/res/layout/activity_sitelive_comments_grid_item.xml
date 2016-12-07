@@ -7,5 +7,6 @@
     android:layout_height="130dp"
     fresco:actualImageScaleType="centerCrop"
     fresco:fadeDuration="1000"
+    fresco:placeholderImage="@mipmap/loading_placeholder"
     >
 </com.facebook.drawee.view.SimpleDraweeView>

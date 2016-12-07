@@ -20,6 +20,7 @@
             frsco:roundAsCircle="true"
             frsco:fadeDuration="1000"
             android:layout_marginRight="10dp"
+            frsco:placeholderImage="@mipmap/loading_placeholder"
             />
 
         <TextView

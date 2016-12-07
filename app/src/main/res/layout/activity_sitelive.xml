@@ -25,19 +25,50 @@
                 <!--装修图-->
                 <include layout="@layout/item_listview_activity_decoration_company"/>
 
+                <include layout="@layout/item_listview_activity_decoration_company" />
                 <!--设计师，-->
-                <HorizontalScrollView
+                <LinearLayout
+                    android:id="@+id/activity_sitelive_user"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:padding="10dp"
-                    android:scrollbars="none">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp">
 
-                    <LinearLayout
-                        android:id="@+id/activity_sitelive_user"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"></LinearLayout>
-                </HorizontalScrollView>
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <include
+                        layout="@layout/acitivity_sitelive_progress_user_item"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+                </LinearLayout>
 
                 <!--装修进度-->
                 <TextView
@@ -82,5 +113,6 @@
     </com.cjj.MaterialRefreshLayout>
 
     <include layout="@layout/layout_footer_decoration_company"/>
+    <include layout="@layout/layout_footer_decoration_company" />
 
 </LinearLayout>

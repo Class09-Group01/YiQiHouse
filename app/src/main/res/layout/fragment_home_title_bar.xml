@@ -12,10 +12,11 @@
         android:layout_weight="2">
         <ImageView
             android:id="@+id/fragment_home_title_bar_scan"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/scan_qr"
-            android:layout_weight="2"/>
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:src="@mipmap/home_title_scan"
+            android:background="@drawable/scan_bg"
+            />
     </LinearLayout>
 
     <RelativeLayout

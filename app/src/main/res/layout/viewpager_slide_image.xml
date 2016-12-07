@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:frsco="http://schemas.android.com/apk/res-auto">
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/image_main_fragment_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        frsco:placeholderImage="@mipmap/loading_placeholder"
+        />
 
 </RelativeLayout>

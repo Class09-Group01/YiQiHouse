@@ -27,7 +27,7 @@ public class SharedPrefenceUtils {
 
     public static boolean getBoolean(Context context, String key){
         SharedPreferences sharedPreferences = context.getSharedPreferences("yiqihouse", Context.MODE_PRIVATE);
-        boolean aBoolean = sharedPreferences.getBoolean(key, false);
+        boolean aBoolean = sharedPreferences.getBoolean(key, true);
         return aBoolean;
     }
 

@@ -23,13 +23,13 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".gui.activity.WelcomeActivty">
+        <activity android:name=".gui.activity.LuncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
+        <activity android:name=".gui.activity.WelcomeActivty"/>
         <!--将zxing的二维码扫描显示转到自己的scanActivtity中-->
         <activity
             android:name=".gui.activity.ScanActivity"

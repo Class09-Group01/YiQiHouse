@@ -106,8 +106,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:calendarViewShown="false"
-            android:yearListSelectorColor="@color/material_green"
-            android:calendarTextColor="@color/material_green"
             android:datePickerMode="spinner" />
 
     </LinearLayout>

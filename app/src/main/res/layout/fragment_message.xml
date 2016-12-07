@@ -17,7 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_message_message"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textColor="#000000"/>
             <View
                 android:layout_alignParentBottom="true"
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_message_newcomment"
-                android:textSize="15dp"/>
+                android:textSize="16sp"/>
             <ImageView
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
@@ -76,7 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:text="@string/fragment_message_new_zan"
-                android:textSize="15dp"/>
+                android:textSize="16sp"/>
             <ImageView
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -108,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_message_call_me"
-                android:textSize="15dp"/>
+                android:textSize="16sp"/>
             <ImageView
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -139,7 +139,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fragment_message_System_notification"
-                android:textSize="18dp"/>
+                android:textSize="16sp"/>
             <ImageView
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -152,8 +152,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#F0F0F0"/>
-
-
         </RelativeLayout>
     </LinearLayout>
 

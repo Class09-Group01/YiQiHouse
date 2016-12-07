@@ -12,6 +12,7 @@ import com.bwf.aiyiqi.R;
 import com.bwf.aiyiqi.entity.ResponseDecorateSchoolNews;
 import com.bwf.aiyiqi.framwork.tool.UnicodeParser;
 import com.bwf.aiyiqi.gui.adapter.DecorateSchoolAdapter;
+import com.bwf.aiyiqi.gui.view.CustomRefreshLayout;
 import com.bwf.aiyiqi.mvp.presenter.DecorateSchoolPresenter;
 import com.bwf.aiyiqi.mvp.presenter.Impl.DecorateSchoolPresenterImplr;
 import com.bwf.aiyiqi.mvp.view.DecorateSchoolView;
@@ -35,13 +36,33 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
     @BindView(R.id.decorateschool_recycleview)
     RecyclerView mDecorateschoolRecycleview;
     @BindView(R.id.decorateschool_refresh)
-    MaterialRefreshLayout mDecorateschoolRefresh;
+    CustomRefreshLayout mDecorateschoolRefresh;
     private DecorateSchoolPresenter mPresenter;
     private DecorateSchoolAdapter mAdapter;
     private int tagStage;
     private int newsStage = 1;
     private int lastNewsStage;
+    private boolean isNoMoreData;
+    private boolean isLoading;
     private LinearLayoutManager mLinearLayoutManager;
+    //RecyclerView 滑动的时候当显示到为当前页的某一Item时自动加载下一页
+    private RecyclerView.OnScrollListener mOnScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
+            if (isNoMoreData) {
+                return;
+            }
+            if (!isLoading && mLinearLayoutManager.findLastVisibleItemPosition() == mLinearLayoutManager.getItemCount() - 1) {
+                loadData();
+            }
+            if (mLinearLayoutManager.findFirstVisibleItemPosition() == 0) {
+                mDecorateschoolRefresh.setCanPull(true);
+            } else {
+                mDecorateschoolRefresh.setCanPull(false);//设置后不拦截recycleview的滑动
+            }
+        }
+    };
 
     @Override
     protected int getContentViewResId() {
@@ -70,6 +91,7 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mDecorateschoolRecycleview.setLayoutManager(mLinearLayoutManager);
         mDecorateschoolRecycleview.setAdapter(mAdapter);
+        mDecorateschoolRecycleview.addOnScrollListener(mOnScrollListener);
         mAdapter.getGetNewsStage(this);
         mDecorateschoolRefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
             @Override
@@ -85,7 +107,9 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
         tagStage = bundle.getInt("tagStage");
         mPresenter.loadDecorateSchoolTagPresenter(tagStage);
         mPresenter.loadDecorateSchoolNewsPresenter(newsStage, lastNewsStage);
+        isLoading=true;
     }
+
 
     @Override
     public void showDecorateSchoolTagView(String str) {
@@ -98,6 +122,7 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
         List<String> listValue = stringToList(lastDatas);
         Log.d("DecorateSchoolListFragm", "list:" + listValue);
         mAdapter.setDatas(listValue);
+        isLoading=false;
 
 
     }
@@ -115,6 +140,7 @@ public class DecorateSchoolListFragment extends BaseFragment implements Decorate
             lastNewsStage = newsStage;
         }
 //        Toast.makeText(getActivity(), "listBeen:" + listBeen, Toast.LENGTH_SHORT).show();
+        isLoading=false;
     }
 
     @Override

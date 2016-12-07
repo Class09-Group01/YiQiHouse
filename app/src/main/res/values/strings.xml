@@ -27,7 +27,7 @@
     <string name="fragment_home_title_bar_search">搜索用户/帖子</string>
     <string name="fragment_home_title_bar_city">成都</string>
     <string name="activity_search_cancle">取消</string>
-    <string name="fragment_message_call_me">//@我</string>
+    <string name="fragment_message_call_me">\@我</string>
     <string name="fragment_message_newcomment" >新的评论</string>
     <string name="fragment_message_new_zan">新的赞</string>
     <string name="fragment_message_System_notification">系统通知</string>

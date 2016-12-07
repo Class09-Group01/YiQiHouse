@@ -58,6 +58,7 @@
             android:textSize="13sp" />
 
         <RadioGroup
+            android:id="@+id/radio_group_sex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -105,16 +106,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:calendarViewShown="false"
-            android:yearListSelectorColor="@color/material_green"
-            android:calendarTextColor="@color/material_green"
             android:datePickerMode="spinner" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:background="#fff"
@@ -123,88 +122,103 @@
         android:paddingTop="10dp">
 
         <TextView
+            android:id="@+id/jieduan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/decorationstage" />
 
         <RadioGroup
+            android:id="@+id/radio_group_dec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/jieduan"
             android:layout_marginLeft="5dp"
             android:orientation="vertical">
 
             <RadioButton
                 android:id="@+id/now"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:button="@null"
                 android:drawableLeft="@drawable/radio_bg"
                 android:drawablePadding="5dp"
+                android:textColor="@color/welcom_bg"
                 android:text="@string/beingdecorated" />
-
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/plan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-                <RadioButton
-                    android:id="@+id/plan"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@null"
-                    android:drawableLeft="@drawable/radio_bg"
-                    android:drawablePadding="5dp"
-                    android:text="@string/renovationplan" />
-
-                <TextView
-                    android:id="@+id/this_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="5dp"
-                    android:text="今年"/>
-                <TextView
-                    android:id="@+id/ming_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="13sp"
-                    android:layout_marginLeft="5dp"
-                    android:text="明年"/>
-                <TextView
-                    android:id="@+id/hou_year"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="13sp"
-                    android:text="后年"/>
-            </LinearLayout>
+                android:layout_height="25dp"
+                android:button="@null"
+                android:drawableLeft="@drawable/radio_bg"
+                android:drawablePadding="5dp"
+                android:textColor="@color/welcom_bg"
+                android:text="@string/renovationplan" />
 
             <RadioButton
                 android:id="@+id/areadly"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:button="@null"
                 android:drawableLeft="@drawable/radio_bg"
+                android:textColor="@color/welcom_bg"
                 android:drawablePadding="5dp"
                 android:text="@string/AlreadyCheckIn" />
-
             <RadioButton
                 android:id="@+id/noplan"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="25dp"
                 android:button="@null"
                 android:drawableLeft="@drawable/radio_bg"
+                android:textColor="@color/welcom_bg"
                 android:drawablePadding="5dp"
                 android:text="@string/noPlan" />
-
         </RadioGroup>
-    </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group_year"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@+id/radio_group_dec"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/this_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@color/welcom_bg"
+                android:layout_marginLeft="5dp"
+                android:button="@null"
+                android:text="今年"/>
+            <RadioButton
+                android:id="@+id/ming_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:button="@null"
+                android:textColor="@color/welcom_bg"
+                android:layout_marginLeft="5dp"
+                android:text="明年"/>
+            <RadioButton
+                android:id="@+id/hou_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/welcom_bg"
+                android:layout_marginLeft="5dp"
+                android:button="@null"
+                android:textSize="13sp"
+                android:text="后年"/>
+        </RadioGroup>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/welcome_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/material_green"
+        android:enabled="false"
+        android:textColor="@android:color/white"
+        android:background="#6600bb00"
         android:text="@string/welcomeApp" />
 
 </LinearLayout>

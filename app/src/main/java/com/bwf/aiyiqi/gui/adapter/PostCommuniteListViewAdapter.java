@@ -82,22 +82,21 @@ public class PostCommuniteListViewAdapter extends ListViewBaseAdapter {
                     holder.mLlItemListviewPostReview.setVisibility(View.VISIBLE);
                     holder.mImagePostCommuniteReview.setImageURI(Uri.parse(message.get(i).getMsg()));
                 }
-                if (mCommunite.get(i).getBlock() == null) {
-                    Log.d("PostCommuniteListViewAd", "holder.mLlReviwPostReview:");
-                    holder.mLlReviwPostReview.setVisibility(View.GONE);
-
-                } else {
-                    String review = (String) mCommunite.get(i).getBlock();
-                    String[] reviews = review.split(" ");
+            }
+            if ( mCommunite.get(position).getBlock() == null) {
+                Log.d("PostCommuniteListViewAd", "holder.mLlReviwPostReview:");
+                holder.mLlReviwPostReview.setVisibility(View.GONE);
+            } else {
+                String review = (String) mCommunite.get(position).getBlock();
+                String[] reviews = review.split(" ");
 //                    holder.mLlReviwPostReview.setVisibility(View.VISIBLE);
-                    if (reviews.length == 6) {
-                        holder.mNameTimeReview.setText(reviews[1] + " " + reviews[2] + " " + reviews[3] + " " + reviews[4]);
-                        holder.mNameReview.setText(reviews[5]);
-                    } else if (reviews.length == 4) {
-                        holder.mNameTimeReview.setText(reviews[0] + " " + reviews[1] + " " + reviews[2] + " " + reviews[3]);
-                    }
-
+                if (reviews.length == 6) {
+                    holder.mNameTimeReview.setText(reviews[1] + " " + reviews[2] + " " + reviews[3] + " " + reviews[4]);
+                    holder.mNameReview.setText(reviews[5]);
+                } else if (reviews.length == 4) {
+                    holder.mNameTimeReview.setText(reviews[0] + " " + reviews[1] + " " + reviews[2] + " " + reviews[3]);
                 }
+
             }
         }
         holder.mTimeItemListviewPostReview.setText(mCommunite.get(position).getDateline());
